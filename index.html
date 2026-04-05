@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  /* Modern Professional IDE Dark Theme */
+  /* Modern Professional IDE Dark Theme (Default) */
   --page:          #0d1117;
   --surface:       #161b22;
   --surface2:      #21262d;
@@ -16,28 +16,35 @@
   --border-strong: #8b949e;
   
   --text:          #c9d1d9;
+  --heading:       #f0f6fc;
   --muted:         #8b949e;
   --hint:          #484f58;
   
-  /* Mapped the original floral colors to professional tech accents */
-  --brand:         #58a6ff; /* Tech Blue */
+  --nav-bg:        rgba(13, 17, 23, 0.9);
+  --hero-right-bg: rgba(22, 27, 34, 0.3);
+  --btn-brand-bg:  #f0f6fc;
+  --btn-brand-text:#0d1117;
+  --shadow-strong: rgba(0,0,0,.5);
+  
+  /* Tech accents */
+  --brand:         #58a6ff; 
   --brand-light:   #79c0ff;
   --brand-dim:     rgba(88, 166, 255, 0.10);
   --brand-border:  rgba(88, 166, 255, 0.3);
   
-  --rose:          #ff7b72; /* Coral/Error */
+  --rose:          #ff7b72; 
   --rose-dim:      rgba(255, 123, 114, 0.10);
   
-  --lav:           #d2a8ff; /* Purple/Keyword */
+  --lav:           #d2a8ff; 
   --lav-dim:       rgba(210, 168, 255, 0.10);
   
-  --wist:          #a5d6ff; /* Light Blue */
+  --wist:          #a5d6ff; 
   --wist-dim:      rgba(165, 214, 255, 0.10);
   
-  --orch:          #ffa657; /* Orange/Warning */
+  --orch:          #ffa657; 
   --orch-dim:      rgba(255, 166, 87, 0.10);
   
-  --leaf:          #3fb950; /* Green/Success */
+  --leaf:          #3fb950; 
   --leaf-dim:      rgba(63, 185, 80, 0.10);
   
   --space-xs:  0.5rem;
@@ -52,7 +59,6 @@
   --radius-lg:   16px;
   --radius-pill: 9999px;
   
-  /* Swapped serif fonts for clean, modern sans-serif */
   --font-display: 'Inter', -apple-system, sans-serif;
   --font-serif:   'Inter', -apple-system, sans-serif;
   --font-body:    'Inter', -apple-system, sans-serif;
@@ -60,6 +66,47 @@
   
   --nav-h: 70px;
   --ease: cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --page:          #ffffff;
+  --surface:       #f6f8fa;
+  --surface2:      #e1e4e8;
+  --surface3:      #d0d7de;
+  --border:        #d0d7de;
+  --border-strong: #afb8c1;
+  
+  --text:          #24292f;
+  --heading:       #1f2328;
+  --muted:         #57606a;
+  --hint:          #6e7781;
+  
+  --nav-bg:        rgba(255, 255, 255, 0.9);
+  --hero-right-bg: rgba(246, 248, 250, 0.5);
+  --btn-brand-bg:  #1f2328;
+  --btn-brand-text:#ffffff;
+  --shadow-strong: rgba(0,0,0,.12);
+
+  --brand:         #0969da;
+  --brand-light:   #218bff;
+  --brand-dim:     rgba(9, 105, 218, 0.10);
+  --brand-border:  rgba(9, 105, 218, 0.3);
+
+  --rose:          #cf222e;
+  --rose-dim:      rgba(207, 34, 46, 0.10);
+
+  --lav:           #8250df;
+  --lav-dim:       rgba(130, 80, 223, 0.10);
+
+  --wist:          #0969da;
+  --wist-dim:      rgba(9, 105, 218, 0.10);
+
+  --orch:          #a74c00;
+  --orch-dim:      rgba(167, 76, 0, 0.10);
+
+  --leaf:          #1a7f37;
+  --leaf-dim:      rgba(26, 127, 55, 0.10);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -71,7 +118,7 @@ body{
   overflow-x:hidden;
   line-height:1.6;
   -webkit-font-smoothing: antialiased;
-  cursor:auto; /* Restored standard cursor */
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
 }
 a{color:inherit;text-decoration:none;transition: color 0.2s;}
 
@@ -88,57 +135,28 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 var(--space-xl);border-bottom:1px solid transparent;transition:all .3s;}
-nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-color:var(--border);}
-.nav-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:#f0f6fc;display:flex;align-items:center;gap:.5rem;}
-.logo-flower{display:none; /* Hid the spinning flower */}
+nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(16px);border-color:var(--border);}
+.nav-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:var(--heading);display:flex;align-items:center;gap:.5rem;}
+.logo-flower{display:none;}
 .nav-logo em{color:var(--brand);font-style:normal;}
 .nav-links{display:flex;gap:0.5rem;list-style:none;align-items:center;}
 .nav-links a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;border-radius:var(--radius-sm);transition:all .2s;}
-.nav-links a:hover{color:#f0f6fc;background:var(--surface);}
-.nav-cta{font-family:var(--font-mono);font-size:.8rem;font-weight:600;background:#f0f6fc;color:#0d1117 !important;padding:.5rem 1.25rem;border-radius:var(--radius-sm);transition:all .2s; margin-left: 0.5rem;}
-.nav-cta:hover{background:var(--muted);}
+.nav-links a:hover{color:var(--heading);background:var(--surface);}
+.nav-cta{font-family:var(--font-mono);font-size:.8rem;font-weight:600;background:var(--btn-brand-bg);color:var(--btn-brand-text) !important;padding:.5rem 1.25rem;border-radius:var(--radius-sm);transition:all .2s; margin-left: 0.5rem;}
+.nav-cta:hover{background:var(--muted); color: var(--page) !important;}
+
+/* Theme Toggle Button */
+.theme-toggle-btn { background: transparent; border: none; color: var(--muted); cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm); transition: all 0.2s; display: flex; align-items: center; justify-content: center; margin-left: 0.5rem; }
+.theme-toggle-btn:hover { background: var(--surface); color: var(--heading); }
 
 /* HERO */
 #hero{min-height:100vh;padding-top:calc(var(--nav-h) + var(--space-md));display:grid;grid-template-columns:1fr 450px;position:relative;z-index:1;max-width:1400px;margin:0 auto;}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:var(--space-xl);position:relative;z-index:1;}
 
-/* --- AWESOME MORPHING PHOTO STYLES --- */
-.hero-photo-container {
-  opacity: 0;
-  animation: fade-up 0.8s var(--ease) 0.1s forwards;
-  margin-bottom: var(--space-md);
-}
-.hero-photo-wrapper {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(135deg, var(--brand), var(--lav));
-  /* Fluid organic shape */
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  animation: morphBlob 8s ease-in-out infinite;
-  padding: 4px; /* Creates the gradient border */
-  box-shadow: 0 0 30px var(--brand-dim);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit; /* Inherits the morphing shape perfectly */
-  border: 4px solid var(--page); /* Seamless blend into background */
-  background: var(--surface2);
-  z-index: 2;
-}
-.photo-fallback {
-  position: absolute;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--muted);
-  z-index: 1;
-}
+.hero-photo-container {opacity: 0;animation: fade-up 0.8s var(--ease) 0.1s forwards;margin-bottom: var(--space-md);}
+.hero-photo-wrapper {position: relative;width: 300px;height: 300px;background: linear-gradient(135deg, var(--brand), var(--lav));border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;animation: morphBlob 8s ease-in-out infinite;padding: 4px;box-shadow: 0 0 30px var(--brand-dim);display: flex;justify-content: center;align-items: center;}
+.hero-photo {width: 100%;height: 100%;object-fit: cover;border-radius: inherit;border: 4px solid var(--page);background: var(--surface2);z-index: 2;transition: border-color 0.3s var(--ease);}
+.photo-fallback {position: absolute;text-align: center;font-family: var(--font-mono);font-size: 0.75rem;color: var(--muted);z-index: 1;}
 
 @keyframes morphBlob {
   0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
@@ -147,11 +165,10 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
   75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
   100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 }
-/* -------------------------------------- */
 
 .hero-eyebrow{font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--brand);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:var(--space-sm);opacity:0;animation:fade-up .8s var(--ease) .2s forwards;}
 .hero-eyebrow::before{content:'//';font-size:.9rem;color:var(--muted);}
-.hero-name{font-family:var(--font-display);font-weight:700;font-size:clamp(3.5rem,8vw,6rem);line-height:1.1;letter-spacing:-.03em;color:#f0f6fc;margin-bottom:var(--space-sm);opacity:0;animation:fade-up .8s var(--ease) .3s forwards;}
+.hero-name{font-family:var(--font-display);font-weight:700;font-size:clamp(3.5rem,8vw,6rem);line-height:1.1;letter-spacing:-.03em;color:var(--heading);margin-bottom:var(--space-sm);opacity:0;animation:fade-up .8s var(--ease) .3s forwards;}
 .hero-name .bloom{background:linear-gradient(90deg,var(--brand),var(--lav));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hero-role{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:500;color:var(--muted);margin-bottom:var(--space-md);max-width:600px;line-height:1.5;opacity:0;animation:fade-up .8s var(--ease) .4s forwards;}
 .hero-desc{font-size:1.1rem;color:var(--muted);max-width:550px;margin-bottom:var(--space-xl);line-height:1.7;opacity:0;animation:fade-up .8s var(--ease) .5s forwards;}
@@ -161,19 +178,19 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 .btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-mono);font-weight:600;font-size:.85rem;padding:.75rem 1.5rem;border-radius:var(--radius-sm);border:none;cursor:pointer;white-space:nowrap;transition:all .2s var(--ease);}
 .btn svg { width: 16px; height: 16px; }
 .btn:hover{transform:translateY(-2px);}
-.btn-brand{background:#f0f6fc;color:#0d1117;}
-.btn-brand:hover{background:var(--text);}
+.btn-brand{background:var(--btn-brand-bg);color:var(--btn-brand-text);}
+.btn-brand:hover{background:var(--text); color:var(--page);}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border-strong);}
-.btn-ghost:hover{color:#f0f6fc;border-color:var(--brand);}
+.btn-ghost:hover{color:var(--heading);border-color:var(--brand);}
 .btn-linkedin{background:#0A66C2;color:#fff;}
-.btn-github{background:var(--surface2);color:#f0f6fc;border:1px solid var(--border-strong);}
+.btn-github{background:var(--surface2);color:var(--heading);border:1px solid var(--border-strong);}
 
 /* hero right */
-.hero-right{border-left:1px solid var(--border);background:rgba(22, 27, 34, 0.3);display:flex;flex-direction:column;justify-content:center;padding:var(--space-xl);gap:var(--space-md);position:relative;z-index:1;opacity:0;animation:fade-up .8s var(--ease) .7s forwards;}
+.hero-right{border-left:1px solid var(--border);background:var(--hero-right-bg);display:flex;flex-direction:column;justify-content:center;padding:var(--space-xl);gap:var(--space-md);position:relative;z-index:1;opacity:0;animation:fade-up .8s var(--ease) .7s forwards;}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md);display:flex;align-items:center;gap:var(--space-md);position:relative;transition:all .2s;}
 .stat-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
 .stat-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
-.stat-num{font-family:var(--font-display);font-weight:700;font-size:2rem;color:#f0f6fc;line-height:1;}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:2rem;color:var(--heading);line-height:1;}
 .stat-lbl{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-top:.25rem;}
 .open-panel{margin-top:var(--space-sm);}
 .open-label{font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--leaf);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:.5rem;}
@@ -185,7 +202,7 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:1400px;margin:0 auto;}
 .eyebrow{font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--brand);margin-bottom:var(--space-xs);display:flex;align-items:center;gap:var(--space-sm);}
 .eyebrow::before{content:'//';color:var(--muted);}
-.section-title{font-family:var(--font-display);font-weight:700;font-size:clamp(2.5rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.02em;color:#f0f6fc;}
+.section-title{font-family:var(--font-display);font-weight:700;font-size:clamp(2.5rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.02em;color:var(--heading);}
 .section-sub{font-size:1.1rem;color:var(--muted);max-width:600px;margin-top:var(--space-sm);line-height:1.6;}
 .section-hdr{margin-bottom:var(--space-xl);}
 
@@ -198,11 +215,11 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 /* about */
 .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--space-xl);align-items:start;}
 .about-text p{color:var(--text);font-size:1.1rem;line-height:1.7;margin-bottom:var(--space-md);}
-.about-text strong{color:#f0f6fc;font-weight:600;}
-.about-text mark{background:var(--brand-dim);color:var(--brand-light);padding:2px 6px;border-radius:4px;font-style:normal;font-weight:500;}
+.about-text strong{color:var(--heading);font-weight:600;}
+.about-text mark{background:var(--brand-dim);color:var(--brand);padding:2px 6px;border-radius:4px;font-style:normal;font-weight:500;}
 .about-cta{margin-top:var(--space-lg);}
 .outcomes-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);position:sticky;top:calc(var(--nav-h) + var(--space-md));}
-.outcomes-label{font-family:var(--font-mono);font-weight:600;font-size:.85rem;text-transform:uppercase;color:#f0f6fc;margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
+.outcomes-label{font-family:var(--font-mono);font-weight:600;font-size:.85rem;text-transform:uppercase;color:var(--heading);margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
 .outcome-row{display:flex;gap:var(--space-sm);align-items:flex-start;padding:.5rem 0;font-size:.9rem;color:var(--muted);line-height:1.5;}
 .o-num{font-family:var(--font-mono);font-weight:600;font-size:.75rem;background:var(--brand-dim);color:var(--brand);padding:.2rem .5rem;border-radius:4px;flex-shrink:0;margin-top:2px;}
 
@@ -214,13 +231,13 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 /* project grid */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:var(--space-md);}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);display:flex;flex-direction:column;position:relative;transition:all .2s;}
-.project-card:hover{border-color:var(--card-color,var(--brand));transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.5);}
+.project-card:hover{border-color:var(--card-color,var(--brand));transform:translateY(-4px);box-shadow:0 10px 30px var(--shadow-strong);}
 .project-card.wide{grid-column:span 2;}
 .project-card.hidden{display:none;}
 .domain-badge{display:inline-flex;align-items:center;font-family:var(--font-mono);font-weight:600;font-size:.75rem;padding:.3rem .75rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md);background:var(--card-dim,var(--brand-dim));color:var(--card-color,var(--brand));border:1px solid var(--card-border,var(--brand-border));width:max-content;}
 .card-lang{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:.5rem;}
 .lang-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.card-title{font-size:1.25rem;font-weight:600;color:#f0f6fc;line-height:1.4;margin-bottom:var(--space-sm);}
+.card-title{font-size:1.25rem;font-weight:600;color:var(--heading);line-height:1.4;margin-bottom:var(--space-sm);}
 .card-desc{font-size:.95rem;color:var(--text);line-height:1.6;flex:1;}
 .card-outcomes{margin-top:var(--space-md);padding-top:var(--space-sm);border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;}
 .badge{font-family:var(--font-mono);font-size:.75rem;padding:.25rem .5rem;background:var(--page);color:var(--muted);border-radius:4px;border:1px solid var(--border);}
@@ -230,9 +247,9 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 /* skills */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-md);}
 .skill-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);transition:all .2s;position:relative;overflow:hidden;}
-.skill-block::after{display:none; /* Hid background flower */}
+.skill-block::after{display:none;}
 .skill-block:hover{border-color:var(--border-strong);}
-.skill-block-title{font-size:1.25rem;font-weight:600;color:#f0f6fc;margin-bottom:.25rem;}
+.skill-block-title{font-size:1.25rem;font-weight:600;color:var(--heading);margin-bottom:.25rem;}
 .skill-block-sub{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--space-md);}
 .tech-chips{display:flex;flex-wrap:wrap;gap:8px;}
 .tech-chip{font-family:var(--font-mono);font-size:.8rem;padding:.35rem .75rem;background:var(--page);color:var(--text);border-radius:var(--radius-sm);border:1px solid var(--border);transition:all .2s;}
@@ -243,7 +260,7 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);position:sticky;top:calc(var(--nav-h) + var(--space-md));}
 .edu-card::before{display:none;}
 .edu-badge{display:inline-block;font-family:var(--font-mono);font-weight:600;font-size:.75rem;background:var(--brand-dim);color:var(--brand);padding:.3rem .75rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md);}
-.edu-degree{font-weight:700;font-size:2rem;color:#f0f6fc;line-height:1.2;margin-bottom:.5rem;}
+.edu-degree{font-weight:700;font-size:2rem;color:var(--heading);line-height:1.2;margin-bottom:.5rem;}
 .edu-school{font-size:1.1rem;font-weight:500;color:var(--muted);margin-bottom:var(--space-md);}
 .edu-meta{font-family:var(--font-mono);font-size:.85rem;color:var(--muted);line-height:1.6;}
 .edu-divider{border:none;border-top:1px solid var(--border);margin:var(--space-md) 0;}
@@ -252,11 +269,11 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .spec-chip{font-family:var(--font-mono);font-size:.75rem;padding:.25rem .75rem;border-radius:var(--radius-pill);background:var(--lav-dim);color:var(--lav);border:1px solid var(--border);}
 .courses-panel{display:flex;flex-direction:column;gap:var(--space-md);}
 .course-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);}
-.cg-title{font-family:var(--font-mono);font-weight:600;font-size:.85rem;color:#f0f6fc;margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
+.cg-title{font-family:var(--font-mono);font-weight:600;font-size:.85rem;color:var(--heading);margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
 .cg-title::after{display:none;}
 .course-tags{display:flex;flex-wrap:wrap;gap:8px;}
 .ctag{font-size:.9rem;padding:.3rem .75rem;background:var(--page);color:var(--muted);border-radius:var(--radius-sm);border:1px solid var(--border);transition:all .2s;}
-.ctag:hover{color:#f0f6fc;border-color:var(--border-strong);}
+.ctag:hover{color:var(--heading);border-color:var(--border-strong);}
 .ctag.elective{background:var(--orch-dim);color:var(--orch);border-color:var(--border);}
 
 /* contact */
@@ -266,7 +283,7 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .contact-card:hover{border-color:var(--border-strong);transform:translateY(-4px);}
 .contact-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:var(--page);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .c-label{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem;}
-.c-value{font-weight:500;font-size:1.1rem;color:#f0f6fc;}
+.c-value{font-weight:500;font-size:1.1rem;color:var(--heading);}
 .c-arrow{margin-left:auto;color:var(--muted);transition:all .2s;}
 .contact-card:hover .c-arrow{transform:translate(4px,-4px);color:var(--brand);}
 
@@ -298,13 +315,12 @@ footer a:hover{color:var(--brand);}
     <symbol id="ico-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></symbol>
     <symbol id="ico-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></symbol>
     <symbol id="ico-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+    <symbol id="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></symbol>
+    <symbol id="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></symbol>
   </defs>
 </svg>
 
-<div id="petal-canvas"></div>
 <div id="progress-bar"></div>
-<div class="cursor" id="cursor"><div class="cursor-dot"></div></div>
-<div class="cursor-ring" id="cursor-ring"></div>
 
 <nav id="navbar">
   <a href="#" class="nav-logo"><span class="logo-flower">✿</span>Portfolio<em>.</em></a>
@@ -314,12 +330,16 @@ footer a:hover{color:var(--brand);}
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+        <svg width="18" height="18"><use id="theme-icon" href="#ico-sun"/></svg>
+      </button>
+    </li>
   </ul>
 </nav>
 
 <section id="hero">
   <div class="hero-left">
-    
     <div class="hero-photo-container">
       <div class="hero-photo-wrapper">
         <span class="photo-fallback">Paste<br>Image URL</span>
@@ -396,7 +416,7 @@ footer a:hover{color:var(--brand);}
   </div>
   <div class="projects-grid">
 
-    <a class="project-card wide reveal" data-domain="ml" href="https://github.com/itsAsmaa/Multi-Task-Multimodal-Image-Text-Classification-for-Country-and-Weather-Prediction" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);--card-gradient:linear-gradient(90deg,var(--wist),var(--brand));--card-glow:rgba(167,139,250,.06);--card-shadow:rgba(167,139,250,.1);">
+    <a class="project-card wide reveal" data-domain="ml" href="https://github.com/itsAsmaa/Multi-Task-Multimodal-Image-Text-Classification-for-Country-and-Weather-Prediction" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">🧠 Machine Learning</div>
       <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python · Deep Learning</div>
@@ -405,7 +425,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O1 Math &amp; Science</span><span class="badge">O2 Data Analysis</span><span class="badge">O5 Problem Solving</span><span class="badge">O11 Modern Tools</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
     </a>
 
-    <a class="project-card reveal delay-1" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-a-Simplified-Predicated-RISC-Pipelined-Processor-using-SystemVerilog" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);--card-gradient:linear-gradient(90deg,var(--rose),var(--orch));--card-glow:rgba(244,114,182,.06);--card-shadow:rgba(244,114,182,.1);">
+    <a class="project-card reveal delay-1" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-a-Simplified-Predicated-RISC-Pipelined-Processor-using-SystemVerilog" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">⚙️ Hardware Design</div>
       <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog · UVM</div>
@@ -414,7 +434,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O1 Eng. Principles</span><span class="badge">O3 System Design</span><span class="badge">O5 Problem Solving</span><span class="badge">→ Computer Design</span><span class="badge">→ Semiconductor</span></div>
     </a>
 
-    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Text-to-Video-Retrieval-using-Deep-Learning" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);--card-gradient:linear-gradient(90deg,var(--brand),var(--lav));--card-glow:rgba(192,132,252,.06);--card-shadow:rgba(192,132,252,.1);">
+    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Text-to-Video-Retrieval-using-Deep-Learning" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">🔍 Deep Learning</div>
       <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
@@ -423,7 +443,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Problem Solving</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
     </a>
 
-    <a class="project-card reveal delay-1" data-domain="cv" href="https://github.com/itsAsmaa/Image-to-Image-Retrieval-System-using-Bag-of-Visual-Words-and-SIFT-Features" target="_blank" style="--card-color:var(--leaf);--card-dim:var(--leaf-dim);--card-border:rgba(110,231,183,.28);--card-gradient:linear-gradient(90deg,var(--leaf),var(--lav));--card-glow:rgba(110,231,183,.06);--card-shadow:rgba(110,231,183,.1);">
+    <a class="project-card reveal delay-1" data-domain="cv" href="https://github.com/itsAsmaa/Image-to-Image-Retrieval-System-using-Bag-of-Visual-Words-and-SIFT-Features" target="_blank" style="--card-color:var(--leaf);--card-dim:var(--leaf-dim);--card-border:rgba(110,231,183,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">👁 Computer Vision</div>
       <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
@@ -432,7 +452,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O2 Data Analysis</span><span class="badge">O11 Modern Tools</span><span class="badge">→ Computer Vision</span><span class="badge">→ Pattern Recognition</span></div>
     </a>
 
-    <a class="project-card reveal delay-2" data-domain="sec" href="https://github.com/itsAsmaa/TEA-Encryption-and-Decryption-Implementation-in-ECB-and-CBC-Modes" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);--card-gradient:linear-gradient(90deg,var(--wist),var(--orch));--card-glow:rgba(232,121,249,.06);--card-shadow:rgba(232,121,249,.1);">
+    <a class="project-card reveal delay-2" data-domain="sec" href="https://github.com/itsAsmaa/TEA-Encryption-and-Decryption-Implementation-in-ECB-and-CBC-Modes" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">🔐 Security</div>
       <div class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
@@ -441,7 +461,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O1 Math &amp; Algorithms</span><span class="badge">O5 Engineering Problems</span><span class="badge">→ Data Security</span><span class="badge">→ Software Dev</span></div>
     </a>
 
-    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Machine-Learning-Regression-Models-Ridge-RBF-and-Logistic-Regression-Customer-Churn" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);--card-gradient:linear-gradient(90deg,var(--lav),var(--brand));--card-glow:rgba(167,139,250,.06);--card-shadow:rgba(167,139,250,.1);">
+    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Machine-Learning-Regression-Models-Ridge-RBF-and-Logistic-Regression-Customer-Churn" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">📊 Data Science</div>
       <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
@@ -450,7 +470,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Formulate &amp; Solve</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
     </a>
 
-    <a class="project-card reveal delay-1" data-domain="emb" href="https://github.com/itsAsmaa/Ultrasonic-Distance-Sensor-with-Joystick-Controlled-LED-Indicators" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);--card-gradient:linear-gradient(90deg,var(--rose),var(--brand));--card-glow:rgba(244,114,182,.06);--card-shadow:rgba(244,114,182,.1);">
+    <a class="project-card reveal delay-1" data-domain="emb" href="https://github.com/itsAsmaa/Ultrasonic-Distance-Sensor-with-Joystick-Controlled-LED-Indicators" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">🔌 Embedded Systems</div>
       <div class="card-lang"><span class="lang-dot" style="background:#f34b7d"></span>C++</div>
@@ -459,7 +479,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O3 System Design</span><span class="badge">O11 Eng. Tools</span><span class="badge">→ Embedded Systems</span><span class="badge">→ Robotics</span></div>
     </a>
 
-    <a class="project-card reveal delay-2" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-SPN-CU-Using-SystemVerilog" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);--card-gradient:linear-gradient(90deg,var(--wist),var(--brand));--card-glow:rgba(192,132,252,.06);--card-shadow:rgba(192,132,252,.1);">
+    <a class="project-card reveal delay-2" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-SPN-CU-Using-SystemVerilog" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">⚙️ HW Verification</div>
       <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog</div>
@@ -468,7 +488,7 @@ footer a:hover{color:var(--brand);}
       <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O3 Design</span><span class="badge">→ HW Testing</span><span class="badge">→ Semiconductor</span></div>
     </a>
 
-    <a class="project-card reveal" data-domain="hw" href="https://github.com/itsAsmaa/Maximum-Clique-Detection-in-a-Graph-Using-MIPS-Assembly" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);--card-gradient:linear-gradient(90deg,var(--orch),var(--rose));--card-glow:rgba(232,121,249,.06);--card-shadow:rgba(232,121,249,.1);">
+    <a class="project-card reveal" data-domain="hw" href="https://github.com/itsAsmaa/Maximum-Clique-Detection-in-a-Graph-Using-MIPS-Assembly" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);">
       <span class="card-arrow">↗</span>
       <div class="domain-badge">🖥 Low-Level</div>
       <div class="card-lang"><span class="lang-dot" style="background:#6E4C13"></span>MIPS Assembly</div>
@@ -535,10 +555,40 @@ footer a:hover{color:var(--brand);}
 <footer>
   <span>© 2025 Asma'a Fares</span>
   <span>Computer Engineer · Birzeit University · Palestine</span>
-  
 </footer>
 
 <script>
+/* Theme Toggle Logic */
+const themeToggle = document.getElementById('theme-toggle');
+const themeIconUse = document.getElementById('theme-icon');
+
+// Get saved theme or fall back to system preference
+const getPreferredTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) return savedTheme;
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+};
+
+const setTheme = (theme) => {
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeIconUse.setAttribute('href', '#ico-moon');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    themeIconUse.setAttribute('href', '#ico-sun');
+  }
+  localStorage.setItem('theme', theme);
+};
+
+// Initialize Theme
+setTheme(getPreferredTheme());
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  setTheme(currentTheme === 'light' ? 'dark' : 'light');
+});
+
+
 /* scroll progress */
 const bar = document.getElementById('progress-bar');
 window.addEventListener('scroll', () => {

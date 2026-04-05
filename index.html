@@ -19,7 +19,7 @@
   --muted:         #8b949e;
   --hint:          #484f58;
   
-  /* Mapped the original floral colors to professional tech accents */
+  /* Professional tech accents */
   --brand:         #58a6ff; /* Tech Blue */
   --brand-light:   #79c0ff;
   --brand-dim:     rgba(88, 166, 255, 0.10);
@@ -52,7 +52,6 @@
   --radius-lg:   16px;
   --radius-pill: 9999px;
   
-  /* Swapped serif fonts for clean, modern sans-serif */
   --font-display: 'Inter', -apple-system, sans-serif;
   --font-serif:   'Inter', -apple-system, sans-serif;
   --font-body:    'Inter', -apple-system, sans-serif;
@@ -71,17 +70,14 @@ body{
   overflow-x:hidden;
   line-height:1.6;
   -webkit-font-smoothing: antialiased;
-  cursor:auto; /* Restored standard cursor */
+  cursor:auto; 
 }
 a{color:inherit;text-decoration:none;transition: color 0.2s;}
 
-/* Disable custom cursor & petals for a professional look */
 .cursor, .cursor-ring, #petal-canvas { display: none !important; }
 
-/* Subtle noise texture */
 body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.015;}
 
-/* scroll bar */
 #progress-bar{position:fixed;top:0;left:0;height:3px;z-index:600;width:0%;background:linear-gradient(90deg,var(--brand),var(--lav));transition:width .1s linear;}
 
 .sprite{display:none;}
@@ -90,7 +86,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 var(--space-xl);border-bottom:1px solid transparent;transition:all .3s;}
 nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-color:var(--border);}
 .nav-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:#f0f6fc;display:flex;align-items:center;gap:.5rem;}
-.logo-flower{display:none; /* Hid the spinning flower */}
+.logo-flower{display:none;}
 .nav-logo em{color:var(--brand);font-style:normal;}
 .nav-links{display:flex;gap:0.5rem;list-style:none;align-items:center;}
 .nav-links a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;border-radius:var(--radius-sm);transition:all .2s;}
@@ -101,6 +97,7 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 /* HERO */
 #hero{min-height:100vh;padding-top:var(--nav-h);display:grid;grid-template-columns:1fr 450px;position:relative;z-index:1;max-width:1400px;margin:0 auto;}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:var(--space-2xl) var(--space-xl);position:relative;z-index:1;}
+.hero-avatar{width:120px;height:120px;border-radius:50%;border:2px solid var(--border-strong);margin-bottom:var(--space-md);object-fit:cover;opacity:0;animation:fade-up .8s var(--ease) .1s forwards;box-shadow:0 8px 24px rgba(0,0,0,0.5);}
 .hero-eyebrow{font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--brand);margin-bottom:var(--space-md);display:flex;align-items:center;gap:var(--space-sm);opacity:0;animation:fade-up .8s var(--ease) .2s forwards;}
 .hero-eyebrow::before{content:'//';font-size:.9rem;color:var(--muted);}
 .hero-name{font-family:var(--font-display);font-weight:700;font-size:clamp(3.5rem,8vw,6rem);line-height:1.1;letter-spacing:-.03em;color:#f0f6fc;margin-bottom:var(--space-sm);opacity:0;animation:fade-up .8s var(--ease) .3s forwards;}
@@ -109,7 +106,6 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 .hero-desc{font-size:1.1rem;color:var(--muted);max-width:550px;margin-bottom:var(--space-xl);line-height:1.7;opacity:0;animation:fade-up .8s var(--ease) .5s forwards;}
 .cta-row{display:flex;gap:var(--space-sm);flex-wrap:wrap;opacity:0;animation:fade-up .8s var(--ease) .6s forwards;}
 
-/* buttons */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-mono);font-weight:600;font-size:.85rem;padding:.75rem 1.5rem;border-radius:var(--radius-sm);border:none;cursor:pointer;white-space:nowrap;transition:all .2s var(--ease);}
 .btn svg { width: 16px; height: 16px; }
 .btn:hover{transform:translateY(-2px);}
@@ -120,7 +116,6 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 .btn-linkedin{background:#0A66C2;color:#fff;}
 .btn-github{background:var(--surface2);color:#f0f6fc;border:1px solid var(--border-strong);}
 
-/* hero right */
 .hero-right{border-left:1px solid var(--border);background:rgba(22, 27, 34, 0.3);display:flex;flex-direction:column;justify-content:center;padding:var(--space-xl);gap:var(--space-md);position:relative;z-index:1;opacity:0;animation:fade-up .8s var(--ease) .7s forwards;}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md);display:flex;align-items:center;gap:var(--space-md);position:relative;transition:all .2s;}
 .stat-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
@@ -165,10 +160,14 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 
 /* project grid */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:var(--space-md);}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);display:flex;flex-direction:column;position:relative;transition:all .2s;}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);display:flex;flex-direction:column;position:relative;transition:all .2s; overflow:hidden;}
 .project-card:hover{border-color:var(--card-color,var(--brand));transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.5);}
 .project-card.wide{grid-column:span 2;}
 .project-card.hidden{display:none;}
+.card-img-wrapper { width: 100%; height: 180px; border-bottom: 1px solid var(--border); background: var(--surface2); overflow: hidden; }
+.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.3s, transform 0.3s; }
+.project-card:hover .card-img-wrapper img { opacity: 1; transform: scale(1.05); }
+.card-content { padding: var(--space-lg); display: flex; flex-direction: column; flex: 1; }
 .domain-badge{display:inline-flex;align-items:center;font-family:var(--font-mono);font-weight:600;font-size:.75rem;padding:.3rem .75rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md);background:var(--card-dim,var(--brand-dim));color:var(--card-color,var(--brand));border:1px solid var(--card-border,var(--brand-border));width:max-content;}
 .card-lang{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:.5rem;}
 .lang-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
@@ -176,13 +175,12 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .card-desc{font-size:.95rem;color:var(--text);line-height:1.6;flex:1;}
 .card-outcomes{margin-top:var(--space-md);padding-top:var(--space-sm);border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;}
 .badge{font-family:var(--font-mono);font-size:.75rem;padding:.25rem .5rem;background:var(--page);color:var(--muted);border-radius:4px;border:1px solid var(--border);}
-.card-arrow{position:absolute;top:var(--space-lg);right:var(--space-lg);color:var(--muted);opacity:0;transition:all .2s;}
+.card-arrow{position:absolute;top:calc(180px + var(--space-lg));right:var(--space-lg);color:var(--muted);opacity:0;transition:all .2s;}
 .project-card:hover .card-arrow{opacity:1;color:var(--card-color,var(--brand));transform:translate(4px,-4px);}
 
 /* skills */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-md);}
 .skill-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);transition:all .2s;position:relative;overflow:hidden;}
-.skill-block::after{display:none; /* Hid background flower */}
 .skill-block:hover{border-color:var(--border-strong);}
 .skill-block-title{font-size:1.25rem;font-weight:600;color:#f0f6fc;margin-bottom:.25rem;}
 .skill-block-sub{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--space-md);}
@@ -193,7 +191,6 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 /* education */
 .edu-grid{display:grid;grid-template-columns:1fr 1.8fr;gap:var(--space-xl);align-items:start;}
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);position:sticky;top:calc(var(--nav-h) + var(--space-md));}
-.edu-card::before{display:none;}
 .edu-badge{display:inline-block;font-family:var(--font-mono);font-weight:600;font-size:.75rem;background:var(--brand-dim);color:var(--brand);padding:.3rem .75rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md);}
 .edu-degree{font-weight:700;font-size:2rem;color:#f0f6fc;line-height:1.2;margin-bottom:.5rem;}
 .edu-school{font-size:1.1rem;font-weight:500;color:var(--muted);margin-bottom:var(--space-md);}
@@ -205,7 +202,6 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .courses-panel{display:flex;flex-direction:column;gap:var(--space-md);}
 .course-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);}
 .cg-title{font-family:var(--font-mono);font-weight:600;font-size:.85rem;color:#f0f6fc;margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
-.cg-title::after{display:none;}
 .course-tags{display:flex;flex-wrap:wrap;gap:8px;}
 .ctag{font-size:.9rem;padding:.3rem .75rem;background:var(--page);color:var(--muted);border-radius:var(--radius-sm);border:1px solid var(--border);transition:all .2s;}
 .ctag:hover{color:#f0f6fc;border-color:var(--border-strong);}
@@ -271,6 +267,8 @@ footer a:hover{color:var(--brand);}
 
 <section id="hero">
   <div class="hero-left">
+    <img class="hero-avatar" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=200&h=200&q=80" alt="Asma'a Fares" />
+    
     <div class="hero-eyebrow">Computer Systems Engineer</div>
     <h1 class="hero-name">Hi, I'm<br><span class="bloom">Asma'a</span><br>Fares</h1>
     <p class="hero-role">Hardware designer, ML engineer &amp; problem solver —<br>from RTL to neural networks.</p>
@@ -344,85 +342,130 @@ footer a:hover{color:var(--brand);}
   </div>
   <div class="projects-grid">
 
-    <a class="project-card wide reveal" data-domain="ml" href="https://github.com/itsAsmaa/Multi-Task-Multimodal-Image-Text-Classification-for-Country-and-Weather-Prediction" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);--card-gradient:linear-gradient(90deg,var(--wist),var(--brand));--card-glow:rgba(167,139,250,.06);--card-shadow:rgba(167,139,250,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🧠 Machine Learning</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python · Deep Learning</div>
-      <div class="card-title">Multi-Task Multimodal Classification — Country &amp; Weather Prediction</div>
-      <div class="card-desc">Consolidated and cleaned data from 100+ students. Extensive EDA, then image-based, text-based, and fused multimodal classifiers evaluated for simultaneous multi-task prediction. A full research-grade ML pipeline from raw data to model benchmarking.</div>
-      <div class="card-outcomes"><span class="badge">O1 Math &amp; Science</span><span class="badge">O2 Data Analysis</span><span class="badge">O5 Problem Solving</span><span class="badge">O11 Modern Tools</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
+    <a class="project-card wide reveal" data-domain="ml" href="https://github.com/itsAsmaa/Multi-Task-Multimodal-Image-Text-Classification-for-Country-and-Weather-Prediction" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&h=300&q=80" alt="ML Architecture Visualization" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">🧠 Machine Learning</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python · Deep Learning</div>
+        <div class="card-title">Multi-Task Multimodal Classification — Country &amp; Weather Prediction</div>
+        <div class="card-desc">Consolidated and cleaned data from 100+ students. Extensive EDA, then image-based, text-based, and fused multimodal classifiers evaluated for simultaneous multi-task prediction. A full research-grade ML pipeline from raw data to model benchmarking.</div>
+        <div class="card-outcomes"><span class="badge">O1 Math &amp; Science</span><span class="badge">O2 Data Analysis</span><span class="badge">O5 Problem Solving</span><span class="badge">O11 Modern Tools</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal delay-1" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-a-Simplified-Predicated-RISC-Pipelined-Processor-using-SystemVerilog" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);--card-gradient:linear-gradient(90deg,var(--rose),var(--orch));--card-glow:rgba(244,114,182,.06);--card-shadow:rgba(244,114,182,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">⚙️ Hardware Design</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog · UVM</div>
-      <div class="card-title">Predicated RISC Pipelined Processor — Design &amp; Verification</div>
-      <div class="card-desc">Full RTL design and UVM-based functional verification of a pipelined RISC processor with predication. Covers hazard handling, forwarding, stall logic, and coverage-driven verification.</div>
-      <div class="card-outcomes"><span class="badge">O1 Eng. Principles</span><span class="badge">O3 System Design</span><span class="badge">O5 Problem Solving</span><span class="badge">→ Computer Design</span><span class="badge">→ Semiconductor</span></div>
+    <a class="project-card reveal delay-1" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-a-Simplified-Predicated-RISC-Pipelined-Processor-using-SystemVerilog" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=300&q=80" alt="Hardware Circuit" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">⚙️ Hardware Design</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog · UVM</div>
+        <div class="card-title">Predicated RISC Pipelined Processor — Design &amp; Verification</div>
+        <div class="card-desc">Full RTL design and UVM-based functional verification of a pipelined RISC processor with predication. Covers hazard handling, forwarding, stall logic, and coverage-driven verification.</div>
+        <div class="card-outcomes"><span class="badge">O1 Eng. Principles</span><span class="badge">O3 System Design</span><span class="badge">O5 Problem Solving</span><span class="badge">→ Computer Design</span><span class="badge">→ Semiconductor</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Text-to-Video-Retrieval-using-Deep-Learning" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);--card-gradient:linear-gradient(90deg,var(--brand),var(--lav));--card-glow:rgba(192,132,252,.06);--card-shadow:rgba(192,132,252,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🔍 Deep Learning</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
-      <div class="card-title">Text-to-Video Retrieval using Deep Learning</div>
-      <div class="card-desc">Retrieves relevant video content from natural language queries using deep multimodal embeddings. Addresses cross-modal alignment between text and visual features.</div>
-      <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Problem Solving</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
+    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Text-to-Video-Retrieval-using-Deep-Learning" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&h=300&q=80" alt="AI Neural Network" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">🔍 Deep Learning</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
+        <div class="card-title">Text-to-Video Retrieval using Deep Learning</div>
+        <div class="card-desc">Retrieves relevant video content from natural language queries using deep multimodal embeddings. Addresses cross-modal alignment between text and visual features.</div>
+        <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Problem Solving</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal delay-1" data-domain="cv" href="https://github.com/itsAsmaa/Image-to-Image-Retrieval-System-using-Bag-of-Visual-Words-and-SIFT-Features" target="_blank" style="--card-color:var(--leaf);--card-dim:var(--leaf-dim);--card-border:rgba(110,231,183,.28);--card-gradient:linear-gradient(90deg,var(--leaf),var(--lav));--card-glow:rgba(110,231,183,.06);--card-shadow:rgba(110,231,183,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">👁 Computer Vision</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
-      <div class="card-title">Image-to-Image Retrieval — BoVW + SIFT</div>
-      <div class="card-desc">Content-based image retrieval using Bag of Visual Words and SIFT descriptor extraction. Evaluates retrieval accuracy across multiple image categories with quantitative benchmarking.</div>
-      <div class="card-outcomes"><span class="badge">O2 Data Analysis</span><span class="badge">O11 Modern Tools</span><span class="badge">→ Computer Vision</span><span class="badge">→ Pattern Recognition</span></div>
+    <a class="project-card reveal delay-1" data-domain="cv" href="https://github.com/itsAsmaa/Image-to-Image-Retrieval-System-using-Bag-of-Visual-Words-and-SIFT-Features" target="_blank" style="--card-color:var(--leaf);--card-dim:var(--leaf-dim);--card-border:rgba(110,231,183,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1561622539-dffbfc2008fd?auto=format&fit=crop&w=600&h=300&q=80" alt="Computer Vision Grid" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">👁 Computer Vision</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
+        <div class="card-title">Image-to-Image Retrieval — BoVW + SIFT</div>
+        <div class="card-desc">Content-based image retrieval using Bag of Visual Words and SIFT descriptor extraction. Evaluates retrieval accuracy across multiple image categories with quantitative benchmarking.</div>
+        <div class="card-outcomes"><span class="badge">O2 Data Analysis</span><span class="badge">O11 Modern Tools</span><span class="badge">→ Computer Vision</span><span class="badge">→ Pattern Recognition</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal delay-2" data-domain="sec" href="https://github.com/itsAsmaa/TEA-Encryption-and-Decryption-Implementation-in-ECB-and-CBC-Modes" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);--card-gradient:linear-gradient(90deg,var(--wist),var(--orch));--card-glow:rgba(232,121,249,.06);--card-shadow:rgba(232,121,249,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🔐 Security</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
-      <div class="card-title">TEA Encryption — ECB &amp; CBC Modes</div>
-      <div class="card-desc">Full implementation of the Tiny Encryption Algorithm in ECB and CBC modes, with padding, key scheduling, and mode comparison analysis.</div>
-      <div class="card-outcomes"><span class="badge">O1 Math &amp; Algorithms</span><span class="badge">O5 Engineering Problems</span><span class="badge">→ Data Security</span><span class="badge">→ Software Dev</span></div>
+    <a class="project-card reveal delay-2" data-domain="sec" href="https://github.com/itsAsmaa/TEA-Encryption-and-Decryption-Implementation-in-ECB-and-CBC-Modes" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&h=300&q=80" alt="Cryptography Security Matrix" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">🔐 Security</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
+        <div class="card-title">TEA Encryption — ECB &amp; CBC Modes</div>
+        <div class="card-desc">Full implementation of the Tiny Encryption Algorithm in ECB and CBC modes, with padding, key scheduling, and mode comparison analysis.</div>
+        <div class="card-outcomes"><span class="badge">O1 Math &amp; Algorithms</span><span class="badge">O5 Engineering Problems</span><span class="badge">→ Data Security</span><span class="badge">→ Software Dev</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Machine-Learning-Regression-Models-Ridge-RBF-and-Logistic-Regression-Customer-Churn" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);--card-gradient:linear-gradient(90deg,var(--lav),var(--brand));--card-glow:rgba(167,139,250,.06);--card-shadow:rgba(167,139,250,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">📊 Data Science</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
-      <div class="card-title">Customer Churn — EDA &amp; ML Pipeline</div>
-      <div class="card-desc">Industry-standard preprocessing and EDA followed by Ridge regression, RBF kernels, and logistic regression benchmarked against each other for churn prediction.</div>
-      <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Formulate &amp; Solve</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
+    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Machine-Learning-Regression-Models-Ridge-RBF-and-Logistic-Regression-Customer-Churn" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=300&q=80" alt="Data Science Charts" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">📊 Data Science</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
+        <div class="card-title">Customer Churn — EDA &amp; ML Pipeline</div>
+        <div class="card-desc">Industry-standard preprocessing and EDA followed by Ridge regression, RBF kernels, and logistic regression benchmarked against each other for churn prediction.</div>
+        <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Formulate &amp; Solve</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal delay-1" data-domain="emb" href="https://github.com/itsAsmaa/Ultrasonic-Distance-Sensor-with-Joystick-Controlled-LED-Indicators" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);--card-gradient:linear-gradient(90deg,var(--rose),var(--brand));--card-glow:rgba(244,114,182,.06);--card-shadow:rgba(244,114,182,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🔌 Embedded Systems</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#f34b7d"></span>C++</div>
-      <div class="card-title">Ultrasonic Sensor + Joystick LED Controller</div>
-      <div class="card-desc">Real-time embedded system with ultrasonic distance measurement and joystick-driven LED indicators. Demonstrates sensor integration and hardware-level interfacing.</div>
-      <div class="card-outcomes"><span class="badge">O3 System Design</span><span class="badge">O11 Eng. Tools</span><span class="badge">→ Embedded Systems</span><span class="badge">→ Robotics</span></div>
+    <a class="project-card reveal delay-1" data-domain="emb" href="https://github.com/itsAsmaa/Ultrasonic-Distance-Sensor-with-Joystick-Controlled-LED-Indicators" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=600&h=300&q=80" alt="Embedded Systems Electronics" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">🔌 Embedded Systems</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#f34b7d"></span>C++</div>
+        <div class="card-title">Ultrasonic Sensor + Joystick LED Controller</div>
+        <div class="card-desc">Real-time embedded system with ultrasonic distance measurement and joystick-driven LED indicators. Demonstrates sensor integration and hardware-level interfacing.</div>
+        <div class="card-outcomes"><span class="badge">O3 System Design</span><span class="badge">O11 Eng. Tools</span><span class="badge">→ Embedded Systems</span><span class="badge">→ Robotics</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal delay-2" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-SPN-CU-Using-SystemVerilog" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);--card-gradient:linear-gradient(90deg,var(--wist),var(--brand));--card-glow:rgba(192,132,252,.06);--card-shadow:rgba(192,132,252,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">⚙️ HW Verification</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog</div>
-      <div class="card-title">SPN Control Unit — Design &amp; Verification</div>
-      <div class="card-desc">RTL design and constrained-random verification of an SPN-based control unit with functional coverage and assertion-based verification methodology.</div>
-      <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O3 Design</span><span class="badge">→ HW Testing</span><span class="badge">→ Semiconductor</span></div>
+    <a class="project-card reveal delay-2" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-SPN-CU-Using-SystemVerilog" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1580894732444-8ecbef79bd94?auto=format&fit=crop&w=600&h=300&q=80" alt="Hardware Motherboard" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">⚙️ HW Verification</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog</div>
+        <div class="card-title">SPN Control Unit — Design &amp; Verification</div>
+        <div class="card-desc">RTL design and constrained-random verification of an SPN-based control unit with functional coverage and assertion-based verification methodology.</div>
+        <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O3 Design</span><span class="badge">→ HW Testing</span><span class="badge">→ Semiconductor</span></div>
+      </div>
     </a>
 
-    <a class="project-card reveal" data-domain="hw" href="https://github.com/itsAsmaa/Maximum-Clique-Detection-in-a-Graph-Using-MIPS-Assembly" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);--card-gradient:linear-gradient(90deg,var(--orch),var(--rose));--card-glow:rgba(232,121,249,.06);--card-shadow:rgba(232,121,249,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🖥 Low-Level</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#6E4C13"></span>MIPS Assembly</div>
-      <div class="card-title">Maximum Clique Detection — MIPS Assembly</div>
-      <div class="card-desc">Implements a graph maximum clique algorithm in pure MIPS assembly, demonstrating deep understanding of computer organization and microprocessor architecture.</div>
-      <div class="card-outcomes"><span class="badge">O1 CS Principles</span><span class="badge">O5 Algorithm Design</span><span class="badge">→ Computer Architecture</span></div>
+    <a class="project-card reveal" data-domain="hw" href="https://github.com/itsAsmaa/Maximum-Clique-Detection-in-a-Graph-Using-MIPS-Assembly" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);">
+      <div class="card-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&h=300&q=80" alt="Code Assembly" />
+      </div>
+      <div class="card-content">
+        <span class="card-arrow">↗</span>
+        <div class="domain-badge">🖥 Low-Level</div>
+        <div class="card-lang"><span class="lang-dot" style="background:#6E4C13"></span>MIPS Assembly</div>
+        <div class="card-title">Maximum Clique Detection — MIPS Assembly</div>
+        <div class="card-desc">Implements a graph maximum clique algorithm in pure MIPS assembly, demonstrating deep understanding of computer organization and microprocessor architecture.</div>
+        <div class="card-outcomes"><span class="badge">O1 CS Principles</span><span class="badge">O5 Algorithm Design</span><span class="badge">→ Computer Architecture</span></div>
+      </div>
     </a>
 
   </div>

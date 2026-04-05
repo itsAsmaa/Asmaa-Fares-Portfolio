@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Asma'a Fares — Computer Systems Engineer</title>
+<title>Asmaa Fares — Computer Systems Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -19,25 +19,24 @@
   --muted:         #8b949e;
   --hint:          #484f58;
   
-  /* Mapped the original floral colors to professional tech accents */
   --brand:         #58a6ff; /* Tech Blue */
   --brand-light:   #79c0ff;
   --brand-dim:     rgba(88, 166, 255, 0.10);
   --brand-border:  rgba(88, 166, 255, 0.3);
   
-  --rose:          #ff7b72; /* Coral/Error */
+  --rose:          #ff7b72; 
   --rose-dim:      rgba(255, 123, 114, 0.10);
   
-  --lav:           #d2a8ff; /* Purple/Keyword */
+  --lav:           #d2a8ff; 
   --lav-dim:       rgba(210, 168, 255, 0.10);
   
-  --wist:          #a5d6ff; /* Light Blue */
+  --wist:          #a5d6ff; 
   --wist-dim:      rgba(165, 214, 255, 0.10);
   
-  --orch:          #ffa657; /* Orange/Warning */
+  --orch:          #ffa657; 
   --orch-dim:      rgba(255, 166, 87, 0.10);
   
-  --leaf:          #3fb950; /* Green/Success */
+  --leaf:          #3fb950; 
   --leaf-dim:      rgba(63, 185, 80, 0.10);
   
   --space-xs:  0.5rem;
@@ -52,9 +51,7 @@
   --radius-lg:   16px;
   --radius-pill: 9999px;
   
-  /* Swapped serif fonts for clean, modern sans-serif */
   --font-display: 'Inter', -apple-system, sans-serif;
-  --font-serif:   'Inter', -apple-system, sans-serif;
   --font-body:    'Inter', -apple-system, sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
   
@@ -71,7 +68,6 @@ body{
   overflow-x:hidden;
   line-height:1.6;
   -webkit-font-smoothing: antialiased;
-  cursor:auto; /* Restored standard cursor */
 }
 a{color:inherit;text-decoration:none;transition: color 0.2s;}
 
@@ -81,16 +77,13 @@ a{color:inherit;text-decoration:none;transition: color 0.2s;}
 /* Subtle noise texture */
 body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.015;}
 
-/* scroll bar */
 #progress-bar{position:fixed;top:0;left:0;height:3px;z-index:600;width:0%;background:linear-gradient(90deg,var(--brand),var(--lav));transition:width .1s linear;}
-
 .sprite{display:none;}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;padding:0 var(--space-xl);border-bottom:1px solid transparent;transition:all .3s;}
 nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-color:var(--border);}
 .nav-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:#f0f6fc;display:flex;align-items:center;gap:.5rem;}
-.logo-flower{display:none; /* Hid the spinning flower */}
 .nav-logo em{color:var(--brand);font-style:normal;}
 .nav-links{display:flex;gap:0.5rem;list-style:none;align-items:center;}
 .nav-links a{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;border-radius:var(--radius-sm);transition:all .2s;}
@@ -109,7 +102,6 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 .hero-desc{font-size:1.1rem;color:var(--muted);max-width:550px;margin-bottom:var(--space-xl);line-height:1.7;opacity:0;animation:fade-up .8s var(--ease) .5s forwards;}
 .cta-row{display:flex;gap:var(--space-sm);flex-wrap:wrap;opacity:0;animation:fade-up .8s var(--ease) .6s forwards;}
 
-/* buttons */
 .btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-mono);font-weight:600;font-size:.85rem;padding:.75rem 1.5rem;border-radius:var(--radius-sm);border:none;cursor:pointer;white-space:nowrap;transition:all .2s var(--ease);}
 .btn svg { width: 16px; height: 16px; }
 .btn:hover{transform:translateY(-2px);}
@@ -120,20 +112,15 @@ nav.scrolled{background:rgba(13, 17, 23, 0.9);backdrop-filter:blur(16px);border-
 .btn-linkedin{background:#0A66C2;color:#fff;}
 .btn-github{background:var(--surface2);color:#f0f6fc;border:1px solid var(--border-strong);}
 
-/* hero right */
+/* HERO RIGHT */
 .hero-right{border-left:1px solid var(--border);background:rgba(22, 27, 34, 0.3);display:flex;flex-direction:column;justify-content:center;padding:var(--space-xl);gap:var(--space-md);position:relative;z-index:1;opacity:0;animation:fade-up .8s var(--ease) .7s forwards;}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md);display:flex;align-items:center;gap:var(--space-md);position:relative;transition:all .2s;}
-.stat-card:hover{border-color:var(--border-strong);transform:translateY(-2px);}
-.stat-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
-.stat-num{font-family:var(--font-display);font-weight:700;font-size:2rem;color:#f0f6fc;line-height:1;}
-.stat-lbl{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-top:.25rem;}
 .open-panel{margin-top:var(--space-sm);}
 .open-label{font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--leaf);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:.5rem;}
 .open-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 8px var(--leaf);}
 .chip-row{display:flex;flex-wrap:wrap;gap:0.5rem;}
 .chip{font-family:var(--font-mono);font-size:.75rem;padding:.3rem .75rem;border-radius:var(--radius-pill);border:1px solid var(--border);color:var(--muted);background:var(--surface);transition:all .2s;}
 
-/* sections */
+/* SECTIONS */
 section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:1400px;margin:0 auto;}
 .eyebrow{font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--brand);margin-bottom:var(--space-xs);display:flex;align-items:center;gap:var(--space-sm);}
 .eyebrow::before{content:'//';color:var(--muted);}
@@ -141,48 +128,34 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .section-sub{font-size:1.1rem;color:var(--muted);max-width:600px;margin-top:var(--space-sm);line-height:1.6;}
 .section-hdr{margin-bottom:var(--space-xl);}
 
-/* reveal */
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.delay-1{transition-delay:.1s;}.delay-2{transition-delay:.2s;}.delay-3{transition-delay:.3s;}.delay-4{transition-delay:.4s;}
 @keyframes fade-up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
-/* about */
+/* ABOUT & OUTCOMES */
 .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--space-xl);align-items:start;}
 .about-text p{color:var(--text);font-size:1.1rem;line-height:1.7;margin-bottom:var(--space-md);}
 .about-text strong{color:#f0f6fc;font-weight:600;}
 .about-text mark{background:var(--brand-dim);color:var(--brand-light);padding:2px 6px;border-radius:4px;font-style:normal;font-weight:500;}
-.about-cta{margin-top:var(--space-lg);}
 .outcomes-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);position:sticky;top:calc(var(--nav-h) + var(--space-md));}
 .outcomes-label{font-family:var(--font-mono);font-weight:600;font-size:.85rem;text-transform:uppercase;color:#f0f6fc;margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
 .outcome-row{display:flex;gap:var(--space-sm);align-items:flex-start;padding:.5rem 0;font-size:.9rem;color:var(--muted);line-height:1.5;}
-.o-num{font-family:var(--font-mono);font-weight:600;font-size:.75rem;background:var(--brand-dim);color:var(--brand);padding:.2rem .5rem;border-radius:4px;flex-shrink:0;margin-top:2px;}
 
-/* project filters */
-.proj-filters{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-xl);}
-.pf-btn{font-family:var(--font-mono);font-size:.85rem;font-weight:500;padding:.5rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;}
-.pf-btn:hover,.pf-btn.active{background:var(--brand-dim);border-color:var(--brand);color:var(--brand);}
-
-/* project grid */
+/* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:var(--space-md);}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);display:flex;flex-direction:column;position:relative;transition:all .2s;}
 .project-card:hover{border-color:var(--card-color,var(--brand));transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.5);}
 .project-card.wide{grid-column:span 2;}
-.project-card.hidden{display:none;}
 .domain-badge{display:inline-flex;align-items:center;font-family:var(--font-mono);font-weight:600;font-size:.75rem;padding:.3rem .75rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md);background:var(--card-dim,var(--brand-dim));color:var(--card-color,var(--brand));border:1px solid var(--card-border,var(--brand-border));width:max-content;}
-.card-lang{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--space-sm);display:flex;align-items:center;gap:.5rem;}
-.lang-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .card-title{font-size:1.25rem;font-weight:600;color:#f0f6fc;line-height:1.4;margin-bottom:var(--space-sm);}
 .card-desc{font-size:.95rem;color:var(--text);line-height:1.6;flex:1;}
 .card-outcomes{margin-top:var(--space-md);padding-top:var(--space-sm);border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;}
 .badge{font-family:var(--font-mono);font-size:.75rem;padding:.25rem .5rem;background:var(--page);color:var(--muted);border-radius:4px;border:1px solid var(--border);}
-.card-arrow{position:absolute;top:var(--space-lg);right:var(--space-lg);color:var(--muted);opacity:0;transition:all .2s;}
-.project-card:hover .card-arrow{opacity:1;color:var(--card-color,var(--brand));transform:translate(4px,-4px);}
 
-/* skills */
+/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-md);}
 .skill-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);transition:all .2s;position:relative;overflow:hidden;}
-.skill-block::after{display:none; /* Hid background flower */}
 .skill-block:hover{border-color:var(--border-strong);}
 .skill-block-title{font-size:1.25rem;font-weight:600;color:#f0f6fc;margin-bottom:.25rem;}
 .skill-block-sub{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--space-md);}
@@ -190,346 +163,263 @@ section{padding:var(--space-2xl) var(--space-xl);position:relative;max-width:140
 .tech-chip{font-family:var(--font-mono);font-size:.8rem;padding:.35rem .75rem;background:var(--page);color:var(--text);border-radius:var(--radius-sm);border:1px solid var(--border);transition:all .2s;}
 .tech-chip:hover{border-color:var(--brand);color:var(--brand);}
 
-/* education */
-.edu-grid{display:grid;grid-template-columns:1fr 1.8fr;gap:var(--space-xl);align-items:start;}
-.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);position:sticky;top:calc(var(--nav-h) + var(--space-md));}
-.edu-card::before{display:none;}
-.edu-badge{display:inline-block;font-family:var(--font-mono);font-weight:600;font-size:.75rem;background:var(--brand-dim);color:var(--brand);padding:.3rem .75rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md);}
-.edu-degree{font-weight:700;font-size:2rem;color:#f0f6fc;line-height:1.2;margin-bottom:.5rem;}
-.edu-school{font-size:1.1rem;font-weight:500;color:var(--muted);margin-bottom:var(--space-md);}
-.edu-meta{font-family:var(--font-mono);font-size:.85rem;color:var(--muted);line-height:1.6;}
-.edu-divider{border:none;border-top:1px solid var(--border);margin:var(--space-md) 0;}
-.edu-spec-label{font-family:var(--font-mono);font-size:.75rem;font-weight:600;text-transform:uppercase;color:var(--lav);margin-bottom:var(--space-sm);}
-.spec-chips{display:flex;flex-wrap:wrap;gap:6px;}
-.spec-chip{font-family:var(--font-mono);font-size:.75rem;padding:.25rem .75rem;border-radius:var(--radius-pill);background:var(--lav-dim);color:var(--lav);border:1px solid var(--border);}
-.courses-panel{display:flex;flex-direction:column;gap:var(--space-md);}
-.course-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);}
-.cg-title{font-family:var(--font-mono);font-weight:600;font-size:.85rem;color:#f0f6fc;margin-bottom:var(--space-md);border-bottom:1px solid var(--border);padding-bottom:var(--space-sm);}
-.cg-title::after{display:none;}
-.course-tags{display:flex;flex-wrap:wrap;gap:8px;}
-.ctag{font-size:.9rem;padding:.3rem .75rem;background:var(--page);color:var(--muted);border-radius:var(--radius-sm);border:1px solid var(--border);transition:all .2s;}
-.ctag:hover{color:#f0f6fc;border-color:var(--border-strong);}
-.ctag.elective{background:var(--orch-dim);color:var(--orch);border-color:var(--border);}
+/* EXPERIENCE / EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:start;}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);margin-bottom: var(--space-md);}
+.edu-degree{font-weight:700;font-size:1.5rem;color:#f0f6fc;line-height:1.2;margin-bottom:.5rem;}
+.edu-school{font-size:1rem;font-weight:500;color:var(--muted);margin-bottom:var(--space-md);}
 
-/* contact */
-.contact-inner{max-width:1000px;margin:0 auto;}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-md);margin-top:var(--space-xl);}
-.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-lg);display:flex;align-items:center;gap:var(--space-md);transition:all .2s;}
-.contact-card:hover{border-color:var(--border-strong);transform:translateY(-4px);}
-.contact-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:var(--page);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.c-label{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem;}
-.c-value{font-weight:500;font-size:1.1rem;color:#f0f6fc;}
-.c-arrow{margin-left:auto;color:var(--muted);transition:all .2s;}
-.contact-card:hover .c-arrow{transform:translate(4px,-4px);color:var(--brand);}
-
+/* FOOTER */
 footer{background:var(--page);padding:var(--space-xl);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.5rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.85rem;color:var(--muted);}
 footer a{color:var(--text);text-decoration:underline;text-underline-offset:4px;}
 footer a:hover{color:var(--brand);}
-.footer-flower{display:none;}
 
 @media(max-width:1024px){
   #hero{grid-template-columns:1fr;padding-top:calc(var(--nav-h) + var(--space-md));}
   .hero-right{border-left:none;border-top:1px solid var(--border);padding:var(--space-xl) 0 0 0;background:transparent;}
   .about-grid, .edu-grid{grid-template-columns:1fr;}
-  .outcomes-box, .edu-card{position:static;}
+  .outcomes-box{position:static;}
   .project-card.wide{grid-column:1;}
 }
 @media(max-width:768px){
   .nav-links{display:none;}
   .hero-name{font-size:clamp(2.5rem,10vw,4rem);}
   section{padding:var(--space-xl) var(--space-sm);}
-  .projects-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<svg class="sprite" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <symbol id="ico-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
-    <symbol id="ico-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></symbol>
-    <symbol id="ico-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></symbol>
-    <symbol id="ico-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
-  </defs>
-</svg>
-
-<div id="petal-canvas"></div>
 <div id="progress-bar"></div>
-<div class="cursor" id="cursor"><div class="cursor-dot"></div></div>
-<div class="cursor-ring" id="cursor-ring"></div>
 
 <nav id="navbar">
-  <a href="#" class="nav-logo"><span class="logo-flower">✿</span>Portfolio<em>.</em></a>
+  <div class="nav-logo">
+    Asmaa Fares <em>_</em>
+  </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Connect</a>
 </nav>
 
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Computer Systems Engineer</div>
-    <h1 class="hero-name">Hi, I'm<br><span class="bloom">Asma'a</span><br>Fares</h1>
-    <p class="hero-role">Hardware designer, ML engineer &amp; problem solver —<br>from RTL to neural networks.</p>
-    <p class="hero-desc">I build at the intersection of hardware and intelligence. My work spans pipelined processor design, deep learning, computer vision, embedded systems, and applied cryptography.</p>
-       <div class="about-cta"><div class="cta-row">
-           <a href="https://drive.google.com/file/d/1Tcb0_Fm2spYZPdTfZllYVH0OqE0ZAxg9/view?usp=drive_link" target="_blank" class="btn btn-brand"><svg width="12" height="12"><use href="#ico-file"/></svg>Download CV</a>
-           <a href="https://www.linkedin.com/in/asmaafares" target="_blank" class="btn btn-linkedin"><svg width="12" height="12"><use href="#ico-linkedin"/></svg>LinkedIn</a>
-           <a href="https://github.com/itsAsmaa" target="_blank" class="btn btn-github"><svg width="12" height="12"><use href="#ico-github"/></svg>GitHub</a>
-       </div></div>
+    <div class="hero-eyebrow">Class of 2026</div>
+    <h1 class="hero-name">Computer Systems <span class="bloom">Engineer</span></h1>
+    <h2 class="hero-role">Transforming complex hardware architectures into intelligent, efficient systems. Bridging the gap between silicon and high-level AI.</h2>
+    <p class="hero-desc">Fifth-year engineering student at Birzeit University with hands-on experience in machine learning, deep learning, and computer vision. Passionate about building end-to-end AI/ML pipelines and exploring Generative AI.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-brand">View Projects</a>
+      <a href="https://github.com/itsAsmaa" target="_blank" class="btn btn-github">GitHub</a>
+      <a href="https://linkedin.com/in/asmaafares" target="_blank" class="btn btn-linkedin">LinkedIn</a>
+    </div>
   </div>
+  
   <div class="hero-right">
-    <div class="stat-card" style="--card-accent:var(--brand);--card-dim:var(--brand-dim);"><div class="stat-icon" style="color:var(--brand)">🧠</div><div><div class="stat-num" data-target="10">0</div><div class="stat-lbl">ML &amp; AI Projects</div></div></div>
-    <div class="stat-card" style="--card-accent:var(--rose);--card-dim:var(--rose-dim);"><div class="stat-icon" style="color:var(--rose)">⚙️</div><div><div class="stat-num" data-target="5">0</div><div class="stat-lbl">Hardware / RTL Designs</div></div></div>
-    <div class="stat-card" style="--card-accent:var(--leaf);--card-dim:var(--leaf-dim);"><div class="stat-icon" style="color:var(--leaf)">📦</div><div><div class="stat-num" data-target="35">0</div><div class="stat-lbl">Public Repositories</div></div></div>
-    <div class="stat-card" style="--card-accent:var(--lav);--card-dim:var(--lav-dim);"><div class="stat-icon" style="color:var(--lav)">🌐</div><div><div class="stat-num" data-target="8">0</div><div class="stat-lbl">Languages &amp; Platforms</div></div></div>
+    <img src="image_47365f.jpg" alt="Asmaa Fares" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: var(--space-sm);" onerror="this.style.display='none'">
     <div class="open-panel">
-      <div class="open-label">✿ Open to work in</div>
+      <div class="open-label">Available for full-time opportunities</div>
       <div class="chip-row">
-        <span class="chip">ML &amp; AI</span><span class="chip">Computer Vision</span><span class="chip">Spoken Language Processing</span><span class="chip">Embedded Systems</span><span class="chip">HW Verification</span><span class="chip">DSP</span><span class="chip">Software Dev</span><span class="chip">Computer Networks</span><span class="chip">Data Security</span>
+        <span class="chip">Starting July 2026</span>
+        <span class="chip">Hardware Design</span>
+        <span class="chip">Machine Learning</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about">
-  <div class="section-hdr reveal">
-    <div class="eyebrow">About Me</div>
-    <h2 class="section-title">Engineer.<br>Researcher.<br>Builder.</h2>
+<section id="about" class="reveal">
+  <div class="section-hdr">
+    <div class="eyebrow">01. Background</div>
+    <h2 class="section-title">Bridging Hardware and AI.</h2>
   </div>
   <div class="about-grid">
-    <div class="about-text reveal">
-      <p>I'm a <strong>Computer Engineering graduate</strong> from Birzeit University, Palestine, with a passion that runs from the transistor level all the way to production-grade AI systems. I thrive where <mark>hardware meets intelligence</mark>.</p>
-      <p>My work spans <strong>RTL design and verification</strong> (SystemVerilog, UVM), <strong>machine learning and deep learning</strong> (classification, retrieval, multimodal), <strong>computer vision</strong>, <strong>NLP</strong>, <strong>embedded systems</strong>, and <strong>applied cryptography</strong>.</p>
-      <p>I've designed pipelined RISC processors, built multimodal classifiers from scratch, implemented encryption algorithms, and shipped end-to-end ML pipelines — driven by a belief that a great engineer understands the full stack.</p>
-      <p>I care about <strong>professional ethics</strong>, effective communication, and the real-world impact of engineering solutions. Actively looking for roles in <mark>ML engineering, hardware verification, embedded AI, and software development</mark>.</p>
-
+    <div class="about-text">
+      <p>I am a final-semester Computer Systems Engineering student at <mark>Birzeit University</mark>, graduating in July 2026. My passion lies at the intersection of robust hardware design and advanced artificial intelligence.</p>
+      <p>Throughout my academic journey, I've cultivated deep expertise in <strong>Machine Learning and Computer Vision</strong>, tackling complex projects like my Graduation Thesis on Speech Emotion Recognition using CNN-BiLSTM models.</p>
+      <p>On the hardware side, I've honed my skills in <strong>SystemVerilog and UVM</strong> during my R&D Internship at Orion VLSI Technologies, enabling me to understand the full lifecycle of a system—from silicon logic to high-level neural networks.</p>
     </div>
-    <div class="outcomes-box reveal delay-2">
-      <div class="outcomes-label">Degree Outcomes</div>
-      <div class="outcome-row"><span class="o-num">O1</span>Apply mathematics, science &amp; engineering principles</div>
-      <div class="outcome-row"><span class="o-num">O2</span>Design &amp; conduct experiments; analyze and interpret data</div>
-      <div class="outcome-row"><span class="o-num">O3</span>Design systems, components, or processes to meet needs</div>
-      <div class="outcome-row"><span class="o-num">O4</span>Function in multidisciplinary teams</div>
-      <div class="outcome-row"><span class="o-num">O5</span>Identify, formulate, and solve engineering problems</div>
-      <div class="outcome-row"><span class="o-num">O6</span>Professional &amp; ethical responsibility</div>
-      <div class="outcome-row"><span class="o-num">O7</span>Communicate effectively</div>
-      <div class="outcome-row"><span class="o-num">O8</span>Global &amp; societal impact of engineering solutions</div>
-      <div class="outcome-row"><span class="o-num">O9</span>Life-long learning</div>
-      <div class="outcome-row"><span class="o-num">O10</span>Knowledge of contemporary issues</div>
-      <div class="outcome-row"><span class="o-num">O11</span>Modern engineering tools &amp; techniques</div>
+    <div class="outcomes-box">
+      <div class="outcomes-label">Core Philosophy</div>
+      <div class="outcome-row">
+        <span class="o-num">01</span>
+        <div><strong>End-to-End Problem Solving:</strong> Approaching challenges with a full-stack engineering mindset, ensuring hardware and software components harmonize effectively.</div>
+      </div>
+      <div class="outcome-row">
+        <span class="o-num">02</span>
+        <div><strong>Continuous Adaptation:</strong> Exploring agentic systems, LLMs, and Generative AI to stay at the forefront of technological evolution.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="section-hdr reveal">
-    <div class="eyebrow">Selected Projects</div>
-    <h2 class="section-title">Work that maps<br>to real outcomes.</h2>
-    <p class="section-sub">Each project is tagged with the degree outcomes it demonstrates and the industry it targets.</p>
+<section id="projects" class="reveal">
+  <div class="section-hdr">
+    <div class="eyebrow">02. Engineering Portfolio</div>
+    <h2 class="section-title">Selected Works.</h2>
+    <p class="section-sub">Showcasing graduation research and complex implementations.</p>
   </div>
-  <div class="proj-filters reveal">
-    <button class="pf-btn active" data-filter="all">All</button>
-    <button class="pf-btn" data-filter="ml">ML &amp; AI</button>
-    <button class="pf-btn" data-filter="hw">Hardware</button>
-    <button class="pf-btn" data-filter="cv">Computer Vision</button>
-    <button class="pf-btn" data-filter="sec">Security</button>
-    <button class="pf-btn" data-filter="emb">Embedded</button>
-  </div>
+  
   <div class="projects-grid">
+    <div class="project-card wide" style="--card-color: var(--brand);">
+      <div class="domain-badge">Graduation Thesis</div>
+      <h3 class="card-title">AI Speech-Based Emotion Recognition</h3>
+      <p class="card-desc">Developed a two-part SER system on RAVDESS: a traditional ML baseline using 100+ engineered acoustic features, and a novel frequency-based arousal clustering approach utilizing specialized CNN-BiLSTM models. Surpassed deep learning baselines with soft-voting ensembles.</p>
+      <div class="card-outcomes">
+        <span class="badge">Python</span>
+        <span class="badge">TensorFlow</span>
+        <span class="badge">scikit-learn</span>
+        <span class="badge">librosa</span>
+        <span class="badge">CNN-BiLSTM</span>
+        <span class="badge">SVM / Random Forest</span>
+      </div>
+    </div>
 
-    <a class="project-card wide reveal" data-domain="ml" href="https://github.com/itsAsmaa/Multi-Task-Multimodal-Image-Text-Classification-for-Country-and-Weather-Prediction" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);--card-gradient:linear-gradient(90deg,var(--wist),var(--brand));--card-glow:rgba(167,139,250,.06);--card-shadow:rgba(167,139,250,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🧠 Machine Learning</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python · Deep Learning</div>
-      <div class="card-title">Multi-Task Multimodal Classification — Country &amp; Weather Prediction</div>
-      <div class="card-desc">Consolidated and cleaned data from 100+ students. Extensive EDA, then image-based, text-based, and fused multimodal classifiers evaluated for simultaneous multi-task prediction. A full research-grade ML pipeline from raw data to model benchmarking.</div>
-      <div class="card-outcomes"><span class="badge">O1 Math &amp; Science</span><span class="badge">O2 Data Analysis</span><span class="badge">O5 Problem Solving</span><span class="badge">O11 Modern Tools</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
-    </a>
+    <div class="project-card" style="--card-color: var(--lav);">
+      <div class="domain-badge" style="--card-dim: var(--lav-dim); --card-border: var(--border);">Deep Learning</div>
+      <h3 class="card-title">Text-to-Video Retrieval</h3>
+      <p class="card-desc">Implemented a retrieval system using modern Deep Learning techniques to accurately map textual descriptions to relevant video content.</p>
+      <div class="card-outcomes">
+        <span class="badge">PyTorch</span>
+        <span class="badge">Computer Vision</span>
+      </div>
+    </div>
 
-    <a class="project-card reveal delay-1" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-a-Simplified-Predicated-RISC-Pipelined-Processor-using-SystemVerilog" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);--card-gradient:linear-gradient(90deg,var(--rose),var(--orch));--card-glow:rgba(244,114,182,.06);--card-shadow:rgba(244,114,182,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">⚙️ Hardware Design</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog · UVM</div>
-      <div class="card-title">Predicated RISC Pipelined Processor — Design &amp; Verification</div>
-      <div class="card-desc">Full RTL design and UVM-based functional verification of a pipelined RISC processor with predication. Covers hazard handling, forwarding, stall logic, and coverage-driven verification.</div>
-      <div class="card-outcomes"><span class="badge">O1 Eng. Principles</span><span class="badge">O3 System Design</span><span class="badge">O5 Problem Solving</span><span class="badge">→ Computer Design</span><span class="badge">→ Semiconductor</span></div>
-    </a>
-
-    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Text-to-Video-Retrieval-using-Deep-Learning" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);--card-gradient:linear-gradient(90deg,var(--brand),var(--lav));--card-glow:rgba(192,132,252,.06);--card-shadow:rgba(192,132,252,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🔍 Deep Learning</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
-      <div class="card-title">Text-to-Video Retrieval using Deep Learning</div>
-      <div class="card-desc">Retrieves relevant video content from natural language queries using deep multimodal embeddings. Addresses cross-modal alignment between text and visual features.</div>
-      <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Problem Solving</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
-    </a>
-
-    <a class="project-card reveal delay-1" data-domain="cv" href="https://github.com/itsAsmaa/Image-to-Image-Retrieval-System-using-Bag-of-Visual-Words-and-SIFT-Features" target="_blank" style="--card-color:var(--leaf);--card-dim:var(--leaf-dim);--card-border:rgba(110,231,183,.28);--card-gradient:linear-gradient(90deg,var(--leaf),var(--lav));--card-glow:rgba(110,231,183,.06);--card-shadow:rgba(110,231,183,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">👁 Computer Vision</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
-      <div class="card-title">Image-to-Image Retrieval — BoVW + SIFT</div>
-      <div class="card-desc">Content-based image retrieval using Bag of Visual Words and SIFT descriptor extraction. Evaluates retrieval accuracy across multiple image categories with quantitative benchmarking.</div>
-      <div class="card-outcomes"><span class="badge">O2 Data Analysis</span><span class="badge">O11 Modern Tools</span><span class="badge">→ Computer Vision</span><span class="badge">→ Pattern Recognition</span></div>
-    </a>
-
-    <a class="project-card reveal delay-2" data-domain="sec" href="https://github.com/itsAsmaa/TEA-Encryption-and-Decryption-Implementation-in-ECB-and-CBC-Modes" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);--card-gradient:linear-gradient(90deg,var(--wist),var(--orch));--card-glow:rgba(232,121,249,.06);--card-shadow:rgba(232,121,249,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🔐 Security</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
-      <div class="card-title">TEA Encryption — ECB &amp; CBC Modes</div>
-      <div class="card-desc">Full implementation of the Tiny Encryption Algorithm in ECB and CBC modes, with padding, key scheduling, and mode comparison analysis.</div>
-      <div class="card-outcomes"><span class="badge">O1 Math &amp; Algorithms</span><span class="badge">O5 Engineering Problems</span><span class="badge">→ Data Security</span><span class="badge">→ Software Dev</span></div>
-    </a>
-
-    <a class="project-card reveal" data-domain="ml" href="https://github.com/itsAsmaa/Machine-Learning-Regression-Models-Ridge-RBF-and-Logistic-Regression-Customer-Churn" target="_blank" style="--card-color:var(--lav);--card-dim:var(--lav-dim);--card-border:rgba(167,139,250,.28);--card-gradient:linear-gradient(90deg,var(--lav),var(--brand));--card-glow:rgba(167,139,250,.06);--card-shadow:rgba(167,139,250,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">📊 Data Science</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python</div>
-      <div class="card-title">Customer Churn — EDA &amp; ML Pipeline</div>
-      <div class="card-desc">Industry-standard preprocessing and EDA followed by Ridge regression, RBF kernels, and logistic regression benchmarked against each other for churn prediction.</div>
-      <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O5 Formulate &amp; Solve</span><span class="badge">→ ML &amp; AI</span><span class="badge">→ Software Dev</span></div>
-    </a>
-
-    <a class="project-card reveal delay-1" data-domain="emb" href="https://github.com/itsAsmaa/Ultrasonic-Distance-Sensor-with-Joystick-Controlled-LED-Indicators" target="_blank" style="--card-color:var(--rose);--card-dim:var(--rose-dim);--card-border:rgba(244,114,182,.28);--card-gradient:linear-gradient(90deg,var(--rose),var(--brand));--card-glow:rgba(244,114,182,.06);--card-shadow:rgba(244,114,182,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🔌 Embedded Systems</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#f34b7d"></span>C++</div>
-      <div class="card-title">Ultrasonic Sensor + Joystick LED Controller</div>
-      <div class="card-desc">Real-time embedded system with ultrasonic distance measurement and joystick-driven LED indicators. Demonstrates sensor integration and hardware-level interfacing.</div>
-      <div class="card-outcomes"><span class="badge">O3 System Design</span><span class="badge">O11 Eng. Tools</span><span class="badge">→ Embedded Systems</span><span class="badge">→ Robotics</span></div>
-    </a>
-
-    <a class="project-card reveal delay-2" data-domain="hw" href="https://github.com/itsAsmaa/Design-and-Verification-of-SPN-CU-Using-SystemVerilog" target="_blank" style="--card-color:var(--brand);--card-dim:var(--brand-dim);--card-border:var(--brand-border);--card-gradient:linear-gradient(90deg,var(--wist),var(--brand));--card-glow:rgba(192,132,252,.06);--card-shadow:rgba(192,132,252,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">⚙️ HW Verification</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#DAE1C2"></span>SystemVerilog</div>
-      <div class="card-title">SPN Control Unit — Design &amp; Verification</div>
-      <div class="card-desc">RTL design and constrained-random verification of an SPN-based control unit with functional coverage and assertion-based verification methodology.</div>
-      <div class="card-outcomes"><span class="badge">O2 Experiments</span><span class="badge">O3 Design</span><span class="badge">→ HW Testing</span><span class="badge">→ Semiconductor</span></div>
-    </a>
-
-    <a class="project-card reveal" data-domain="hw" href="https://github.com/itsAsmaa/Maximum-Clique-Detection-in-a-Graph-Using-MIPS-Assembly" target="_blank" style="--card-color:var(--orch);--card-dim:var(--orch-dim);--card-border:rgba(232,121,249,.28);--card-gradient:linear-gradient(90deg,var(--orch),var(--rose));--card-glow:rgba(232,121,249,.06);--card-shadow:rgba(232,121,249,.1);">
-      <span class="card-arrow">↗</span>
-      <div class="domain-badge">🖥 Low-Level</div>
-      <div class="card-lang"><span class="lang-dot" style="background:#6E4C13"></span>MIPS Assembly</div>
-      <div class="card-title">Maximum Clique Detection — MIPS Assembly</div>
-      <div class="card-desc">Implements a graph maximum clique algorithm in pure MIPS assembly, demonstrating deep understanding of computer organization and microprocessor architecture.</div>
-      <div class="card-outcomes"><span class="badge">O1 CS Principles</span><span class="badge">O5 Algorithm Design</span><span class="badge">→ Computer Architecture</span></div>
-    </a>
-
+    <div class="project-card" style="--card-color: var(--leaf);">
+      <div class="domain-badge" style="--card-dim: var(--leaf-dim); --card-border: var(--border);">Hardware Design</div>
+      <h3 class="card-title">UVM Hardware Verification</h3>
+      <p class="card-desc">Practiced functional verification of hardware designs within a professional DV workflow during my R&D internship at Orion VLSI.</p>
+      <div class="card-outcomes">
+        <span class="badge">SystemVerilog</span>
+        <span class="badge">UVM</span>
+        <span class="badge">VLSI</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="skills">
-  <div class="section-hdr reveal">
-    <div class="eyebrow">Technical Skills</div>
-    <h2 class="section-title">The full stack<br>of computing.</h2>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-block reveal"><div class="skill-block-title">Languages</div><div class="skill-block-sub">Code I write fluently</div><div class="tech-chips"><span class="tech-chip">Python</span><span class="tech-chip">SystemVerilog</span><span class="tech-chip">Verilog</span><span class="tech-chip">C</span><span class="tech-chip">C++</span><span class="tech-chip">Java</span><span class="tech-chip">MIPS Assembly</span><span class="tech-chip">HTML / CSS / JS</span><span class="tech-chip">MATLAB</span><span class="tech-chip">Shell Script</span></div></div>
-    <div class="skill-block reveal delay-1"><div class="skill-block-title">Machine Learning &amp; AI</div><div class="skill-block-sub">Models, pipelines &amp; research</div><div class="tech-chips"><span class="tech-chip">Deep Learning</span><span class="tech-chip">Computer Vision</span><span class="tech-chip">NLP / Text Retrieval</span><span class="tech-chip">Multimodal Learning</span><span class="tech-chip">Regression Models</span><span class="tech-chip">Clustering</span><span class="tech-chip">EDA &amp; Preprocessing</span><span class="tech-chip">SIFT / BoVW</span><span class="tech-chip">Speech Recognition</span><span class="tech-chip">Scikit-Learn</span><span class="tech-chip">TensorFlow / PyTorch</span></div></div>
-    <div class="skill-block reveal delay-2"><div class="skill-block-title">Hardware &amp; Embedded</div><div class="skill-block-sub">From RTL to real-time systems</div><div class="tech-chips"><span class="tech-chip">RTL Design</span><span class="tech-chip">UVM Verification</span><span class="tech-chip">Pipelined Processors</span><span class="tech-chip">RISC Architecture</span><span class="tech-chip">ALU Design</span><span class="tech-chip">Embedded C/C++</span><span class="tech-chip">Arduino</span><span class="tech-chip">MPU6050</span><span class="tech-chip">DSP</span><span class="tech-chip">Applied Cryptography</span></div></div>
-    <div class="skill-block reveal delay-3"><div class="skill-block-title">Tools &amp; Platforms</div><div class="skill-block-sub">Ecosystem I work in</div><div class="tech-chips"><span class="tech-chip">Git / GitHub</span><span class="tech-chip">Linux</span><span class="tech-chip">Jupyter Notebook</span><span class="tech-chip">JavaFX</span><span class="tech-chip">Android</span><span class="tech-chip">SQL / Databases</span><span class="tech-chip">Packet Tracer</span><span class="tech-chip">PSpice / MATLAB</span><span class="tech-chip">Mobaxterm</span><span class="tech-chip">Synopsys EDA tools</span></div></div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="section-hdr reveal">
-    <div class="eyebrow">Education</div>
-    <h2 class="section-title">Rigorously trained<br>across the stack.</h2>
+<section id="experience" class="reveal">
+  <div class="section-hdr">
+    <div class="eyebrow">03. Professional Timeline</div>
+    <h2 class="section-title">Experience & Education.</h2>
   </div>
   <div class="edu-grid">
-    <div class="edu-card reveal">
-      <div class="edu-badge">B.Sc. Computer Engineering</div>
-      <div class="edu-degree">Computer<br>Engineering</div>
-      <div class="edu-school">Birzeit University</div>
-      <div class="edu-meta">West Bank, Palestine<br>Dept. of Computer Engineering</div>
-      <hr class="edu-divider"/>
-      <div class="edu-spec-label">✿ Elective Specializations</div>
-      <div class="spec-chips"><span class="spec-chip">Hardware Design Verification</span><span class="spec-chip">Machine Learning &amp; Data Science</span><span class="spec-chip">Natural Language Processing</span><span class="spec-chip">Computer Vision</span><span class="spec-chip">Spoken Language Processing</span></div>
+    <div>
+      <h3 class="section-sub" style="margin-bottom: 1rem; color: #f0f6fc; font-weight: 600;">Work & Leadership</h3>
+      <div class="edu-card">
+        <h4 class="edu-degree" style="font-size: 1.25rem;">R&D Intern - SystemVerilog & UVM</h4>
+        <div class="edu-school">Orion VLSI Technologies | Jul 2025 - Sep 2025</div>
+        <p class="card-desc" style="font-size: 0.9rem;">Completed 240 hours of practical training in the R&D department, working on team projects involving VLSI concepts and design verification.</p>
+      </div>
+      <div class="edu-card">
+        <h4 class="edu-degree" style="font-size: 1.25rem;">Hardware Team Member</h4>
+        <div class="edu-school">Academic Industrial Club (AIC) | Sep 2025 - Sep 2026</div>
+        <p class="card-desc" style="font-size: 0.9rem;">Contributed to hardware-focused projects and activities within Birzeit University's academic industrial community.</p>
+      </div>
+      <div class="edu-card">
+        <h4 class="edu-degree" style="font-size: 1.25rem;">Technical Team Member</h4>
+        <div class="edu-school">GDSC, Birzeit University | Sep 2023 - Sep 2024</div>
+        <p class="card-desc" style="font-size: 0.9rem;">Collaborated to tackle real-world challenges, bootcamps, and technical discussions to deepen understanding of emerging technologies.</p>
+      </div>
     </div>
-    <div class="courses-panel reveal delay-1">
-      <div class="course-group"><div class="cg-title">Mathematics &amp; Sciences</div><div class="course-tags"><span class="ctag">Calculus I &amp; II</span><span class="ctag">General Physics I &amp; II</span><span class="ctag">Linear Algebra</span><span class="ctag">Discrete Mathematics</span><span class="ctag">Probability &amp; Statistics</span><span class="ctag">Ordinary Differential Equations</span></div></div>
-      <div class="course-group"><div class="cg-title">Computer Science &amp; Software</div><div class="course-tags"><span class="ctag">OOP</span><span class="ctag">Data Structures &amp; Algorithms</span><span class="ctag">Operating Systems</span><span class="ctag">Computer Networks</span><span class="ctag">Database Systems</span><span class="ctag">Software Engineering</span><span class="ctag">Artificial Intelligence</span><span class="ctag">Digital Signal Processing</span><span class="ctag">Applied Cryptography</span><span class="ctag">Computer Engineering Ethics</span><span class="ctag">Engineering Project Management</span></div></div>
-      <div class="course-group"><div class="cg-title">Hardware &amp; Architecture</div><div class="course-tags"><span class="ctag">Digital Systems</span><span class="ctag">Computer Organization &amp; Microprocessor</span><span class="ctag">Advanced Digital Systems Design</span><span class="ctag">Computer Architecture</span><span class="ctag">Digital Integrated Circuits</span><span class="ctag">Circuit Analysis</span><span class="ctag">Analog Electronics</span><span class="ctag">Signals &amp; Systems</span><span class="ctag">Communication Systems</span><span class="ctag">Interfacing Techniques</span><span class="ctag">Real-Time &amp; Embedded Systems</span></div></div>
-      <div class="course-group"><div class="cg-title">Electives</div><div class="course-tags"><span class="ctag elective">Machine Learning</span><span class="ctag elective">Computer Vision</span><span class="ctag elective">NLP</span><span class="ctag elective">Spoken Language Processing</span><span class="ctag elective">HW Design Verification</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-hdr reveal">
-      <div class="eyebrow">Get In Touch</div>
-      <h2 class="section-title">Let's build<br>something together.</h2>
-      <p class="section-sub">Open to research collaborations, internships, full-time roles, and interesting problems worth solving.</p>
-    </div>
-    <div class="contact-grid reveal delay-1">
-      <a href="https://www.linkedin.com/in/asmaafares" target="_blank" class="contact-card"><div class="contact-icon"><svg width="20" height="20" style="color:var(--lav)"><use href="#ico-linkedin"/></svg></div><div><div class="c-label">Professional Network</div><div class="c-value">LinkedIn Profile</div></div><span class="c-arrow">↗</span></a>
-      <a href="https://github.com/itsAsmaa" target="_blank" class="contact-card"><div class="contact-icon"><svg width="20" height="20" style="color:var(--text)"><use href="#ico-github"/></svg></div><div><div class="c-label">Open Source</div><div class="c-value">github.com/itsAsmaa</div></div><span class="c-arrow">↗</span></a>
-      <a href="mailto:enga57682@gmail.com" class="contact-card"><div class="contact-icon"><svg width="20" height="20" style="color:var(--brand)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><use href="#ico-mail"/></svg></div><div><div class="c-label">Direct</div><div class="c-value">enga57682@gmail.com</div></div><span class="c-arrow">↗</span></a>
+    
+    <div>
+      <h3 class="section-sub" style="margin-bottom: 1rem; color: #f0f6fc; font-weight: 600;">Academic Background</h3>
+      <div class="edu-card">
+        <div class="edu-badge">Class of 2026</div>
+        <h4 class="edu-degree">B.Sc. Computer Systems Engineering</h4>
+        <div class="edu-school">Birzeit University | Sep 2021 - Jul 2026</div>
+        <p class="card-desc" style="font-size: 0.9rem;">Relevant Coursework: Machine Learning, Computer Vision, Deep Learning, Natural Language Processing, Computer Architecture, Digital Systems.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <span>© 2025 Asma'a Fares</span>
-  <span class="footer-flower">✿</span>
-  <span>Computer Engineer · Birzeit University · Palestine</span>
-  <a href="https://github.com/itsAsmaa" target="_blank">github.com/itsAsmaa</a>
+<section id="skills" class="reveal">
+  <div class="section-hdr">
+    <div class="eyebrow">04. Technical Arsenal</div>
+    <h2 class="section-title">Core Skills.</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-title">AI / Machine Learning</div>
+      <div class="skill-block-sub">Models, Frameworks & Concepts</div>
+      <div class="tech-chips">
+        <span class="tech-chip">PyTorch</span>
+        <span class="tech-chip">TensorFlow</span>
+        <span class="tech-chip">scikit-learn</span>
+        <span class="tech-chip">OpenCV</span>
+        <span class="tech-chip">librosa</span>
+        <span class="tech-chip">Hugging Face</span>
+        <span class="tech-chip">CNN / BiLSTM</span>
+        <span class="tech-chip">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Hardware Design</div>
+      <div class="skill-block-sub">Verification & Architecture</div>
+      <div class="tech-chips">
+        <span class="tech-chip">SystemVerilog</span>
+        <span class="tech-chip">UVM</span>
+        <span class="tech-chip">FPGA</span>
+        <span class="tech-chip">Quartus</span>
+        <span class="tech-chip">Digital Logic</span>
+        <span class="tech-chip">Processor Design</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Programming & Tools</div>
+      <div class="skill-block-sub">Languages & Environment</div>
+      <div class="tech-chips">
+        <span class="tech-chip">Python</span>
+        <span class="tech-chip">C / C++</span>
+        <span class="tech-chip">Java</span>
+        <span class="tech-chip">JavaScript</span>
+        <span class="tech-chip">SQL</span>
+        <span class="tech-chip">Git / GitHub</span>
+        <span class="tech-chip">Linux CLI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div style="font-size: 1.25rem; font-weight: 600; color: #f0f6fc; margin-bottom: 1rem;">Let's Build Together</div>
+  <div>faresasmaa205@gmail.com</div>
+  <div>Ramallah, Palestine</div>
+  <div style="margin-top: 1rem;">
+    <a href="https://linkedin.com/in/asmaafares" target="_blank" style="margin-right: 1rem;">LinkedIn</a>
+    <a href="https://github.com/itsAsmaa" target="_blank">GitHub</a>
+  </div>
 </footer>
 
 <script>
-/* scroll progress */
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  bar.style.width = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100, 100) + '%';
-}, { passive: true });
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+    
+    // Progress bar
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+  }, { passive: true });
 
-/* nav */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30), { passive: true });
-
-/* reveal */
-const revObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
-
-/* counters */
-function animCounter(el){
-  const target=parseInt(el.dataset.target,10);
-  let start=null;
-  const dur=1400;
-  (function step(ts){
-    if(!start)start=ts;
-    const p=Math.min((ts-start)/dur,1);
-    const e=1-Math.pow(1-p,3);
-    el.textContent=Math.floor(e*target)+(p>=1?'+':'');
-    if(p<1)requestAnimationFrame(step);
-  })(performance.now());
-}
-const cntObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){animCounter(e.target);cntObs.unobserve(e.target);}});
-},{threshold:.5});
-document.querySelectorAll('.stat-num[data-target]').forEach(el=>cntObs.observe(el));
-
-/* project filters */
-document.querySelectorAll('.pf-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const f=btn.dataset.filter;
-    document.querySelectorAll('.project-card').forEach(card=>{
-      card.classList.toggle('hidden',f!=='all'&&card.dataset.domain!==f);
+  // Scroll reveal animation
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        revObs.unobserve(e.target);
+      }
     });
-  });
-});
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 </script>
 </body>
 </html>

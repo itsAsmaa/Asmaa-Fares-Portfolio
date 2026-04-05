@@ -7,44 +7,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --page:          #FFFFFF;
-  --surface:       #150E1C;
-  --surface2:      #1C1228;
-  --surface3:      #241632;
-  --border:        rgba(180,120,255,0.10);
-  --border-strong: rgba(180,120,255,0.22);
-  --text:          #F0E8FF;
-  --muted:         #9B88B8;
-  --hint:          #5A4A70;
-  --brand:         #C084FC;
-  --brand-light:   #E0B8FF;
-  --brand-dim:     rgba(192,132,252,0.10);
-  --brand-border:  rgba(192,132,252,0.28);
-  --rose:          #F472B6;
-  --rose-dim:      rgba(244,114,182,0.10);
-  --lav:           #A78BFA;
-  --lav-dim:       rgba(167,139,250,0.10);
-  --wist:          #7C3AED;
-  --wist-dim:      rgba(124,58,237,0.10);
-  --orch:          #E879F9;
-  --orch-dim:      rgba(232,121,249,0.10);
-  --leaf:          #6EE7B7;
-  --leaf-dim:      rgba(110,231,183,0.10);
+  /* Base */
+  --page:          #F8F9FC;
+  --surface:       #FFFFFF;
+  --surface2:      #F1F3F9;
+  --surface3:      #E6E9F2;
+
+  /* Borders */
+  --border:        rgba(20, 20, 40, 0.08);
+  --border-strong: rgba(20, 20, 40, 0.16);
+
+  /* Text */
+  --text:          #1A1A2E;
+  --muted:         #6B7280;
+  --hint:          #9CA3AF;
+
+  /* Brand (professional purple/indigo) */
+  --brand:         #6366F1;   /* Indigo (clean & modern) */
+  --brand-light:   #A5B4FC;
+  --brand-dim:     rgba(99,102,241,0.10);
+  --brand-border:  rgba(99,102,241,0.25);
+
+  /* Accent colors (soft & controlled) */
+  --rose:          #EC4899;
+  --rose-dim:      rgba(236,72,153,0.10);
+
+  --lav:           #8B5CF6;
+  --lav-dim:       rgba(139,92,246,0.10);
+
+  --wist:          #4F46E5;
+  --wist-dim:      rgba(79,70,229,0.10);
+
+  --orch:          #D946EF;
+  --orch-dim:      rgba(217,70,239,0.10);
+
+  --leaf:          #10B981;
+  --leaf-dim:      rgba(16,185,129,0.10);
+
+  /* Spacing */
   --space-xs:  0.375rem;
   --space-sm:  0.75rem;
   --space-md:  1.25rem;
   --space-lg:  2rem;
   --space-xl:  3.5rem;
   --space-2xl: 6rem;
+
+  /* Radius */
   --radius-sm:   8px;
   --radius-md:   14px;
   --radius-lg:   20px;
   --radius-pill: 999px;
+
+  /* Fonts */
   --font-display: 'Cinzel', serif;
   --font-serif:   'Cormorant Garamond', Georgia, serif;
   --font-body:    'Crimson Pro', Georgia, serif;
   --font-mono:    'JetBrains Mono', monospace;
+
+  /* Layout */
   --nav-h: 64px;
+
+  /* Animation */
   --ease: cubic-bezier(0.16,1,0.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}

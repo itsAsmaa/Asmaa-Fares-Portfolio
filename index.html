@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Asma'a Fares — Computer Systems Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
 <style>
 :root {
   /* Base */
@@ -117,6 +118,10 @@ nav.scrolled{background:rgba(14,8,18,0.92);backdrop-filter:blur(24px);border-col
 .nav-links{display:flex;gap:0;list-style:none;align-items:center;}
 .nav-links a{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.4rem var(--space-sm);border-radius:var(--radius-sm);transition:color .2s;}
 .nav-links a:hover{color:var(--brand);}
+.nav-links i {
+  margin-right: 6px;
+  font-size: 0.7rem;
+}  
 .nav-cta{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:var(--brand);color:#0E0812 !important;padding:.45rem 1rem;border-radius:var(--radius-sm);transition:opacity .2s,box-shadow .2s;}
 .nav-cta:hover{opacity:.88;box-shadow:0 0 20px rgba(192,132,252,.35);}
 
@@ -309,10 +314,10 @@ footer a{color:var(--brand);}
 <nav id="navbar">
   <a href="#" class="nav-logo"><span class="logo-flower">✿</span>Asma'a<em>.</em></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
+    <li><a href="#about"><i class="fa-regular fa-user"></i> About</a></li>
+    <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+    <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+    <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>

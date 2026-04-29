@@ -203,38 +203,41 @@ nav.scrolled {
 .terminal {
   width: 100%;
   max-width: 500px;
-  background: #1a1512;
-  border-radius: 16px;
+  background: rgba(255, 252, 248, 0.55);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-radius: 20px;
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,.75);
   box-shadow:
-    0 32px 80px rgba(26,21,18,.35),
-    0 0 0 1px rgba(255,255,255,.06),
-    inset 0 1px 0 rgba(255,255,255,.05);
+    0 8px 32px rgba(92,61,46,.12),
+    0 2px 8px rgba(92,61,46,.08),
+    inset 0 1px 0 rgba(255,255,255,.9);
   font-family: var(--font-mono);
   font-size: .85rem;
 }
 
 .terminal-bar {
-  background: #2c2420;
+  background: rgba(245, 237, 224, 0.7);
   padding: .85rem 1.25rem;
   display: flex;
   align-items: center;
   gap: .6rem;
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(201,168,130,.3);
 }
 .t-dot {
   width: 12px; height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.t-dot.red   { background: #ff5f57; }
-.t-dot.amber { background: #febc2e; }
-.t-dot.green { background: #28c840; }
+.t-dot.red   { background: #ff6b6b; opacity: .7; }
+.t-dot.amber { background: #ffc947; opacity: .7; }
+.t-dot.green { background: #69db7c; opacity: .7; }
 .t-title {
   flex: 1;
   text-align: center;
   font-size: .75rem;
-  color: rgba(255,255,255,.3);
+  color: var(--muted);
   letter-spacing: .03em;
 }
 
@@ -244,15 +247,15 @@ nav.scrolled {
   min-height: 360px;
 }
 
-/* Terminal text colors */
-.t-prompt { color: var(--rust); }
-.t-cmd    { color: #e8d9c5; }
-.t-key    { color: var(--clay); }
-.t-val    { color: #8fa882; }
-.t-str    { color: #c4a3b5; }
-.t-num    { color: #febc2e; }
-.t-comment{ color: rgba(255,255,255,.25); }
-.t-obj    { color: rgba(255,255,255,.5); }
+/* Terminal text colors — tuned for light frosted bg */
+.t-prompt { color: var(--rust); font-weight: 500; }
+.t-cmd    { color: var(--ink); }
+.t-key    { color: var(--bark); }
+.t-val    { color: var(--moss); }
+.t-str    { color: var(--dusty); }
+.t-num    { color: #b88c50; }
+.t-comment{ color: var(--muted); }
+.t-obj    { color: var(--clay); }
 .t-line   { display: block; }
 
 /* Cursor blink */

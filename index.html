@@ -112,7 +112,6 @@ nav.scrolled {
   overflow: hidden;
 }
 
-/* Decorative background shapes */
 #hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -193,113 +192,86 @@ nav.scrolled {
 .btn-linkedin:hover { background: #004d9a; }
 .btn svg { width: 15px; height: 15px; }
 
-/* Hero right — Pinterest-style board */
+/* === TERMINAL === */
 .hero-right {
   position: relative; z-index: 1;
   display: flex; align-items: center; justify-content: center;
   padding: calc(var(--nav-h) + 2rem) 3rem 3rem 1rem;
-  opacity: 0; animation: rise .9s var(--ease) .4s forwards;
-}
-.pin-board {
-  position: relative;
-  width: 100%; max-width: 480px;
-  height: 520px;
+  opacity: 0; animation: rise .9s var(--ease) .5s forwards;
 }
 
-/* Scattered pin cards */
-.pin {
-  position: absolute;
-  background: var(--surface);
-  border-radius: 18px;
-  box-shadow: 0 6px 30px rgba(44,24,16,.1), 0 1px 4px rgba(44,24,16,.06);
-  padding: 1.25rem;
-  transition: transform .3s var(--ease), box-shadow .3s;
-  cursor: default;
-  border: 1px solid rgba(220, 205, 185, .5);
-}
-.pin:hover {
-  box-shadow: 0 12px 40px rgba(44,24,16,.18);
-  z-index: 10;
-}
-
-.pin-photo {
-  width: 220px; top: 0; left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
-}
-.pin-photo:hover { transform: translateX(-50%) rotate(0deg); }
-.pin-photo img {
-  width: 100%; aspect-ratio: 3/4; object-fit: cover;
-  border-radius: 12px; display: block;
-  margin-bottom: .75rem;
-  background: var(--sand);
-}
-.pin-photo-name {
-  font-family: var(--font-display);
-  font-size: 1rem; font-weight: 600;
-  color: var(--ink);
-}
-.pin-photo-sub {
-  font-size: .75rem; color: var(--muted);
-  margin-top: .2rem; font-family: var(--font-mono);
-}
-
-.pin-stat {
-  background: var(--warm);
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
-  display: flex; align-items: center; gap: .75rem;
-}
-.pin-stat-icon { font-size: 1.4rem; flex-shrink: 0; }
-.pin-stat-num {
-  font-family: var(--font-display);
-  font-size: 1.5rem; font-weight: 700;
-  color: var(--ink); line-height: 1;
-}
-.pin-stat-lbl {
-  font-size: .72rem; color: var(--muted);
-  font-family: var(--font-body); font-weight: 400;
-  margin-top: .15rem;
-}
-
-.pin-ml  { width: 160px; top: 40px; left: -20px; transform: rotate(3deg); }
-.pin-ml:hover { transform: rotate(0deg); }
-.pin-hw  { width: 150px; top: 80px; right: 0; transform: rotate(-4deg); }
-.pin-hw:hover { transform: rotate(0deg); }
-.pin-cv  { width: 155px; bottom: 60px; left: 10px; transform: rotate(2deg); }
-.pin-cv:hover { transform: rotate(0deg); }
-.pin-open { width: 190px; bottom: 20px; right: 10px; transform: rotate(-2deg); }
-.pin-open:hover { transform: rotate(0deg); }
-
-.pin-label {
+.terminal {
+  width: 100%;
+  max-width: 500px;
+  background: #1a1512;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px rgba(26,21,18,.35),
+    0 0 0 1px rgba(255,255,255,.06),
+    inset 0 1px 0 rgba(255,255,255,.05);
   font-family: var(--font-mono);
-  font-size: .72rem; font-weight: 500;
-  color: var(--rust); text-transform: uppercase;
-  letter-spacing: .04em; margin-bottom: .35rem;
-}
-.pin-value {
-  font-family: var(--font-display);
-  font-size: 1rem; font-weight: 600;
-  color: var(--ink); line-height: 1.3;
-}
-.pin-tag-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: .6rem; }
-.ptag {
-  font-size: .7rem; padding: .2rem .6rem;
-  background: var(--cream); border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--muted); font-family: var(--font-mono);
+  font-size: .85rem;
 }
 
-.open-dot {
-  display: inline-block; width: 7px; height: 7px;
-  border-radius: 50%; background: var(--moss);
-  box-shadow: 0 0 6px var(--moss);
-  margin-right: .4rem;
-  animation: pulse 2s infinite;
+.terminal-bar {
+  background: #2c2420;
+  padding: .85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
-@keyframes pulse {
-  0%,100%{ box-shadow: 0 0 4px var(--moss); }
-  50%{ box-shadow: 0 0 10px var(--moss); }
+.t-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
+.t-dot.red   { background: #ff5f57; }
+.t-dot.amber { background: #febc2e; }
+.t-dot.green { background: #28c840; }
+.t-title {
+  flex: 1;
+  text-align: center;
+  font-size: .75rem;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .03em;
+}
+
+.terminal-body {
+  padding: 1.5rem 1.5rem 2rem;
+  line-height: 1.9;
+  min-height: 360px;
+}
+
+/* Terminal text colors */
+.t-prompt { color: var(--rust); }
+.t-cmd    { color: #e8d9c5; }
+.t-key    { color: var(--clay); }
+.t-val    { color: #8fa882; }
+.t-str    { color: #c4a3b5; }
+.t-num    { color: #febc2e; }
+.t-comment{ color: rgba(255,255,255,.25); }
+.t-obj    { color: rgba(255,255,255,.5); }
+.t-line   { display: block; }
+
+/* Cursor blink */
+.cursor {
+  display: inline-block;
+  width: 8px; height: 1.1em;
+  background: var(--rust);
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: blink 1.1s step-end infinite;
+  opacity: 0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Each line fades in */
+.t-line { opacity: 0; }
+.t-line.shown { opacity: 1; }
+
+@keyframes rise { from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)} }
 
 /* === SECTIONS === */
 section {
@@ -332,19 +304,15 @@ section {
 }
 .section-hdr { margin-bottom: 3rem; }
 
-/* Divider */
 .wave-div {
   width: 100%; overflow: hidden;
   line-height: 0; margin: 0;
 }
 .wave-div svg { display: block; width: 100%; }
 
-/* Reveal */
 .reveal { opacity:0; transform:translateY(24px); transition:opacity .65s var(--ease),transform .65s var(--ease); }
 .reveal.visible { opacity:1; transform:translateY(0); }
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-@keyframes rise { from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)} }
 
 /* === ABOUT === */
 #about { background: var(--warm); max-width: none; padding: 6rem 0; }
@@ -415,7 +383,6 @@ section {
   color: var(--cream);
 }
 
-/* Masonry-style pinterest grid */
 .projects-grid {
   columns: 3;
   column-gap: 1.25rem;
@@ -447,10 +414,7 @@ section {
 }
 .project-card.hidden { display: none; }
 
-.card-color-bar {
-  height: 5px;
-  width: 100%;
-}
+.card-color-bar { height: 5px; width: 100%; }
 .card-body { padding: 1.5rem; }
 
 .domain-badge {
@@ -494,7 +458,6 @@ section {
 }
 .project-card:hover .card-arrow { opacity: 1; transform: translate(3px,-3px); color: var(--rust); }
 
-/* Color accents per domain */
 .dom-ml  { background:rgba(154,105,169,.15); color:#9a69a9; } .bar-ml  { background:linear-gradient(90deg,#9a69a9,#c4a3b5); }
 .dom-hw  { background:rgba(181,96,58,.15);  color:var(--rust); } .bar-hw  { background:linear-gradient(90deg,var(--rust),var(--clay)); }
 .dom-cv  { background:rgba(90,102,80,.15);  color:var(--moss); } .bar-cv  { background:linear-gradient(90deg,var(--moss),var(--sage)); }
@@ -748,50 +711,19 @@ footer a:hover { color: var(--clay); }
     </div>
   </div>
 
+  <!-- TERMINAL -->
   <div class="hero-right">
-    <div class="pin-board">
-
-
-
-      <!-- ML stat -->
-      <div class="pin pin-stat pin-ml">
-        <div class="pin-stat-icon">🧠</div>
-        <div>
-          <div class="pin-stat-num" data-target="10">0</div>
-          <div class="pin-stat-lbl">ML &amp; AI Projects</div>
-        </div>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="t-dot red"></div>
+        <div class="t-dot amber"></div>
+        <div class="t-dot green"></div>
+        <div class="t-title">asmaa@portfolio ~ zsh</div>
       </div>
-
-      <!-- HW stat -->
-      <div class="pin pin-stat pin-hw" style="background:rgba(181,96,58,.08)">
-        <div class="pin-stat-icon">⚙️</div>
-        <div>
-          <div class="pin-stat-num" data-target="5">0</div>
-          <div class="pin-stat-lbl">Hardware Designs</div>
-        </div>
+      <div class="terminal-body" id="term-body">
+        <!-- lines injected by JS -->
+        <span class="cursor" id="cursor"></span>
       </div>
-
-      <!-- Repos stat -->
-      <div class="pin pin-stat pin-cv" style="background:rgba(90,102,80,.1)">
-        <div class="pin-stat-icon">📦</div>
-        <div>
-          <div class="pin-stat-num" data-target="35">0</div>
-          <div class="pin-stat-lbl">Public Repos</div>
-        </div>
-      </div>
-
-      <!-- Open to work -->
-      <div class="pin pin-open">
-        <div class="pin-label"><span class="open-dot"></span>Open to work in</div>
-        <div class="pin-tag-row">
-          <span class="ptag">ML &amp; AI</span>
-          <span class="ptag">Computer Vision</span>
-          <span class="ptag">Embedded</span>
-          <span class="ptag">HW Verification</span>
-          <span class="ptag">Software Dev</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -862,7 +794,7 @@ footer a:hover { color: var(--clay); }
         <div class="domain-badge dom-ml">🧠 Machine Learning</div>
         <div class="card-lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter · Python · Deep Learning</div>
         <div class="card-title">Multi-Task Multimodal Classification — Country &amp; Weather Prediction</div>
-        <div class="card-desc">Consolidated and cleaned data from 100+ students. Extensive EDA, then image-based, text-based, and fused multimodal classifiers evaluated for simultaneous multi-task prediction. A full research-grade ML pipeline from raw data to model benchmarking.</div>
+        <div class="card-desc">Consolidated and cleaned data from 100+ students. Extensive EDA, then image-based, text-based, and fused multimodal classifiers evaluated for simultaneous multi-task prediction.</div>
         <div class="card-outcomes">
           <span class="badge">O1 Math &amp; Science</span>
           <span class="badge">O2 Data Analysis</span>
@@ -1194,25 +1126,48 @@ const revObs = new IntersectionObserver(entries => {
 }, { threshold: .08 });
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-/* Animated counters */
-function animCounter(el) {
-  const target = parseInt(el.dataset.target, 10);
-  let start = null;
-  const dur = 1600;
-  (function step(ts) {
-    if (!start) start = ts;
-    const p = Math.min((ts - start) / dur, 1);
-    const e = 1 - Math.pow(1 - p, 4);
-    el.textContent = Math.floor(e * target) + (p >= 1 ? '+' : '');
-    if (p < 1) requestAnimationFrame(step);
-  })(performance.now());
+/* ===== TERMINAL ANIMATION ===== */
+const termBody = document.getElementById('term-body');
+const cursor   = document.getElementById('cursor');
+
+const lines = [
+  { delay: 600,  html: '<span class="t-prompt">❯</span> <span class="t-cmd">whoami</span>' },
+  { delay: 1100, html: '<span class="t-comment"># Asma\'a Fares · Computer Engineer</span>' },
+  { delay: 1700, html: '' },
+  { delay: 1900, html: '<span class="t-prompt">❯</span> <span class="t-cmd">cat profile.json</span>' },
+  { delay: 2400, html: '<span class="t-obj">{</span>' },
+  { delay: 2600, html: '  <span class="t-key">"role"</span><span class="t-obj">:</span> <span class="t-str">"Computer Systems Engineer"</span><span class="t-obj">,</span>' },
+  { delay: 2800, html: '  <span class="t-key">"focus"</span><span class="t-obj">:</span> <span class="t-str">"HW × ML × Embedded"</span><span class="t-obj">,</span>' },
+  { delay: 3000, html: '  <span class="t-key">"projects"</span><span class="t-obj">:</span> <span class="t-num">9</span><span class="t-obj">,</span>' },
+  { delay: 3200, html: '  <span class="t-key">"repos"</span><span class="t-obj">:</span> <span class="t-num">35</span><span class="t-obj">,</span>' },
+  { delay: 3400, html: '  <span class="t-key">"open_to_work"</span><span class="t-obj">:</span> <span class="t-val">true</span>' },
+  { delay: 3600, html: '<span class="t-obj">}</span>' },
+  { delay: 3800, html: '' },
+  { delay: 4000, html: '<span class="t-prompt">❯</span> <span class="t-cmd">ls skills/</span>' },
+  { delay: 4500, html: '<span class="t-val">RTL_Design</span>  <span class="t-str">UVM</span>  <span class="t-num">PyTorch</span>  <span class="t-key">CV</span>  <span class="t-val">NLP</span>' },
+  { delay: 4800, html: '<span class="t-key">RISC_Arch</span>  <span class="t-str">Cryptography</span>  <span class="t-num">Embedded_C</span>' },
+  { delay: 5000, html: '' },
+  { delay: 5200, html: '<span class="t-prompt">❯</span> <span class="t-cmd">echo $STATUS</span>' },
+  { delay: 5700, html: '<span class="t-val">graduating Jul 2026 · actively seeking roles</span>' },
+  { delay: 6000, html: '' },
+  { delay: 6200, html: '<span class="t-prompt">❯</span> <span class="t-comment">█</span>' },
+];
+
+function addLine(html) {
+  const span = document.createElement('span');
+  span.className = 't-line shown';
+  span.innerHTML = html;
+  termBody.insertBefore(span, cursor);
+  const br = document.createElement('br');
+  termBody.insertBefore(br, cursor);
 }
-const cntObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { animCounter(e.target); cntObs.unobserve(e.target); }
-  });
-}, { threshold: .5 });
-document.querySelectorAll('.pin-stat-num[data-target]').forEach(el => cntObs.observe(el));
+
+lines.forEach(({ delay, html }) => {
+  setTimeout(() => addLine(html), delay);
+});
+
+/* show cursor after short delay */
+setTimeout(() => { cursor.style.opacity = '1'; }, 400);
 
 /* Project filters */
 document.querySelectorAll('.pf-btn').forEach(btn => {

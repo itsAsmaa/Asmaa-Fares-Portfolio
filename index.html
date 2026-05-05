@@ -112,13 +112,31 @@ nav.scrolled {
   overflow: hidden;
 }
 
+/* Richer atmospheric background */
 #hero::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(197,165,130,.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(181,96,58,.1) 0%, transparent 70%);
+    radial-gradient(ellipse 55% 65% at 75% 15%, rgba(212,113,77,.13) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 70%, rgba(201,168,130,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 45% at 5% 30%, rgba(181,96,58,.09) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 20% 90%, rgba(143,168,130,.07) 0%, transparent 60%);
+}
+
+/* Large decorative number behind content */
+#hero::after {
+  content: '01';
+  position: absolute;
+  right: -0.05em;
+  bottom: -0.15em;
+  font-family: var(--font-display);
+  font-size: clamp(18rem, 28vw, 30rem);
+  font-weight: 700;
+  color: rgba(181,96,58,.04);
+  line-height: 1;
   pointer-events: none;
+  user-select: none;
+  letter-spacing: -.05em;
 }
 
 .hero-left {
@@ -127,119 +145,167 @@ nav.scrolled {
   position: relative; z-index: 1;
 }
 
+/* Status pill — more refined */
 .hero-tag {
   display: inline-flex; align-items: center; gap: .5rem;
   font-family: var(--font-mono);
-  font-size: .75rem; font-weight: 500;
+  font-size: .72rem; font-weight: 500;
   color: var(--rust);
-  background: rgba(181,96,58,.1);
-  border: 1px solid rgba(181,96,58,.25);
-  padding: .4rem 1rem;
+  background: rgba(181,96,58,.08);
+  border: 1px solid rgba(181,96,58,.2);
+  padding: .38rem 1rem;
   border-radius: 999px;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   text-transform: uppercase;
   width: max-content;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   opacity: 0; animation: rise .7s var(--ease) .1s forwards;
 }
-.hero-tag::before { content: '✦'; font-size: .6rem; }
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rust);
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .4; transform: scale(.7); }
+}
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-size: clamp(3.8rem, 7vw, 5.8rem);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -.03em;
+  line-height: 1.02;
+  letter-spacing: -.04em;
   color: var(--ink);
-  margin-bottom: 1rem;
+  margin-bottom: .25rem;
   opacity: 0; animation: rise .8s var(--ease) .2s forwards;
 }
 .hero-name em {
   font-style: italic;
   color: var(--rust);
   display: block;
+  font-size: 1.05em;
+}
+
+/* Thin ruled line separator */
+.hero-rule {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 1.5rem 0;
+  opacity: 0; animation: rise .8s var(--ease) .3s forwards;
+}
+.hero-rule::before {
+  content: '';
+  height: 1px; width: 48px;
+  background: linear-gradient(90deg, var(--rust), transparent);
+}
+.hero-rule-text {
+  font-family: var(--font-mono);
+  font-size: .72rem; color: var(--muted);
+  letter-spacing: .08em; text-transform: uppercase;
 }
 
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 300;
   color: var(--muted);
-  line-height: 1.6;
-  max-width: 480px;
-  margin-bottom: 2.5rem;
-  opacity: 0; animation: rise .8s var(--ease) .35s forwards;
+  line-height: 1.7;
+  max-width: 440px;
+  margin-bottom: 2.75rem;
+  opacity: 0; animation: rise .8s var(--ease) .38s forwards;
+}
+
+/* Inline highlight inside sub */
+.hero-sub strong {
+  color: var(--bark);
+  font-weight: 500;
 }
 
 .cta-row {
   display: flex; gap: .75rem; flex-wrap: wrap;
-  opacity: 0; animation: rise .8s var(--ease) .5s forwards;
+  opacity: 0; animation: rise .8s var(--ease) .52s forwards;
 }
 .btn {
   display: inline-flex; align-items: center; gap: .5rem;
-  font-family: var(--font-body); font-weight: 500; font-size: .9rem;
-  padding: .75rem 1.5rem;
+  font-family: var(--font-body); font-weight: 500; font-size: .88rem;
+  padding: .72rem 1.5rem;
   border-radius: 999px;
   border: none; cursor: pointer;
   transition: all .25s var(--ease);
   white-space: nowrap;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn-primary { background: var(--rust); color: var(--cream); box-shadow: 0 4px 16px rgba(181,96,58,.3); }
-.btn-primary:hover { background: var(--bark); box-shadow: 0 6px 24px rgba(181,96,58,.4); }
+.btn-primary { background: var(--rust); color: var(--cream); box-shadow: 0 4px 20px rgba(181,96,58,.28); }
+.btn-primary:hover { background: var(--bark); box-shadow: 0 8px 28px rgba(181,96,58,.38); }
 .btn-outline { background: transparent; color: var(--bark); border: 1.5px solid var(--clay); }
 .btn-outline:hover { background: var(--warm); border-color: var(--bark); }
 .btn-linkedin { background: #0A66C2; color: #fff; }
 .btn-linkedin:hover { background: #004d9a; }
 .btn svg { width: 15px; height: 15px; }
 
+/* Scroll nudge */
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 4rem;
+  display: flex; align-items: center; gap: .6rem;
+  font-family: var(--font-mono); font-size: .7rem;
+  color: var(--muted); letter-spacing: .06em; text-transform: uppercase;
+  opacity: 0; animation: rise 1s var(--ease) 1.2s forwards;
+  z-index: 1;
+}
+.scroll-hint::before {
+  content: '';
+  display: block; width: 1px; height: 36px;
+  background: linear-gradient(180deg, transparent, var(--clay));
+  animation: scroll-line 2s ease-in-out infinite;
+}
+@keyframes scroll-line {
+  0%,100% { transform: scaleY(1); opacity: .6; }
+  50% { transform: scaleY(.6); opacity: 1; }
+}
+
 /* === TERMINAL === */
 .hero-right {
   position: relative; z-index: 1;
   display: flex; align-items: center; justify-content: center;
   padding: calc(var(--nav-h) + 2rem) 3rem 3rem 1rem;
-  opacity: 0; animation: rise .9s var(--ease) .5s forwards;
+  opacity: 0; animation: rise .9s var(--ease) .55s forwards;
 }
 
 .terminal {
   width: 100%;
   max-width: 500px;
-  background: rgba(255, 252, 248, 0.55);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  background: rgba(255, 252, 248, 0.5);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.8);
   box-shadow:
-    0 8px 32px rgba(92,61,46,.12),
-    0 2px 8px rgba(92,61,46,.08),
-    inset 0 1px 0 rgba(255,255,255,.9);
+    0 12px 48px rgba(92,61,46,.13),
+    0 2px 8px rgba(92,61,46,.07),
+    inset 0 1px 0 rgba(255,255,255,.95);
   font-family: var(--font-mono);
   font-size: .85rem;
 }
 
+/* Minimal dot-only bar */
 .terminal-bar {
-  background: rgba(245, 237, 224, 0.7);
-  padding: .85rem 1.25rem;
+  background: rgba(245, 237, 224, 0.65);
+  padding: .9rem 1.25rem;
   display: flex;
   align-items: center;
-  gap: .6rem;
-  border-bottom: 1px solid rgba(201,168,130,.3);
+  gap: .55rem;
+  border-bottom: 1px solid rgba(201,168,130,.25);
 }
 .t-dot {
-  width: 12px; height: 12px;
+  width: 11px; height: 11px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.t-dot.red   { background: #ff6b6b; opacity: .7; }
-.t-dot.amber { background: #ffc947; opacity: .7; }
-.t-dot.green { background: #69db7c; opacity: .7; }
-.t-title {
-  flex: 1;
-  text-align: center;
-  font-size: .75rem;
-  color: var(--muted);
-  letter-spacing: .03em;
-}
+.t-dot.red   { background: #ff6b6b; opacity: .75; }
+.t-dot.amber { background: #ffc947; opacity: .75; }
+.t-dot.green { background: #69db7c; opacity: .75; }
 
 .terminal-body {
   padding: 1.5rem 1.5rem 2rem;
@@ -247,7 +313,6 @@ nav.scrolled {
   min-height: 360px;
 }
 
-/* Terminal text colors — tuned for light frosted bg */
 .t-prompt { color: var(--rust); font-weight: 500; }
 .t-cmd    { color: var(--ink); }
 .t-key    { color: var(--bark); }
@@ -258,7 +323,6 @@ nav.scrolled {
 .t-obj    { color: var(--clay); }
 .t-line   { display: block; }
 
-/* Cursor blink */
 .cursor {
   display: inline-block;
   width: 8px; height: 1.1em;
@@ -269,8 +333,6 @@ nav.scrolled {
   opacity: 0;
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-/* Each line fades in */
 .t-line { opacity: 0; }
 .t-line.shown { opacity: 1; }
 
@@ -658,11 +720,13 @@ footer a:hover { color: var(--clay); }
   #hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-right { display: none; }
   .hero-left { padding: 4rem 2rem 3rem; }
+  #hero::after { display: none; }
   .about-grid, .edu-grid { grid-template-columns: 1fr; }
   .about-aside, .edu-card { position: static; }
   section { padding: 4rem 2rem; }
   .about-inner, .skills-inner, .edu-inner { padding: 0 2rem; }
   .projects-grid { columns: 2; }
+  .scroll-hint { display: none; }
 }
 @media(max-width:640px){
   nav { padding: 0 1.5rem; }
@@ -692,12 +756,18 @@ footer a:hover { color: var(--clay); }
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-tag">Computer Systems Engineer</div>
+    <div class="hero-tag">Open to work · Class of 2026</div>
     <h1 class="hero-name">
       Hi, I'm
       <em>Asma'a Fares</em>
     </h1>
-    <p class="hero-sub">Hardware designer, ML engineer &amp; problem solver — from RTL to neural networks. Building at the intersection of hardware and intelligence.</p>
+    <div class="hero-rule">
+      <span class="hero-rule-text">Computer Systems Engineer</span>
+    </div>
+    <p class="hero-sub">
+      Hardware designer, ML engineer &amp; problem solver — from <strong>RTL to neural networks</strong>.
+      Building at the intersection of hardware and intelligence.
+    </p>
     <div class="cta-row">
       <a href="https://drive.google.com/file/d/1Tcb0_Fm2spYZPdTfZllYVH0OqE0ZAxg9/view?usp=drive_link" target="_blank" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -714,21 +784,22 @@ footer a:hover { color: var(--clay); }
     </div>
   </div>
 
-  <!-- TERMINAL -->
+  <!-- TERMINAL — no title bar text -->
   <div class="hero-right">
     <div class="terminal">
       <div class="terminal-bar">
         <div class="t-dot red"></div>
         <div class="t-dot amber"></div>
         <div class="t-dot green"></div>
-        <div class="t-title">asmaa@portfolio ~ zsh</div>
       </div>
       <div class="terminal-body" id="term-body">
-        <!-- lines injected by JS -->
         <span class="cursor" id="cursor"></span>
       </div>
     </div>
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-hint">Scroll</div>
 </section>
 
 <!-- ABOUT -->
@@ -1167,7 +1238,6 @@ lines.forEach(({ delay, html }) => {
   setTimeout(() => addLine(html), delay);
 });
 
-/* show cursor after short delay */
 setTimeout(() => { cursor.style.opacity = '1'; }, 400);
 
 /* Project filters */

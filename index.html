@@ -6,19 +6,15 @@
 <title>Asma'a Fares | Computer Engineer</title>
 <meta name="description" content="Asma'a Fares is a computer engineer (Birzeit University, 2026) who builds AI systems for speech, vision and multimodal problems, with a hardware verification background."/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"/>
-<script>
-/* Apply a saved theme before first paint so there is no flash */
-try{var s=localStorage.getItem('af-theme');if(s==='dark'||s==='light')document.documentElement.setAttribute('data-theme',s);}catch(e){}
-</script>
 <style>
-/* ---------- Tokens: "latte" (light) and "mocha" (dark) ---------- */
+/* ---------- Palette: sage, cream, linen, stone ---------- */
 :root{
-  --bg:#e9d9c0; --bg-2:#e0cdb0; --surface:#f2e7d5;
-  --ink:#24150c; --text:#432d1c; --muted:#6c523d; --line:#c8ae8b;
-  --accent:#7d3f15; --accent-2:#b8772a; --hi:#d99a3a;
-  --accent-soft:rgba(125,63,21,.11); --on-accent:#f7ecd9;
-  --term-bg:#180e08; --term-bar:#21150d; --term-text:#ecd9bd; --term-muted:#a58c6f;
-  --term-line:#3a281b; --term-k:#e5a54f; --term-ok:#a8c48a;
+  --bg:#f7f1ea; --bg-2:#eae0d5; --surface:#fdfaf6; --stone:#ededed;
+  --ink:#242b1e; --text:#454d3b; --muted:#77806c; --line:#d9cfc0;
+  --accent:#5b6b45; --accent-2:#879a6f; --hi:#a8b98e;
+  --accent-soft:rgba(135,154,111,.18); --on-accent:#f7f1ea;
+  --term-bg:#242b1e; --term-bar:#1c2217; --term-text:#e7e6d9; --term-muted:#949c86;
+  --term-line:#3a4331; --term-k:#a8b98e; --term-ok:#c6d8a8;
   --font-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
   --font-body:'Newsreader',Georgia,'Times New Roman',serif;
   --font-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
@@ -27,22 +23,6 @@ try{var s=localStorage.getItem('af-theme');if(s==='dark'||s==='light')document.d
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#1e130c; --bg-2:#281910; --surface:#2f1f15;
-    --ink:#f5e6cd; --text:#dcc5a5; --muted:#b39a7c; --line:#4a3424;
-    --accent:#e5a54f; --accent-2:#c98037; --hi:#f4c46a;
-    --accent-soft:rgba(229,165,79,.14); --on-accent:#1e130c;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#1e130c; --bg-2:#281910; --surface:#2f1f15;
-  --ink:#f5e6cd; --text:#dcc5a5; --muted:#b39a7c; --line:#4a3424;
-  --accent:#e5a54f; --accent-2:#c98037; --hi:#f4c46a;
-  --accent-soft:rgba(229,165,79,.14); --on-accent:#1e130c;
-  color-scheme:dark;
 }
 
 /* ---------- Base ---------- */
@@ -65,6 +45,12 @@ button{font:inherit;color:inherit}
 .tlink,.ulink{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent-2);text-decoration-thickness:1.5px;text-underline-offset:.2em}
 .ulink:hover{color:var(--accent)}
 
+/* ---------- Icons ---------- */
+.ic{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em}
+.ic-sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ic-chip{display:inline-grid;place-items:center;width:2.3rem;height:2.3rem;border-radius:11px;background:var(--accent-soft);color:var(--accent);flex:none}
+.ic-chip .ic{width:1.15rem;height:1.15rem}
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;gap:.55rem;
@@ -72,7 +58,7 @@ button{font:inherit;color:inherit}
   padding:.85rem 1.4rem;border-radius:999px;border:1.5px solid transparent;
   cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .2s;
 }
-.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn .ic{width:16px;height:16px}
 .btn:active{transform:translateY(1px)}
 .btn-primary{background:var(--accent);color:var(--on-accent)}
 .btn-primary:hover{background:var(--ink);color:var(--bg)}
@@ -85,25 +71,25 @@ button{font:inherit;color:inherit}
 .nav.scrolled,.nav.open{background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
 .nav.open{background:var(--bg)}
 .nav-inner{max-width:1240px;margin:0 auto;height:var(--nav-h);padding:0 clamp(1.25rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.brand{font:800 1.15rem/1 var(--font-display);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
-.brand i{display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--accent-2);margin-left:.18em}
-.links{display:flex;gap:1.6rem;align-items:center}
-.links a{font:500 .92rem/1 var(--font-display);color:var(--muted);text-decoration:none;padding:.4rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.brand{display:inline-flex;align-items:center;gap:.5rem;font:800 1.15rem/1 var(--font-display);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.brand .ic{width:1.15rem;height:1.15rem;color:var(--accent-2)}
+.links{display:flex;gap:1.4rem;align-items:center}
+.links a{display:inline-flex;align-items:center;gap:.4rem;font:500 .92rem/1 var(--font-display);color:var(--muted);text-decoration:none;padding:.4rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.links a .ic{width:.95rem;height:.95rem;opacity:.75}
 .links a:hover{color:var(--ink)}
 .links a.active{color:var(--ink);border-bottom-color:var(--accent)}
+.links a.active .ic{opacity:1;color:var(--accent)}
 .nav-tools{display:flex;gap:.5rem;align-items:center}
 .icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;border:1.5px solid var(--line);background:transparent;cursor:pointer;color:var(--ink);transition:background .2s,border-color .2s}
 .icon-btn:hover{background:var(--surface);border-color:var(--ink)}
-.icon-btn svg{width:18px;height:18px}
-#themeBtn[data-mode="dark"] .i-moon{display:none}
-#themeBtn[data-mode="light"] .i-sun{display:none}
+.icon-btn .ic{width:18px;height:18px}
 .menu-btn{display:none}
 
 /* ---------- Hero ---------- */
 .hero{padding:calc(var(--nav-h) + clamp(2rem,6vw,4.5rem)) 0 clamp(3.5rem,7vw,5.5rem);min-height:min(92vh,900px);display:flex;align-items:center}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;width:100%}
-.status{display:inline-flex;align-items:center;gap:.6rem;font:500 .95rem/1 var(--font-display);color:var(--text);margin-bottom:1.6rem}
-.status i{width:9px;height:9px;border-radius:50%;background:var(--hi);box-shadow:0 0 0 4px var(--accent-soft)}
+.status{display:inline-flex;align-items:center;gap:.6rem;font:500 .95rem/1 var(--font-display);color:var(--text);margin-bottom:1.6rem;background:var(--bg-2);border-radius:999px;padding:.55rem 1rem}
+.status .ic{width:1rem;height:1rem;color:var(--accent)}
 .hero h1{font:800 clamp(4.8rem,12vw,9rem)/.84 var(--font-display);letter-spacing:-.055em;color:var(--ink);margin-bottom:1.8rem;font-optical-sizing:auto}
 .hero h1 span{display:block}
 .hero-sub{font-size:clamp(1.2rem,2vw,1.42rem);line-height:1.5;color:var(--text);max-width:34ch;margin-bottom:2rem}
@@ -123,38 +109,43 @@ button{font:inherit;color:inherit}
 /* ---------- Hero graph ---------- */
 .viz{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:1rem 1.1rem 1.1rem}
 .viz-head{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;padding:.1rem .1rem .6rem}
-.seg{display:inline-flex;background:var(--bg-2);border-radius:999px;padding:3px}
-.seg button{border:0;background:transparent;color:var(--muted);font:600 .84rem/1 var(--font-display);padding:.55rem 1rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
-.seg button.on{background:var(--ink);color:var(--bg)}
-.viz-read{font:500 .84rem/1 var(--font-display);color:var(--muted)}
-.viz-read b{font-weight:800;color:var(--accent);font-size:1.15rem;margin-left:.35rem;font-variant-numeric:tabular-nums}
+.viz-title{display:inline-flex;align-items:center;gap:.6rem;font:700 .95rem/1 var(--font-display);color:var(--ink)}
+.viz-title .ic{width:1.05rem;height:1.05rem;color:var(--accent)}
+.viz-read{display:inline-flex;align-items:baseline;gap:.35rem;font:500 .84rem/1 var(--font-display);color:var(--muted)}
+.viz-read b{font-weight:800;color:var(--accent);font-size:1.15rem;font-variant-numeric:tabular-nums}
 #heroCanvas{display:block;width:100%;aspect-ratio:1.12/1;min-height:280px;touch-action:manipulation}
-.viz-cap{font-size:.98rem;line-height:1.5;color:var(--muted);padding:.5rem .3rem 0;min-height:3em}
+.viz-cap{display:flex;gap:.55rem;font-size:.98rem;line-height:1.5;color:var(--muted);padding:.5rem .3rem 0}
+.viz-cap .ic{width:1rem;height:1rem;margin-top:.28rem;color:var(--accent-2)}
 
 /* ---------- Sections with a margin heading ---------- */
 .sec{padding:clamp(3.5rem,8vw,6.5rem) 0;border-top:1px solid var(--line)}
 .split{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem)}
 .side{position:sticky;top:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 1.5rem);align-self:start}
-.side h2{font:700 clamp(1.7rem,2.6vw,2.2rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
+.side h2{display:flex;align-items:center;gap:.7rem;font:700 clamp(1.7rem,2.6vw,2.2rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
+.side h2 .ic{width:1.5rem;height:1.5rem;color:var(--accent-2)}
 .side-note{font-size:.98rem;line-height:1.5;color:var(--muted);margin-top:.7rem}
-.h3{font:700 1.25rem/1.2 var(--font-display);letter-spacing:-.015em;color:var(--ink)}
+.h3{display:flex;align-items:center;gap:.55rem;font:700 1.25rem/1.2 var(--font-display);letter-spacing:-.015em;color:var(--ink)}
+.h3 .ic{width:1.1rem;height:1.1rem;color:var(--accent-2)}
 
 /* About */
 .prose p{max-width:62ch;margin-bottom:1.15em;font-size:1.2rem;line-height:1.7}
 .prose .lead{font-size:clamp(1.35rem,2.2vw,1.6rem);line-height:1.45;color:var(--ink);max-width:40ch;margin-bottom:1.3em}
 .prose strong{color:var(--ink);font-weight:600}
 .facts{margin-top:2.2rem;border-top:1px solid var(--line)}
-.facts div{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
-.facts dt{font:500 .92rem/1.5 var(--font-display);color:var(--muted);padding-top:.1rem}
+.facts div{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.facts dt{display:flex;align-items:center;gap:.5rem;font:500 .92rem/1.5 var(--font-display);color:var(--muted);padding-top:.1rem}
+.facts dt .ic{width:1rem;height:1rem;color:var(--accent-2)}
 .facts dd{color:var(--ink)}
 
 /* Experience */
+.role-head{display:flex;align-items:center;gap:.9rem}
 .role-title{font:800 clamp(1.8rem,3vw,2.4rem)/1.08 var(--font-display);letter-spacing:-.035em;color:var(--ink)}
 .role-meta{font:500 1rem/1.5 var(--font-display);color:var(--muted);margin-top:.5rem}
 .role ul{margin:1.4rem 0 1.2rem;padding-left:1.15rem;max-width:62ch}
 .role li{margin:.65rem 0;padding-left:.2rem}
 .role li::marker{color:var(--accent-2)}
 .role-links{display:flex;gap:1.5rem;flex-wrap:wrap;font:500 .95rem/1.4 var(--font-display)}
+.role-links a{display:inline-flex;align-items:center;gap:.4rem}
 
 .lab{margin-top:2.4rem;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.2rem 1.3rem 1.3rem}
 .lab-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem}
@@ -166,19 +157,21 @@ button{font:inherit;color:inherit}
 .diagram-scroll{overflow-x:auto;margin:0 -.3rem;padding:0 .3rem}
 #uvm{display:block;width:100%;min-width:540px;height:auto}
 #uvm g[data-node]{cursor:pointer;outline:none}
-#uvm rect{fill:var(--bg);stroke:var(--line);stroke-width:1.5;transition:fill .25s,stroke .25s}
-#uvm g[data-node]:hover rect{stroke:var(--accent-2)}
-#uvm g[data-node]:focus-visible rect{stroke:var(--accent);stroke-width:3}
-#uvm g.active rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
-#uvm g.lit rect{fill:var(--accent);stroke:var(--accent)}
-#uvm g.dut rect{stroke:var(--accent-2);stroke-width:2}
+#uvm rect.box{fill:var(--bg);stroke:var(--line);stroke-width:1.5;transition:fill .25s,stroke .25s}
+#uvm g[data-node]:hover rect.box{stroke:var(--accent-2)}
+#uvm g[data-node]:focus-visible rect.box{stroke:var(--accent);stroke-width:3}
+#uvm g.active rect.box{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+#uvm g.lit rect.box{fill:var(--accent);stroke:var(--accent)}
+#uvm g.dut rect.box{stroke:var(--accent-2);stroke-width:2}
 #uvm text{fill:var(--ink);font:700 13px var(--font-display);text-anchor:middle;pointer-events:none;transition:fill .25s}
 #uvm text.s{fill:var(--muted);font:400 11px var(--font-display)}
 #uvm g.lit text{fill:var(--on-accent)}
 #uvm g.lit text.s{fill:var(--on-accent);opacity:.85}
+#uvm use.gi{color:var(--accent);pointer-events:none;transition:color .25s}
+#uvm g.lit use.gi{color:var(--on-accent)}
 #uvm .wires path{fill:none;stroke:var(--muted);stroke-width:1.5;opacity:.75}
 #uvm .head{fill:var(--muted)}
-.lab-info{border-top:1px solid var(--line);margin-top:.6rem;padding-top:.9rem;min-height:5.4rem}
+.lab-info{border-top:1px solid var(--line);margin-top:.6rem;padding-top:.9rem;min-height:5.4rem;display:flex;gap:.9rem}
 .lab-info h4{font:700 1.05rem/1.2 var(--font-display);color:var(--ink);margin-bottom:.2rem}
 .lab-info p{font-size:1.02rem;max-width:60ch}
 .lab-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.6rem}
@@ -187,33 +180,37 @@ button{font:inherit;color:inherit}
 .sub-h{margin:clamp(3rem,6vw,4.5rem) 0 .4rem}
 .tl details{border-bottom:1px solid var(--line)}
 .tl details:first-of-type{border-top:1px solid var(--line)}
-.tl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto 1.2rem;gap:1rem;align-items:baseline;padding:1.05rem 0}
+.tl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2.3rem minmax(0,1fr) auto 1.2rem;gap:.9rem;align-items:baseline;padding:1.05rem 0}
 .tl summary::-webkit-details-marker{display:none}
 .tl summary::after{content:'+';font:500 1.4rem/1 var(--font-display);color:var(--accent);text-align:center;transition:transform .25s}
 .tl details[open] summary::after{transform:rotate(45deg)}
+.tl summary .ic-chip{align-self:start}
 .tl summary strong{font:700 1.15rem/1.3 var(--font-display);color:var(--ink);letter-spacing:-.01em}
 .tl summary strong small{display:block;font:500 .95rem/1.4 var(--font-display);color:var(--muted);letter-spacing:0;margin-top:.15rem}
 .tl summary time{font:500 .92rem/1.3 var(--font-display);color:var(--muted);text-align:right}
-.tl .tl-body{padding:0 2.2rem 1.3rem 0;max-width:64ch}
+.tl .tl-body{padding:0 2.2rem 1.3rem 3.2rem;max-width:64ch}
 .tl .tl-body li{margin:.4rem 0 .4rem 1.1rem}
-.tl .tl-body a{font:500 .95rem/1.4 var(--font-display)}
+.tl .tl-body a{display:inline-flex;align-items:center;gap:.4rem;font:500 .95rem/1.4 var(--font-display)}
 
 /* Projects */
 .filters{display:flex;flex-direction:column;margin-top:1.4rem;border-top:1px solid var(--line)}
-.filters button{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer;padding:.6rem .1rem .6rem .85rem;position:relative;font:500 .98rem/1.3 var(--font-display);color:var(--muted);transition:color .2s}
+.filters button{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer;padding:.6rem .1rem .6rem .85rem;position:relative;font:500 .98rem/1.3 var(--font-display);color:var(--muted);transition:color .2s}
+.filters button .ic{width:1rem;height:1rem}
+.filters button small{margin-left:auto;font:500 .8rem/1 var(--font-display);color:var(--muted);font-variant-numeric:tabular-nums}
 .filters button::before{content:'';position:absolute;left:0;top:.55rem;bottom:.55rem;width:3px;border-radius:2px;background:var(--accent);transform:scaleY(0);transition:transform .2s}
 .filters button:hover{color:var(--ink)}
 .filters button.on{color:var(--ink);font-weight:700}
 .filters button.on::before{transform:scaleY(1)}
-.filters button small{font:500 .8rem/1 var(--font-display);color:var(--muted);font-variant-numeric:tabular-nums}
 .proj-status{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:.9rem;font:500 .92rem/1.4 var(--font-display);color:var(--muted)}
 .skill-banner{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;padding:.7rem 1rem;margin-bottom:1rem;background:var(--accent-soft);border-radius:12px;font:500 .95rem/1.3 var(--font-display);color:var(--ink)}
+.skill-banner .ic{width:1rem;height:1rem;color:var(--accent)}
 .skill-banner button{border:0;background:none;text-decoration:underline;text-underline-offset:.2em;cursor:pointer;color:var(--accent);font-weight:700}
 .index{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:minmax(0,1fr) 11rem;gap:1.5rem;padding:1.5rem 1rem 1.5rem 1.2rem;border-bottom:1px solid var(--line);cursor:pointer;position:relative;transition:background .2s}
-.row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform .25s}
+.row{display:grid;grid-template-columns:2.3rem minmax(0,1fr) 11rem;gap:1rem;padding:1.5rem 1rem 1.5rem 1.2rem;border-bottom:1px solid var(--line);cursor:pointer;position:relative;transition:background .2s}
+.row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--dom);transform:scaleY(0);transform-origin:top;transition:transform .25s}
 .row:hover,.row:focus-visible{background:var(--surface)}
 .row:hover::before,.row:focus-visible::before{transform:scaleY(1)}
+.row .ic-chip{background:color-mix(in srgb,var(--dom) 16%,transparent);color:var(--dom);margin-top:.15rem}
 .row h3{font:700 1.3rem/1.2 var(--font-display);letter-spacing:-.02em;color:var(--ink)}
 .row p{margin-top:.4rem;max-width:58ch}
 .row-meta{display:flex;flex-wrap:wrap;gap:.25rem 1rem;margin-top:.8rem;font:500 .85rem/1.4 var(--font-display);color:var(--muted)}
@@ -231,21 +228,23 @@ button{font:inherit;color:inherit}
 
 /* Project dialog */
 .modal{border:1px solid var(--line);border-radius:22px;background:var(--bg);color:var(--text);width:min(680px,calc(100vw - 2rem));max-height:calc(100vh - 3rem);padding:0;margin:auto;overflow:hidden}
-.modal::backdrop{background:rgba(24,12,4,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.modal::backdrop{background:rgba(36,43,30,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .modal[open]{animation:pop .22s cubic-bezier(.2,.8,.2,1)}
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
 .modal-inner{padding:clamp(1.4rem,3vw,2.2rem);overflow-y:auto;max-height:calc(100vh - 3rem)}
 .modal-x{position:absolute;top:.9rem;right:.9rem;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:var(--bg);cursor:pointer;display:grid;place-items:center;z-index:2}
 .modal-x:hover{background:var(--surface);border-color:var(--ink)}
-.modal-x svg{width:16px;height:16px}
+.modal-x .ic{width:16px;height:16px}
 .pm-kind{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font:500 .9rem/1.3 var(--font-display);color:var(--muted);margin-bottom:.7rem;padding-right:2.6rem}
-.pm-kind i{width:9px;height:9px;border-radius:50%;background:var(--dom)}
+.pm-kind .ic-chip{width:1.9rem;height:1.9rem;border-radius:9px;background:color-mix(in srgb,var(--dom) 16%,transparent);color:var(--dom)}
+.pm-kind .ic-chip .ic{width:1rem;height:1rem}
 .modal h3{font:800 clamp(1.5rem,3vw,2rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);padding-right:2rem}
 .pm-sum{margin:.9rem 0 1.2rem;font-size:1.15rem;line-height:1.55}
 .pm-metrics{display:flex;gap:1.8rem;flex-wrap:wrap;padding:1rem 0;border-block:1px solid var(--line);margin-bottom:1.2rem}
 .pm-metrics b{display:block;font:800 1.9rem/1 var(--font-display);letter-spacing:-.04em;color:var(--accent)}
 .pm-metrics span{font:500 .82rem/1.3 var(--font-display);color:var(--muted)}
-.modal h4{font:700 .95rem/1.3 var(--font-display);color:var(--ink);margin-bottom:.4rem}
+.modal h4{display:flex;align-items:center;gap:.45rem;font:700 .95rem/1.3 var(--font-display);color:var(--ink);margin-bottom:.4rem}
+.modal h4 .ic{width:1rem;height:1rem;color:var(--accent-2)}
 .modal ul{padding-left:1.15rem;margin-bottom:1.2rem}
 .modal li{margin:.45rem 0}
 .modal li::marker{color:var(--accent-2)}
@@ -255,27 +254,29 @@ button{font:inherit;color:inherit}
 
 /* Terminal */
 .cmds{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.9rem}
-.cmds button{font:500 .82rem/1 var(--font-mono);padding:.5rem .8rem;border-radius:8px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
+.cmds button{display:inline-flex;align-items:center;gap:.4rem;font:500 .82rem/1 var(--font-mono);padding:.5rem .8rem;border-radius:8px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
+.cmds button .ic{width:.9rem;height:.9rem;color:var(--accent)}
 .cmds button:hover{background:var(--surface);border-color:var(--accent-2)}
 .term{background:var(--term-bg);color:var(--term-text);border-radius:14px;border:1px solid var(--term-line);overflow:hidden;font:400 .86rem/1.7 var(--font-mono)}
 .term-bar{display:flex;align-items:center;gap:.45rem;padding:.7rem 1rem;background:var(--term-bar);border-bottom:1px solid var(--term-line)}
-.term-bar i{width:10px;height:10px;border-radius:50%;background:#7d5a3a}
-.term-bar i:nth-child(2){background:#a47a45}
-.term-bar i:nth-child(3){background:#c99a52}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#5b6b45}
+.term-bar i:nth-child(2){background:#879a6f}
+.term-bar i:nth-child(3){background:#a8b98e}
 .term-bar span{margin-left:.6rem;color:var(--term-muted);font-size:.75rem}
 .term-out{height:390px;overflow-y:auto;padding:1rem 1.2rem;overscroll-behavior:contain}
 .tline{white-space:pre-wrap;word-break:break-word;margin-bottom:.1rem}
 .t-p{color:var(--term-k)} .t-k{color:var(--term-k)} .t-d{color:var(--term-muted)} .t-ok{color:var(--term-ok)}
 .term .tlink{background:none;border:0;font:inherit;cursor:pointer;color:var(--term-k);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:.2em;padding:0}
-.term .tlink:hover{color:#f4c46a}
+.term .tlink:hover{color:#d3e2ba}
 .term-in{display:flex;align-items:center;gap:.7rem;padding:.75rem 1.2rem;border-top:1px solid var(--term-line);background:var(--term-bar)}
 .term-in input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--term-text);font:400 16px var(--font-mono);caret-color:var(--term-k)}
 .term-in:focus-within{box-shadow:inset 0 0 0 1.5px var(--term-k)}
 
 /* Skills */
-.skill-group{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1rem;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.skill-group{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:1rem;padding:1.15rem 0;border-bottom:1px solid var(--line)}
 .skill-group:first-of-type{border-top:1px solid var(--line)}
-.skill-group h3{font:700 1rem/1.6 var(--font-display);color:var(--ink)}
+.skill-group h3{display:flex;align-items:center;gap:.55rem;font:700 1rem/1.6 var(--font-display);color:var(--ink)}
+.skill-group h3 .ic{width:1.05rem;height:1.05rem;color:var(--accent-2)}
 .skill-list{display:flex;flex-wrap:wrap;gap:.35rem 1.3rem;font-size:1.15rem;line-height:1.5}
 .sk{color:var(--text)}
 button.sk{background:none;border:0;cursor:pointer;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent-2);text-decoration-thickness:1.5px;text-underline-offset:.22em;padding:0;transition:color .2s}
@@ -289,43 +290,50 @@ button.sk.on sup{color:var(--on-accent)}
 .edu-meta{font:500 1rem/1.5 var(--font-display);color:var(--muted);margin:.5rem 0 1.4rem}
 .edu-focus{max-width:62ch;margin-bottom:2.2rem}
 .tabs{display:flex;gap:1.6rem;border-bottom:1px solid var(--line);overflow-x:auto}
-.tabs button{border:0;background:none;padding:.6rem 0;margin-bottom:-1px;border-bottom:2px solid transparent;font:500 .95rem/1.2 var(--font-display);color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button{display:inline-flex;align-items:center;gap:.45rem;border:0;background:none;padding:.6rem 0;margin-bottom:-1px;border-bottom:2px solid transparent;font:500 .95rem/1.2 var(--font-display);color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button .ic{width:1rem;height:1rem}
 .tabs button:hover{color:var(--ink)}
 .tabs button.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:700}
+.tabs button.on .ic{color:var(--accent)}
 .course-panel{columns:2 16rem;column-gap:2rem;padding:1.2rem 0 0;list-style:none}
 .course-panel li{padding:.3rem 0;break-inside:avoid;border-bottom:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
 .course-panel li.pick{color:var(--ink);font-weight:600}
-.course-note{margin-top:1rem;font-size:.95rem;color:var(--muted)}
 
 /* Certifications */
 .certs{border-top:1px solid var(--line)}
-.cert{display:grid;grid-template-columns:10rem minmax(0,1fr) auto;gap:1rem;align-items:baseline;padding:1.05rem 1rem 1.05rem .2rem;border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s,padding .2s}
+.cert{display:grid;grid-template-columns:2.3rem 10rem minmax(0,1fr) auto;gap:1rem;align-items:center;padding:1.05rem 1rem 1.05rem .2rem;border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s,padding .2s}
 .cert:hover{background:var(--surface);padding-left:1rem}
 .cert b{font:700 .98rem/1.3 var(--font-display);color:var(--ink)}
 .cert span{color:var(--text)}
 .cert em{font:500 .88rem/1.3 var(--font-display);color:var(--muted);font-style:normal;text-align:right}
 
 /* Contact */
-.mail{display:inline-block;font:800 clamp(1.5rem,4.2vw,3.1rem)/1.05 var(--font-display);letter-spacing:-.04em;color:var(--ink);text-decoration:none;overflow-wrap:anywhere;border-bottom:3px solid var(--accent-2);padding-bottom:.1em;transition:color .2s,border-color .2s}
+.mail{display:inline-flex;align-items:center;gap:.6rem;font:800 clamp(1.4rem,4vw,2.9rem)/1.05 var(--font-display);letter-spacing:-.04em;color:var(--ink);text-decoration:none;overflow-wrap:anywhere;border-bottom:3px solid var(--accent-2);padding-bottom:.1em;transition:color .2s,border-color .2s}
+.mail .ic{width:.8em;height:.8em;color:var(--accent-2)}
 .mail:hover{color:var(--accent);border-color:var(--accent)}
 .contact-lead{font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.5;color:var(--ink);max-width:36ch;margin-bottom:1.6rem}
 .contact-row{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.6rem 0 0}
 .compose{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);max-width:640px}
 .compose label{display:block;font:700 .95rem/1.3 var(--font-display);color:var(--ink);margin:1rem 0 .4rem}
 .compose .topics{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.7rem}
-.compose .topics button{font:500 .88rem/1 var(--font-display);padding:.55rem .9rem;border-radius:999px;border:1.5px solid var(--line);background:transparent;cursor:pointer;color:var(--text);transition:all .2s}
+.compose .topics button{display:inline-flex;align-items:center;gap:.4rem;font:500 .88rem/1 var(--font-display);padding:.55rem .9rem;border-radius:999px;border:1.5px solid var(--line);background:transparent;cursor:pointer;color:var(--text);transition:all .2s}
+.compose .topics button .ic{width:.9rem;height:.9rem;color:var(--accent)}
 .compose .topics button:hover{border-color:var(--accent-2)}
 .compose .topics button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.compose .topics button.on .ic{color:var(--hi)}
 .compose input,.compose textarea{width:100%;font:400 1.05rem/1.5 var(--font-body);color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:.75rem .9rem;resize:vertical}
 .compose input:focus,.compose textarea:focus{outline:none;border-color:var(--accent)}
 .compose .contact-row{margin-top:1.1rem}
 .elsewhere{margin-top:2.4rem;border-top:1px solid var(--line);max-width:640px}
-.elsewhere a{display:flex;justify-content:space-between;gap:1rem;padding:.95rem .2rem;border-bottom:1px solid var(--line);text-decoration:none;font:700 1rem/1.3 var(--font-display);color:var(--ink);transition:padding .2s,background .2s}
-.elsewhere a span{font-weight:500;color:var(--muted)}
+.elsewhere a{display:flex;align-items:center;gap:.6rem;padding:.95rem .2rem;border-bottom:1px solid var(--line);text-decoration:none;font:700 1rem/1.3 var(--font-display);color:var(--ink);transition:padding .2s,background .2s}
+.elsewhere a .ic{width:1.05rem;height:1.05rem;color:var(--accent-2)}
+.elsewhere a span{margin-left:auto;font-weight:500;color:var(--muted)}
 .elsewhere a:hover{background:var(--surface);padding-left:.8rem}
 
 footer{border-top:1px solid var(--line);padding:2rem 0 2.6rem;font:500 .9rem/1.5 var(--font-display);color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer span{display:inline-flex;align-items:center;gap:.45rem}
+footer .ic{width:1rem;height:1rem;color:var(--accent-2)}
 .toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);font:600 .9rem/1 var(--font-display);padding:.8rem 1.2rem;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:200}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
@@ -337,7 +345,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .split{grid-template-columns:minmax(0,1fr);gap:1.6rem}
   .side{position:static}
   .filters{flex-direction:row;flex-wrap:wrap;gap:.4rem;border-top:0;margin-top:1rem}
-  .filters button{width:auto;border:1.5px solid var(--line);border-radius:999px;padding:.5rem .9rem;gap:.5rem}
+  .filters button{width:auto;border:1.5px solid var(--line);border-radius:999px;padding:.5rem .9rem}
+  .filters button small{margin-left:.2rem}
   .filters button::before{display:none}
   .filters button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
   .filters button.on small{color:var(--bg)}
@@ -348,15 +357,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 }
 @media (max-width:640px){
   .facts div,.skill-group{grid-template-columns:1fr;gap:.2rem}
-  .row{grid-template-columns:1fr;gap:.9rem}
-  .row-side{align-items:flex-start;text-align:left;flex-direction:row;flex-wrap:wrap;gap:.3rem .9rem;align-items:baseline}
+  .row{grid-template-columns:2.3rem minmax(0,1fr);gap:.8rem}
+  .row-side{grid-column:1/-1;align-items:baseline;text-align:left;flex-direction:row;flex-wrap:wrap;gap:.3rem .9rem}
   .row-side b{margin-top:0;font-size:1.6rem}
   .row.featured .row-side b{font-size:2rem}
-  .cert{grid-template-columns:1fr;gap:.15rem}
-  .cert em{text-align:left}
-  .tl summary{grid-template-columns:minmax(0,1fr) 1.2rem}
-  .tl summary time{grid-column:1;grid-row:2;text-align:left}
-  .tl summary::after{grid-column:2;grid-row:1}
+  .cert{grid-template-columns:2.3rem minmax(0,1fr);gap:.15rem 1rem}
+  .cert em{text-align:left;grid-column:2}
+  .cert b,.cert span{grid-column:2}
+  .tl summary{grid-template-columns:2.3rem minmax(0,1fr) 1.2rem}
+  .tl summary time{grid-column:2;grid-row:2;text-align:left}
+  .tl summary::after{grid-column:3;grid-row:1}
+  .tl .tl-body{padding-left:0}
   .lab-stats div{text-align:left}
   .term-out{height:340px}
 }
@@ -367,25 +378,66 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 </style>
 </head>
 <body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg class="ic-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="13" rx="2.5"/><path d="M8.5 7V5.5A2 2 0 0 1 10.5 3.5h3a2 2 0 0 1 2 2V7M2.5 12.5h19"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h3.8l2 2.2H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 11h18"/></symbol>
+  <symbol id="i-term" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M7 10l2.6 2.4L7 14.8M12.5 15H17"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.2l1.9 5.1 5.1 1.9-5.1 1.9L12 17.2l-1.9-5.1L5 10.2l5.1-1.9z"/><path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2.5 8.5L12 4.2l9.5 4.3L12 12.8z"/><path d="M6.5 10.6V15c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-4.4M21 9v5"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.6 13.2L7.2 21l4.8-2.4L16.8 21l-1.4-7.8"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 7.5l9 5.5 9-5.5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.2 12h17.6M12 3c2.8 3.6 2.8 14.4 0 18M12 3c-2.8 3.6-2.8 14.4 0 18"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 6.2 12 6.2 21.5 12 21.5 12 18 17.8 12 17.8 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.2a4 4 0 0 1 8 0V10M12 14v3"/></symbol>
+  <symbol id="i-board" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M12.5 8.5H18M6 14.5h12M6 17.5h7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.7 18.4h2.6"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 7.5L4 12l5 4.5M15 7.5L20 12l-5 4.5M13.4 5l-2.8 14"/></symbol>
+  <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5.2a3.4 3.4 0 0 0-6.3 1.7 3 3 0 0 0-.4 5.4A3.4 3.4 0 0 0 8.9 19 3.1 3.1 0 0 0 12 16.4z"/><path d="M12 5.2a3.4 3.4 0 0 1 6.3 1.7 3 3 0 0 1 .4 5.4A3.4 3.4 0 0 1 15.1 19 3.1 3.1 0 0 1 12 16.4z"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3.5 10v4M7.5 6.5v11M11.5 3.5v17M15.5 8v8M19.5 10.5v3"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.8 3.6a4.8 4.8 0 0 1 5.6 6.3l-9.6 9.6a2.3 2.3 0 0 1-3.3-3.3l9.6-9.6a4.8 4.8 0 0 1-2.3-3z"/><path d="M5.5 5.5l3 3"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.5 18.5a4.3 4.3 0 0 1-.5-8.6 5.3 5.3 0 0 1 10.2 1.2 3.7 3.7 0 0 1-.7 7.4z"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6.5" cy="5.5" r="2.3"/><circle cx="6.5" cy="18.5" r="2.3"/><circle cx="17.5" cy="8.5" r="2.3"/><path d="M6.5 7.8v8.4M17.5 10.8c0 3.4-3 4.3-6.2 4.9"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.8 10.8l6.5-3.9M8.8 13.2l6.5 3.9"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M19 14v5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19V6.5A1.5 1.5 0 0 1 5.5 5H10"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11M7.5 10L12 14.5 16.5 10M5 20.5h14"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.4l11 6.6-11 6.6z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.3S4.5 15.6 4.5 10.3A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.9c0 5.3-7.5 10-7.5 10z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.3"/><path d="M2.8 20c0-3.3 2.8-5.4 6.2-5.4s6.2 2.1 6.2 5.4"/><path d="M16.5 5.2a3.3 3.3 0 0 1 0 6.4M17.5 14.9c2.2.6 3.7 2.2 3.7 4.6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15.5H5.5A1.5 1.5 0 0 0 4 20z"/><path d="M4 18.5V20a1.5 1.5 0 0 0 1.5 1.5H19"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M20.5 3.5L10 14M20.5 3.5l-6.6 17-3.9-6.5-6.5-3.9z"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.7 7.1L10.4 10.6M6.7 16.9l3.7-3.5M13.6 10.6l3.7-3.5M13.6 13.4l3.7 3.5"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5.5 3.5l13 6.2-5.7 2.1-2.1 5.7z"/><path d="M13.5 13.5L19 19"/></symbol>
+  <symbol id="i-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9" ry="4" /><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4c0 9-5.4 13.5-11 13.5A5 5 0 0 1 4.6 10C7.4 5.8 13 6.6 20 4z"/><path d="M4 20c2.5-4.5 6-7.3 10.5-9"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M9.5 4.8a4.6 4.6 0 0 0 5.7 5.7l5 5a2.1 2.1 0 0 1-3 3l-5-5A4.6 4.6 0 0 1 6.5 7.8z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9.5 17a6 6 0 1 1 5 0v1.5h-5z"/><path d="M10 21h4"/></symbol>
+</svg>
+
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="brand" aria-label="Asma'a Fares, back to top">Asma'a Fares<i></i></a>
+    <a href="#top" class="brand" aria-label="Asma'a Fares, back to top"><svg class="ic"><use href="#i-leaf"/></svg>Asma'a Fares</a>
     <nav class="links" id="links" aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#terminal">Terminal</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><svg class="ic"><use href="#i-user"/></svg>About</a>
+      <a href="#experience"><svg class="ic"><use href="#i-brief"/></svg>Experience</a>
+      <a href="#projects"><svg class="ic"><use href="#i-folder"/></svg>Projects</a>
+      <a href="#terminal"><svg class="ic"><use href="#i-term"/></svg>Terminal</a>
+      <a href="#skills"><svg class="ic"><use href="#i-spark"/></svg>Skills</a>
+      <a href="#education"><svg class="ic"><use href="#i-cap"/></svg>Education</a>
+      <a href="#contact"><svg class="ic"><use href="#i-mail"/></svg>Contact</a>
     </nav>
     <div class="nav-tools">
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme">
-        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ic"><use href="#i-menu"/></svg>
       </button>
     </div>
   </div>
@@ -396,28 +448,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="status"><i></i>Graduated July 2026. Open to work.</p>
+      <p class="status"><svg class="ic"><use href="#i-check"/></svg>Graduated July 2026. Open to work.</p>
       <h1><span>Asma'a</span><span>Fares</span></h1>
       <p class="hero-sub">I build AI systems that hold up under testing: speech, vision and multimodal models, backed by the verification habits I picked up checking RISC-V hardware.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://drive.google.com/file/d/1Tcb0_Fm2spYZPdTfZllYVH0OqE0ZAxg9/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download CV
+          <svg class="ic"><use href="#i-download"/></svg>Download CV
         </a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/asmaafares" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn btn-ghost" href="https://github.com/itsAsmaa" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/asmaafares" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-share"/></svg>LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/itsAsmaa" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-branch"/></svg>GitHub</a>
       </div>
     </div>
 
     <div class="viz">
       <div class="viz-head">
-        <div class="seg" role="group" aria-label="Choose how to read the graph">
-          <button type="button" id="modeH" class="on" aria-pressed="true">Silicon</button>
-          <button type="button" id="modeN" aria-pressed="false">Neural network</button>
-        </div>
-        <div class="viz-read"><span id="readLabel">Instructions retired</span><b id="readVal">0</b></div>
+        <span class="viz-title"><svg class="ic"><use href="#i-flow"/></svg>Signal flow</span>
+        <span class="viz-read">Signals completed<b id="readVal">0</b></span>
       </div>
-      <canvas id="heroCanvas" role="img" aria-label="An animated graph that morphs between a five-stage processor pipeline and a neural network. Click a node to send a signal through it."></canvas>
-      <p class="viz-cap" id="vizCap"></p>
+      <canvas id="heroCanvas" role="img" aria-label="An animated graph of connected nodes. Signals travel from left to right. Click a node to send one."></canvas>
+      <p class="viz-cap"><svg class="ic"><use href="#i-cursor"/></svg><span>Click a node to send a signal through it, or click empty space to release a burst.</span></p>
     </div>
   </div>
 </section>
@@ -425,7 +474,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ ABOUT ============ -->
 <section class="sec" id="about">
   <div class="wrap split">
-    <div class="side"><h2>About</h2></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-user"/></svg>About</h2></div>
     <div>
       <div class="prose">
         <p class="lead">I like the part of engineering where hardware discipline meets machine intelligence.</p>
@@ -434,10 +483,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
         <p>I also teach and organize. I ran live Verilog walkthroughs for four semesters and have logged 505 volunteer hours at Birzeit.</p>
       </div>
       <dl class="facts">
-        <div><dt>Based in</dt><dd>Ramallah, Palestine</dd></div>
-        <div><dt>Degree</dt><dd>B.Sc. Computer Engineering, Intelligent Systems emphasis</dd></div>
-        <div><dt>Work eligibility</dt><dd>Eligible to work in the U.S.</dd></div>
-        <div><dt>Looking for</dt><dd>ML engineering, hardware and design verification, embedded AI, software development</dd></div>
+        <div><dt><svg class="ic"><use href="#i-pin"/></svg>Based in</dt><dd>Ramallah, Palestine</dd></div>
+        <div><dt><svg class="ic"><use href="#i-cap"/></svg>Degree</dt><dd>B.Sc. Computer Engineering, Intelligent Systems emphasis</dd></div>
+        <div><dt><svg class="ic"><use href="#i-globe"/></svg>Work eligibility</dt><dd>Eligible to work in the U.S.</dd></div>
+        <div><dt><svg class="ic"><use href="#i-target"/></svg>Looking for</dt><dd>ML engineering, hardware and design verification, embedded AI, software development</dd></div>
       </dl>
     </div>
   </div>
@@ -446,10 +495,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ EXPERIENCE ============ -->
 <section class="sec" id="experience">
   <div class="wrap split">
-    <div class="side"><h2>Experience</h2></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-brief"/></svg>Experience</h2></div>
     <div>
       <article class="role">
-        <h3 class="role-title">Design Verification Intern</h3>
+        <div class="role-head">
+          <span class="ic-chip"><svg class="ic"><use href="#i-chip"/></svg></span>
+          <h3 class="role-title">Design Verification Intern</h3>
+        </div>
         <p class="role-meta">Orion VLSI Technologies, July to October 2025</p>
         <ul>
           <li>Built a UVM/SystemVerilog verification environment for a Bit Manipulation Unit (BMU) targeting the RISC-V BitManip extension instructions.</li>
@@ -457,15 +509,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
           <li>Layered the testbench (driver, monitor, scoreboard, coverage collector) so it checks DUT outputs independently against a reference model.</li>
         </ul>
         <div class="role-links">
-          <a class="ulink" href="https://github.com/itsAsmaa/BMU_Design_Verification-Project" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
-          <a class="ulink" href="https://www.linkedin.com/posts/activity-7389762236061310976-q5bY" target="_blank" rel="noopener noreferrer">Internship post</a>
+          <a class="ulink" href="https://github.com/itsAsmaa/BMU_Design_Verification-Project" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-branch"/></svg>Code on GitHub</a>
+          <a class="ulink" href="https://www.linkedin.com/posts/activity-7389762236061310976-q5bY" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-ext"/></svg>Internship post</a>
         </div>
       </article>
 
       <div class="lab">
         <div class="lab-head">
           <div>
-            <h3 class="h3">Explore the testbench</h3>
+            <h3 class="h3"><svg class="ic"><use href="#i-board"/></svg>Explore the testbench</h3>
             <p>Select a block to see what it does, or run a test through it.</p>
           </div>
           <div class="lab-stats" aria-live="polite">
@@ -487,47 +539,47 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
               <path d="M205,165 H65 V188" marker-end="url(#arr)"/>
               <path d="M205,280 V242" marker-end="url(#arr)"/>
             </g>
-            <g data-node="seq" tabindex="0" role="button" aria-label="Sequences"><rect x="10" y="40" width="110" height="50" rx="10"/><text x="65" y="62">Sequences</text><text class="s" x="65" y="78">random + directed</text></g>
-            <g data-node="sqr" tabindex="0" role="button" aria-label="Sequencer"><rect x="150" y="40" width="110" height="50" rx="10"/><text x="205" y="70">Sequencer</text></g>
-            <g data-node="drv" tabindex="0" role="button" aria-label="Driver"><rect x="290" y="40" width="100" height="50" rx="10"/><text x="340" y="70">Driver</text></g>
-            <g data-node="dut" class="dut" tabindex="0" role="button" aria-label="Device under test, Bit Manipulation Unit"><rect x="440" y="30" width="140" height="70" rx="12"/><text x="510" y="62">DUT</text><text class="s" x="510" y="80">Bit Manipulation Unit</text></g>
-            <g data-node="mon" tabindex="0" role="button" aria-label="Monitor"><rect x="290" y="190" width="100" height="50" rx="10"/><text x="340" y="220">Monitor</text></g>
-            <g data-node="scb" tabindex="0" role="button" aria-label="Scoreboard"><rect x="150" y="190" width="110" height="50" rx="10"/><text x="205" y="220">Scoreboard</text></g>
-            <g data-node="cov" tabindex="0" role="button" aria-label="Coverage collector"><rect x="10" y="190" width="110" height="50" rx="10"/><text x="65" y="212">Coverage</text><text class="s" x="65" y="228">collector</text></g>
-            <g data-node="ref" tabindex="0" role="button" aria-label="Reference model"><rect x="150" y="280" width="110" height="42" rx="10"/><text x="205" y="306">Reference model</text></g>
+            <g data-node="seq" tabindex="0" role="button" aria-label="Sequences"><rect class="box" x="10" y="40" width="110" height="50" rx="10"/><use class="gi" href="#i-spark" x="22" y="56" width="16" height="16"/><text x="72" y="62">Sequences</text><text class="s" x="72" y="78">random + directed</text></g>
+            <g data-node="sqr" tabindex="0" role="button" aria-label="Sequencer"><rect class="box" x="150" y="40" width="110" height="50" rx="10"/><use class="gi" href="#i-flow" x="162" y="56" width="16" height="16"/><text x="212" y="70">Sequencer</text></g>
+            <g data-node="drv" tabindex="0" role="button" aria-label="Driver"><rect class="box" x="290" y="40" width="100" height="50" rx="10"/><use class="gi" href="#i-send" x="300" y="56" width="16" height="16"/><text x="348" y="70">Driver</text></g>
+            <g data-node="dut" class="dut" tabindex="0" role="button" aria-label="Device under test, Bit Manipulation Unit"><rect class="box" x="440" y="30" width="140" height="70" rx="12"/><use class="gi" href="#i-chip" x="452" y="56" width="18" height="18"/><text x="518" y="62">DUT</text><text class="s" x="518" y="80">Bit Manipulation Unit</text></g>
+            <g data-node="mon" tabindex="0" role="button" aria-label="Monitor"><rect class="box" x="290" y="190" width="100" height="50" rx="10"/><use class="gi" href="#i-eye" x="300" y="206" width="16" height="16"/><text x="348" y="220">Monitor</text></g>
+            <g data-node="scb" tabindex="0" role="button" aria-label="Scoreboard"><rect class="box" x="150" y="190" width="110" height="50" rx="10"/><use class="gi" href="#i-check" x="160" y="206" width="16" height="16"/><text x="212" y="220">Scoreboard</text></g>
+            <g data-node="cov" tabindex="0" role="button" aria-label="Coverage collector"><rect class="box" x="10" y="190" width="110" height="50" rx="10"/><use class="gi" href="#i-target" x="20" y="206" width="16" height="16"/><text x="72" y="212">Coverage</text><text class="s" x="72" y="228">collector</text></g>
+            <g data-node="ref" tabindex="0" role="button" aria-label="Reference model"><rect class="box" x="150" y="280" width="110" height="42" rx="10"/><use class="gi" href="#i-book" x="158" y="293" width="15" height="15"/><text x="215" y="306">Reference model</text></g>
           </svg>
         </div>
         <div class="lab-info" aria-live="polite">
-          <h4 id="uvmTitle"></h4>
-          <p id="uvmText"></p>
+          <span class="ic-chip"><svg class="ic"><use href="#i-bulb"/></svg></span>
+          <div><h4 id="uvmTitle"></h4><p id="uvmText"></p></div>
         </div>
         <div class="lab-actions">
-          <button class="btn btn-primary" id="uvmRun" type="button">Run a test</button>
+          <button class="btn btn-primary" id="uvmRun" type="button"><svg class="ic"><use href="#i-play"/></svg>Run a test</button>
           <span id="uvmHint">Watch a test travel through the environment.</span>
         </div>
       </div>
 
-      <h3 class="h3 sub-h">Leadership and community</h3>
+      <h3 class="h3 sub-h"><svg class="ic"><use href="#i-users"/></svg>Leadership and community</h3>
       <div class="tl">
         <details open>
-          <summary><strong>Hardware team member<small>Academic Industrial Club, Birzeit University</small></strong><time>Sep 2025 to Jul 2026</time></summary>
+          <summary><span class="ic-chip"><svg class="ic"><use href="#i-chip"/></svg></span><strong>Hardware team member<small>Academic Industrial Club, Birzeit University</small></strong><time>Sep 2025 to Jul 2026</time></summary>
           <div class="tl-body"><p>Contributing to hands-on hardware design and build projects with the club's Hardware Team.</p>
-            <p><a class="ulink" href="https://www.linkedin.com/posts/activity-7382511489145991169-eLFu" target="_blank" rel="noopener noreferrer">Club post</a></p></div>
+            <p><a class="ulink" href="https://www.linkedin.com/posts/activity-7382511489145991169-eLFu" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-ext"/></svg>Club post</a></p></div>
         </details>
         <details>
-          <summary><strong>Volunteer service, 505 hours<small>Dean of Student Affairs, Birzeit University</small></strong><time>Sep 2021 to Jul 2026</time></summary>
+          <summary><span class="ic-chip"><svg class="ic"><use href="#i-heart"/></svg></span><strong>Volunteer service, 505 hours<small>Dean of Student Affairs, Birzeit University</small></strong><time>Sep 2021 to Jul 2026</time></summary>
           <div class="tl-body"><p>Recognized with a volunteer certificate for 505 hours of voluntary work across on- and off-campus activities.</p>
-            <p><a class="ulink" href="https://www.linkedin.com/posts/activity-7450156973326782464-GZ10" target="_blank" rel="noopener noreferrer">Certificate post</a></p></div>
+            <p><a class="ulink" href="https://www.linkedin.com/posts/activity-7450156973326782464-GZ10" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-ext"/></svg>Certificate post</a></p></div>
         </details>
         <details>
-          <summary><strong>Volunteer Verilog tutor<small>Self-organized, Birzeit University</small></strong><time>4 semesters</time></summary>
+          <summary><span class="ic-chip"><svg class="ic"><use href="#i-play"/></svg></span><strong>Volunteer Verilog tutor<small>Self-organized, Birzeit University</small></strong><time>4 semesters</time></summary>
           <div class="tl-body"><p>Led live Zoom sessions that walked fellow students through the Verilog course projects, and published the recordings so they stay useful for later cohorts.</p>
-            <p><a class="ulink" href="https://youtube.com/playlist?list=PLUgjvwEvF29zSIBzToazIX70IVTm2PMl5&si=mW9LD5rfp0pOd0RT" target="_blank" rel="noopener noreferrer">Watch the session recordings</a></p></div>
+            <p><a class="ulink" href="https://youtube.com/playlist?list=PLUgjvwEvF29zSIBzToazIX70IVTm2PMl5&si=mW9LD5rfp0pOd0RT" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-play"/></svg>Watch the session recordings</a></p></div>
         </details>
         <details>
-          <summary><strong>Tech team member<small>Google Developer Student Clubs, Birzeit University</small></strong><time>Sep 2023 to Sep 2024</time></summary>
+          <summary><span class="ic-chip"><svg class="ic"><use href="#i-users"/></svg></span><strong>Tech team member<small>Google Developer Student Clubs, Birzeit University</small></strong><time>Sep 2023 to Sep 2024</time></summary>
           <div class="tl-body"><ul><li>Ran technical workshops and mentored peers on educational technology initiatives.</li><li>Helped plan projects and organize events over a one-year term.</li></ul>
-            <p><a class="ulink" href="https://www.linkedin.com/posts/activity-7248432460827418624-yeF2" target="_blank" rel="noopener noreferrer">Club post</a></p></div>
+            <p><a class="ulink" href="https://www.linkedin.com/posts/activity-7248432460827418624-yeF2" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-ext"/></svg>Club post</a></p></div>
         </details>
       </div>
     </div>
@@ -538,13 +590,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <section class="sec" id="projects">
   <div class="wrap split">
     <div class="side">
-      <h2>Projects</h2>
+      <h2><svg class="ic"><use href="#i-folder"/></svg>Projects</h2>
       <p class="side-note">Select a project for the details.</p>
       <div class="filters" id="filters" role="group" aria-label="Filter projects by area"></div>
     </div>
     <div>
       <div class="proj-status"><span id="projCount"></span></div>
-      <div class="skill-banner" id="skillBanner" hidden><span>Projects that use <strong id="skillName"></strong></span><button type="button" id="skillClear">Clear filter</button></div>
+      <div class="skill-banner" id="skillBanner" hidden><svg class="ic"><use href="#i-spark"/></svg><span>Projects that use <strong id="skillName"></strong></span><button type="button" id="skillClear">Clear filter</button></div>
       <div class="index" id="index"></div>
       <p class="empty" id="projEmpty" hidden>No project matches both filters. Clear one of them to see more.</p>
     </div>
@@ -554,15 +606,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ TERMINAL ============ -->
 <section class="sec" id="terminal">
   <div class="wrap split">
-    <div class="side"><h2>Terminal</h2><p class="side-note">A faster way to browse. Type help, or click a command.</p></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-term"/></svg>Terminal</h2><p class="side-note">A faster way to browse. Type help, or click a command.</p></div>
     <div>
       <div class="cmds" id="cmds">
-        <button type="button" data-cmd="help">help</button>
-        <button type="button" data-cmd="whoami">whoami</button>
-        <button type="button" data-cmd="projects">projects</button>
-        <button type="button" data-cmd="skills">skills</button>
-        <button type="button" data-cmd="coverage">coverage</button>
-        <button type="button" data-cmd="contact">contact</button>
+        <button type="button" data-cmd="help"><svg class="ic"><use href="#i-bulb"/></svg>help</button>
+        <button type="button" data-cmd="whoami"><svg class="ic"><use href="#i-user"/></svg>whoami</button>
+        <button type="button" data-cmd="projects"><svg class="ic"><use href="#i-folder"/></svg>projects</button>
+        <button type="button" data-cmd="skills"><svg class="ic"><use href="#i-spark"/></svg>skills</button>
+        <button type="button" data-cmd="coverage"><svg class="ic"><use href="#i-target"/></svg>coverage</button>
+        <button type="button" data-cmd="contact"><svg class="ic"><use href="#i-mail"/></svg>contact</button>
       </div>
       <div class="term">
         <div class="term-bar"><i></i><i></i><i></i><span>asmaa@birzeit: ~</span></div>
@@ -576,7 +628,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ SKILLS ============ -->
 <section class="sec" id="skills">
   <div class="wrap split">
-    <div class="side"><h2>Skills</h2><p class="side-note">Underlined skills open the projects that use them. The small number is the project count.</p></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-spark"/></svg>Skills</h2><p class="side-note">Underlined skills open the projects that use them. The small number is the project count.</p></div>
     <div id="skillsGrid"></div>
   </div>
 </section>
@@ -584,7 +636,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ EDUCATION ============ -->
 <section class="sec" id="education">
   <div class="wrap split">
-    <div class="side"><h2>Education</h2></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-cap"/></svg>Education</h2></div>
     <div>
       <h3 class="edu-degree">B.Sc. in Computer Engineering</h3>
       <p class="edu-meta">Birzeit University, Faculty of Engineering and Technology. Graduated July 2026. Emphasis: Intelligent Systems.</p>
@@ -598,7 +650,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ CERTIFICATIONS ============ -->
 <section class="sec" id="certifications">
   <div class="wrap split">
-    <div class="side"><h2>Certifications</h2></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-award"/></svg>Certifications</h2></div>
     <div class="certs" id="certs"></div>
   </div>
 </section>
@@ -606,34 +658,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <!-- ============ CONTACT ============ -->
 <section class="sec" id="contact">
   <div class="wrap split">
-    <div class="side"><h2>Contact</h2></div>
+    <div class="side"><h2><svg class="ic"><use href="#i-mail"/></svg>Contact</h2></div>
     <div>
       <p class="contact-lead">I'm looking for roles in ML engineering, hardware verification, embedded AI and software development. Collaborations and internships are welcome too.</p>
-      <a class="mail" id="mailLink" href="mailto:faresasmaa205@gmail.com">faresasmaa205@gmail.com</a>
+      <a class="mail" id="mailLink" href="mailto:faresasmaa205@gmail.com"><svg class="ic"><use href="#i-mail"/></svg>faresasmaa205@gmail.com</a>
       <div class="contact-row">
-        <button class="btn btn-ghost" id="copyMail" type="button">Copy email address</button>
+        <button class="btn btn-ghost" id="copyMail" type="button"><svg class="ic"><use href="#i-copy"/></svg>Copy email address</button>
       </div>
 
       <form class="compose" id="compose" onsubmit="return false">
-        <h3 class="h3">Or draft a message here</h3>
+        <h3 class="h3"><svg class="ic"><use href="#i-send"/></svg>Or draft a message here</h3>
         <label for="subject">Subject</label>
         <div class="topics" id="topics">
-          <button type="button" data-s="Job opportunity">Job opportunity</button>
-          <button type="button" data-s="Project collaboration">Project collaboration</button>
-          <button type="button" data-s="Just saying hi">Just saying hi</button>
+          <button type="button" data-s="Job opportunity"><svg class="ic"><use href="#i-brief"/></svg>Job opportunity</button>
+          <button type="button" data-s="Project collaboration"><svg class="ic"><use href="#i-users"/></svg>Project collaboration</button>
+          <button type="button" data-s="Just saying hi"><svg class="ic"><use href="#i-leaf"/></svg>Just saying hi</button>
         </div>
         <input id="subject" type="text" placeholder="Pick a topic or write your own"/>
         <label for="msg">Message</label>
         <textarea id="msg" rows="5" placeholder="A few lines about what you have in mind"></textarea>
         <div class="contact-row">
-          <a class="btn btn-primary" id="mailBtn" href="mailto:faresasmaa205@gmail.com" target="_blank" rel="noopener noreferrer">Open in my email app</a>
+          <a class="btn btn-primary" id="mailBtn" href="mailto:faresasmaa205@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-send"/></svg>Open in my email app</a>
         </div>
       </form>
 
       <div class="elsewhere">
-        <a href="https://www.linkedin.com/in/asmaafares" target="_blank" rel="noopener noreferrer">LinkedIn <span>linkedin.com/in/asmaafares</span></a>
-        <a href="https://github.com/itsAsmaa" target="_blank" rel="noopener noreferrer">GitHub <span>github.com/itsAsmaa</span></a>
-        <a href="https://drive.google.com/file/d/1Tcb0_Fm2spYZPdTfZllYVH0OqE0ZAxg9/view?usp=drive_link" target="_blank" rel="noopener noreferrer">CV <span>Google Drive</span></a>
+        <a href="https://www.linkedin.com/in/asmaafares" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-share"/></svg>LinkedIn <span>linkedin.com/in/asmaafares</span></a>
+        <a href="https://github.com/itsAsmaa" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-branch"/></svg>GitHub <span>github.com/itsAsmaa</span></a>
+        <a href="https://drive.google.com/file/d/1Tcb0_Fm2spYZPdTfZllYVH0OqE0ZAxg9/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-download"/></svg>CV <span>Google Drive</span></a>
       </div>
     </div>
   </div>
@@ -642,13 +694,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>&copy; 2026 Asma'a Fares</span>
-    <span>Computer Engineering, Birzeit University, Palestine</span>
+    <span><svg class="ic"><use href="#i-leaf"/></svg>&copy; 2026 Asma'a Fares</span>
+    <span><svg class="ic"><use href="#i-pin"/></svg>Computer Engineering, Birzeit University, Palestine</span>
   </div>
 </footer>
 
 <dialog class="modal" id="pmodal" aria-labelledby="pmTitle">
-  <button class="modal-x" id="pmClose" type="button" aria-label="Close project details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="modal-x" id="pmClose" type="button" aria-label="Close project details"><svg class="ic"><use href="#i-x"/></svg></button>
   <div class="modal-inner" id="pmBody"></div>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -665,6 +717,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const EMAIL = "faresasmaa205@gmail.com";
 const root = document.documentElement;
+const icon = (name, cls) => `<svg class="ic${cls ? " " + cls : ""}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+const chip = name => `<span class="ic-chip">${icon(name)}</span>`;
 
 let toastTimer;
 function toast(msg) {
@@ -679,7 +733,8 @@ function toast(msg) {
    Data
    ============================================================ */
 const DOM = { ml: "ML and AI", cv: "Computer vision", hw: "Hardware", sec: "Security", emb: "Embedded", mobile: "Mobile" };
-const DOMCOL = { ml: "#c48a3a", cv: "#8f8a44", hw: "#8a4a20", sec: "#a8552f", emb: "#c99a52", mobile: "#a86a58" };
+const DOMCOL = { ml: "#5b6b45", cv: "#7d8f62", hw: "#8d7f5f", sec: "#6f7d6a", emb: "#a0916b", mobile: "#879a6f" };
+const DOMIC = { ml: "brain", cv: "eye", hw: "chip", sec: "lock", emb: "board", mobile: "phone" };
 const GH = "https://github.com/itsAsmaa/";
 
 const DATA = {
@@ -847,49 +902,28 @@ const DATA = {
     }
   ],
   skills: [
-    { title: "Languages", items: ["Python", "C", "C++", "Java", "JavaScript", "SystemVerilog", "Verilog", "VHDL", "MATLAB", "MIPS Assembly", "Shell"] },
-    { title: "Machine learning", items: ["scikit-learn", "PyTorch", "TensorFlow", "Keras", "Transfer learning", "Multimodal fusion", "Regression", "Clustering", "EDA"] },
-    { title: "Vision, speech and NLP", items: ["OpenCV", "Librosa", "Praat", "SIFT/BoVW", "TF-IDF", "NLTK", "spaCy", "AraBERT", "Grad-CAM"] },
-    { title: "Hardware and verification", items: ["UVM", "RTL design", "Pipelined processors", "Embedded C/C++", "Arduino", "DSP", "Applied cryptography", "Synopsys EDA", "PSpice"] },
-    { title: "Tools and cloud", items: ["Git/GitHub", "Linux", "Jupyter", "Gradio", "Streamlit", "AWS", "Android", "SQL", "kagglehub", "JavaFX", "Packet Tracer"] }
+    { title: "Languages", ic: "code", items: ["Python", "C", "C++", "Java", "JavaScript", "SystemVerilog", "Verilog", "VHDL", "MATLAB", "MIPS Assembly", "Shell"] },
+    { title: "Machine learning", ic: "brain", items: ["scikit-learn", "PyTorch", "TensorFlow", "Keras", "Transfer learning", "Multimodal fusion", "Regression", "Clustering", "EDA"] },
+    { title: "Vision, speech and NLP", ic: "wave", items: ["OpenCV", "Librosa", "Praat", "SIFT/BoVW", "TF-IDF", "NLTK", "spaCy", "AraBERT", "Grad-CAM"] },
+    { title: "Hardware and verification", ic: "chip", items: ["UVM", "RTL design", "Pipelined processors", "Embedded C/C++", "Arduino", "DSP", "Applied cryptography", "Synopsys EDA", "PSpice"] },
+    { title: "Tools and cloud", ic: "wrench", items: ["Git/GitHub", "Linux", "Jupyter", "Gradio", "Streamlit", "AWS", "Android", "SQL", "kagglehub", "JavaFX", "Packet Tracer"] }
   ],
   courses: {
-    "Math and science": ["Calculus I and II", "General Physics I and II", "Linear Algebra", "Discrete Mathematics", "Probability and Statistics", "Ordinary Differential Equations"],
-    "Computer science": ["Object-Oriented Programming", "Data Structures and Algorithms", "Operating Systems", "Computer Networks", "Database Systems", "Software Engineering", "Artificial Intelligence", "Digital Signal Processing", "Applied Cryptography", "Computer Engineering Ethics", "Engineering Project Management"],
-    "Hardware": ["Digital Systems", "Computer Organization and Microprocessors", "Advanced Digital Systems Design", "Computer Architecture", "Digital Integrated Circuits", "Circuit Analysis", "Analog Electronics", "Signals and Systems", "Communication Systems", "Interfacing Techniques", "Real-Time and Embedded Systems"],
-    "Electives": ["Machine Learning", "Computer Vision", "Natural Language Processing", "Spoken Language Processing", "Hardware Design Verification"]
+    "Math and science": { ic: "atom", list: ["Calculus I and II", "General Physics I and II", "Linear Algebra", "Discrete Mathematics", "Probability and Statistics", "Ordinary Differential Equations"] },
+    "Computer science": { ic: "code", list: ["Object-Oriented Programming", "Data Structures and Algorithms", "Operating Systems", "Computer Networks", "Database Systems", "Software Engineering", "Artificial Intelligence", "Digital Signal Processing", "Applied Cryptography", "Computer Engineering Ethics", "Engineering Project Management"] },
+    "Hardware": { ic: "chip", list: ["Digital Systems", "Computer Organization and Microprocessors", "Advanced Digital Systems Design", "Computer Architecture", "Digital Integrated Circuits", "Circuit Analysis", "Analog Electronics", "Signals and Systems", "Communication Systems", "Interfacing Techniques", "Real-Time and Embedded Systems"] },
+    "Electives": { ic: "spark", list: ["Machine Learning", "Computer Vision", "Natural Language Processing", "Spoken Language Processing", "Hardware Design Verification"] }
   },
   certs: [
-    { org: "DataCamp", title: "Machine Learning Scientist in Python (85 hours)", date: "Feb 2026", url: "https://www.datacamp.com/completed/statement-of-accomplishment/track/408f4b454a1d940570cea6eae2fbc87650b4c830" },
-    { org: "AWS Educate", title: "Cloud 101, Compute, Storage, Networking, Security, Cloud Ops and Serverless", date: "Badges", url: "https://www.credly.com/users/asmaa-fares.d5c55e5a/badges/credly" },
-    { org: "Microsoft Learn Student Ambassadors", title: "Git and GitHub workshop", date: "Certificate", url: "https://www.linkedin.com/posts/activity-7254598400833187840-HS2H" },
-    { org: "GSG", title: "Authorized Linux Student Instructor", date: "Certificate", url: "https://credsverse.com/credentials/a4ec3f70-d13e-4d7d-ad59-aff1d4ebeb15?preview=1" },
-    { org: "GSG", title: "Advanced JavaScript Bootcamp (24 hours)", date: "Certificate", url: "https://www.linkedin.com/posts/activity-7104814529527635970-62QR" }
+    { org: "DataCamp", ic: "brain", title: "Machine Learning Scientist in Python (85 hours)", date: "Feb 2026", url: "https://www.datacamp.com/completed/statement-of-accomplishment/track/408f4b454a1d940570cea6eae2fbc87650b4c830" },
+    { org: "AWS Educate", ic: "cloud", title: "Cloud 101, Compute, Storage, Networking, Security, Cloud Ops and Serverless", date: "Badges", url: "https://www.credly.com/users/asmaa-fares.d5c55e5a/badges/credly" },
+    { org: "Microsoft Learn Student Ambassadors", ic: "branch", title: "Git and GitHub workshop", date: "Certificate", url: "https://www.linkedin.com/posts/activity-7254598400833187840-HS2H" },
+    { org: "GSG", ic: "term", title: "Authorized Linux Student Instructor", date: "Certificate", url: "https://credsverse.com/credentials/a4ec3f70-d13e-4d7d-ad59-aff1d4ebeb15?preview=1" },
+    { org: "GSG", ic: "code", title: "Advanced JavaScript Bootcamp (24 hours)", date: "Certificate", url: "https://www.linkedin.com/posts/activity-7104814529527635970-62QR" }
   ]
 };
 const byId = Object.fromEntries(DATA.projects.map(p => [p.id, p]));
 const skillCount = key => DATA.projects.filter(p => p.tags.some(t => t.toLowerCase() === key.toLowerCase())).length;
-
-/* ============================================================
-   Theme
-   ============================================================ */
-const themeBtn = $("#themeBtn");
-const sysDark = matchMedia("(prefers-color-scheme: dark)");
-const curTheme = () => root.getAttribute("data-theme") || (sysDark.matches ? "dark" : "light");
-function paintThemeBtn() {
-  const t = curTheme();
-  themeBtn.dataset.mode = t;
-  themeBtn.setAttribute("aria-label", t === "dark" ? "Switch to the light theme" : "Switch to the dark theme");
-}
-function setTheme(t) {
-  root.setAttribute("data-theme", t);
-  try { localStorage.setItem("af-theme", t); } catch (e) { /* storage may be unavailable */ }
-  paintThemeBtn();
-  window.dispatchEvent(new Event("themechange"));
-}
-themeBtn.addEventListener("click", () => setTheme(curTheme() === "dark" ? "light" : "dark"));
-if (sysDark.addEventListener) sysDark.addEventListener("change", () => { paintThemeBtn(); window.dispatchEvent(new Event("themechange")); });
-paintThemeBtn();
 
 /* ============================================================
    Navigation
@@ -917,7 +951,7 @@ if ("IntersectionObserver" in window) {
 }
 
 /* ============================================================
-   Hero graph: one graph, read as a pipeline or a neural network
+   Hero graph: signals travelling through a layered graph
    ============================================================ */
 (function heroGraph() {
   const cv = $("#heroCanvas");
@@ -925,50 +959,29 @@ if ("IntersectionObserver" in window) {
   const ctx = cv.getContext("2d");
 
   const SIZES = [3, 4, 5, 4, 3];
-  const ROWS = [[1, 2, 3], [0, 1, 3, 4], [0, 1, 2, 3, 4], [0, 1, 3, 4], [1, 2, 3]];
-  const LAB_H = ["Fetch", "Decode", "Execute", "Memory", "Write back"];
-  const LAB_N = ["Input", "Hidden 1", "Hidden 2", "Hidden 3", "Output"];
-  const COPY = {
-    h: { label: "Instructions retired", cap: "A five-stage processor pipeline. Instructions move from fetch to write back, one stage per clock. Click a stage to issue an instruction, or click empty space to send a burst." },
-    n: { label: "Predictions made", cap: "The same nodes, read as a neural network. Activations flow layer by layer toward the output. Click a neuron to fire it, or click empty space to run a forward pass." }
-  };
-
   const nodes = [], cols = [];
   SIZES.forEach((n, c) => {
     cols[c] = [];
     for (let i = 0; i < n; i++) {
-      const nd = { id: nodes.length, c, i, hx: c / 4, hy: ROWS[c][i] / 4, nx: c / 4, ny: (i + 1) / (n + 1), x: 0, y: 0, act: 0, hov: 0, hovT: false };
+      const nd = { id: nodes.length, c, nx: c / 4, ny: (i + 1) / (n + 1), x: 0, y: 0, act: 0, hov: 0, hovT: false };
       nodes.push(nd); cols[c].push(nd);
     }
   });
-  const eH = [], eN = [];
-  for (let c = 0; c < 4; c++) {
-    cols[c].forEach(a => {
-      let best = null, bd = 99, any = false;
-      cols[c + 1].forEach(b => {
-        const d = Math.abs(a.hy - b.hy) * 4;
-        if (d < bd) { bd = d; best = b; }
-        if (d <= 1) { eH.push({ a, b }); any = true; }
-        eN.push({ a, b });
-      });
-      if (!any) eH.push({ a, b: best });
-    });
-  }
-  const outs = { h: nodes.map(() => []), n: nodes.map(() => []) };
-  eH.forEach(e => outs.h[e.a.id].push(e));
-  eN.forEach(e => outs.n[e.a.id].push(e));
+  const edges = [];
+  for (let c = 0; c < 4; c++) cols[c].forEach(a => cols[c + 1].forEach(b => edges.push({ a, b })));
+  const outs = nodes.map(() => []);
+  edges.forEach(e => outs[e.a.id].push(e));
 
-  let mode = "h", tt = 0, tm = 0;
-  const counts = { h: 0, n: 0 };
+  let count = 0;
   const pulses = [];
   let W = 0, H = 0, C = {};
 
+  const readVal = $("#readVal");
   function readColors() {
     const s = getComputedStyle(root), g = n => s.getPropertyValue(n).trim();
-    C = { accent: g("--accent"), hi: g("--hi"), ink: g("--ink"), muted: g("--muted"), line: g("--line"), surface: g("--surface") };
+    C = { accent: g("--accent"), hi: g("--hi"), muted: g("--muted"), line: g("--line"), surface: g("--surface") };
   }
   readColors();
-  window.addEventListener("themechange", readColors);
 
   function resize() {
     const r = cv.getBoundingClientRect();
@@ -982,70 +995,23 @@ if ("IntersectionObserver" in window) {
   addEventListener("resize", resize);
   resize();
 
-  const padX = () => Math.max(30, W * 0.075);
-  const PT = 26, PB = 44;
-  const nodeR = () => Math.max(7, Math.min(12, W * 0.028));
+  const padX = () => Math.max(30, W * 0.085);
+  const PT = 28, PB = 28;
+  const nodeR = () => Math.max(7, Math.min(13, W * 0.03));
 
-  function layout(e) {
+  function layout() {
     const px = padX(), w = W - 2 * px, h = H - PT - PB;
-    nodes.forEach(n => {
-      n.x = px + (n.hx + (n.nx - n.hx) * e) * w;
-      n.y = PT + (n.hy + (n.ny - n.hy) * e) * h;
-    });
-  }
-  function rr(x, y, w, h, r) {
-    r = Math.min(r, w / 2, h / 2);
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
-  }
-  function pathPt(kind, e, t) {
-    const a = e.a, b = e.b;
-    if (kind === "n") return [a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t];
-    const mx = a.x + (b.x - a.x) * 0.3, s1 = Math.abs(mx - a.x), s2 = Math.abs(b.y - a.y), s3 = Math.abs(b.x - mx);
-    let d = t * (s1 + s2 + s3 || 1);
-    if (d <= s1) return [a.x + (mx - a.x) * (s1 ? d / s1 : 0), a.y];
-    d -= s1;
-    if (d <= s2) return [mx, a.y + (b.y - a.y) * (s2 ? d / s2 : 0)];
-    d -= s2;
-    return [mx + (b.x - mx) * (s3 ? d / s3 : 0), b.y];
+    nodes.forEach(n => { n.x = px + n.nx * w; n.y = PT + n.ny * h; });
   }
 
   function fire(nd, chain) {
     nd.act = 1;
-    const list = outs[mode][nd.id].slice();
+    const list = outs[nd.id];
     if (!list.length) return;
-    let pick = list;
-    if (mode === "h") pick = [list[Math.floor(Math.random() * list.length)]];
-    else if (chain) pick = list.sort(() => Math.random() - 0.5).slice(0, 2);
-    pick.forEach(e => pulses.push({ kind: mode, e, t: 0, sp: 0.85 + Math.random() * 0.45, chain }));
+    const pick = chain ? list.slice().sort(() => Math.random() - 0.5).slice(0, 2) : [list[Math.floor(Math.random() * list.length)]];
+    pick.forEach(e => pulses.push({ e, t: 0, sp: 0.8 + Math.random() * 0.5, chain }));
   }
   function burst() { cols[0].forEach(n => fire(n, true)); }
-
-  const readVal = $("#readVal"), readLabel = $("#readLabel"), cap = $("#vizCap");
-  function paintCopy() {
-    readLabel.textContent = COPY[mode].label;
-    readVal.textContent = counts[mode];
-    cap.textContent = COPY[mode].cap;
-    $("#modeH").classList.toggle("on", mode === "h");
-    $("#modeN").classList.toggle("on", mode === "n");
-    $("#modeH").setAttribute("aria-pressed", String(mode === "h"));
-    $("#modeN").setAttribute("aria-pressed", String(mode === "n"));
-  }
-  function setMode(m) {
-    if (m === mode) return;
-    mode = m; tt = m === "h" ? 0 : 1;
-    pulses.length = 0;
-    if (reduceMotion) tm = tt;
-    paintCopy();
-  }
-  $("#modeH").addEventListener("click", () => setMode("h"));
-  $("#modeN").addEventListener("click", () => setMode("n"));
-  paintCopy();
 
   cv.addEventListener("pointermove", ev => {
     const r = cv.getBoundingClientRect(), mx = ev.clientX - r.left, my = ev.clientY - r.top, R = nodeR() * 2.2;
@@ -1055,68 +1021,39 @@ if ("IntersectionObserver" in window) {
   });
   cv.addEventListener("pointerleave", () => nodes.forEach(n => n.hovT = false));
   cv.addEventListener("click", ev => {
-    const r = cv.getBoundingClientRect(), mx = ev.clientX - r.left, my = ev.clientY - r.top, R = nodeR() * 2.2;
-    let hit = null, bd = R;
+    const r = cv.getBoundingClientRect(), mx = ev.clientX - r.left, my = ev.clientY - r.top;
+    let hit = null, bd = nodeR() * 2.2;
     nodes.forEach(n => { const d = Math.hypot(n.x - mx, n.y - my); if (d < bd) { bd = d; hit = n; } });
     if (hit) fire(hit, true); else burst();
   });
 
-  function draw(e) {
+  function draw() {
     ctx.clearRect(0, 0, W, H);
-    const R = nodeR(), px = padX(), w = W - 2 * px, h = H - PT - PB;
+    const R = nodeR();
 
-    // board grid, fades out in network mode
-    if (e < 0.98) {
-      ctx.globalAlpha = (1 - e) * 0.55; ctx.fillStyle = C.line;
-      for (let gx = 0; gx <= 8; gx++) for (let gy = 0; gy <= 8; gy++) ctx.fillRect(px + gx / 8 * w - 1, PT + gy / 8 * h - 1, 2, 2);
-      // pipeline registers between stages
-      ctx.globalAlpha = (1 - e) * 0.7; ctx.strokeStyle = C.line; ctx.lineWidth = 1.2; ctx.setLineDash([4, 5]);
-      for (let c = 0; c < 4; c++) {
-        const x = (cols[c][0].x + cols[c + 1][0].x) / 2;
-        ctx.beginPath(); ctx.moveTo(x, PT - 12); ctx.lineTo(x, H - PB + 8); ctx.stroke();
-      }
-      ctx.setLineDash([]);
-    }
-    // wires
-    ctx.lineJoin = "round";
-    if (e < 0.98) {
-      ctx.globalAlpha = (1 - e) * 0.7; ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6; ctx.beginPath();
-      eH.forEach(ed => { const a = ed.a, b = ed.b, mx = a.x + (b.x - a.x) * 0.3; ctx.moveTo(a.x, a.y); ctx.lineTo(mx, a.y); ctx.lineTo(mx, b.y); ctx.lineTo(b.x, b.y); });
-      ctx.stroke();
-    }
-    if (e > 0.02) {
-      ctx.globalAlpha = e * 0.38; ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.beginPath();
-      eN.forEach(ed => { ctx.moveTo(ed.a.x, ed.a.y); ctx.lineTo(ed.b.x, ed.b.y); });
-      ctx.stroke();
-    }
-    // pulses
+    ctx.globalAlpha = 0.35; ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.beginPath();
+    edges.forEach(e => { ctx.moveTo(e.a.x, e.a.y); ctx.lineTo(e.b.x, e.b.y); });
+    ctx.stroke();
+
     pulses.forEach(p => {
-      const pt = pathPt(p.kind, p.e, p.t);
-      ctx.globalAlpha = 0.28; ctx.fillStyle = C.hi; ctx.beginPath(); ctx.arc(pt[0], pt[1], 8, 0, 6.2832); ctx.fill();
-      ctx.globalAlpha = 1; ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(pt[0], pt[1], 3.4, 0, 6.2832); ctx.fill();
+      const x = p.e.a.x + (p.e.b.x - p.e.a.x) * p.t, y = p.e.a.y + (p.e.b.y - p.e.a.y) * p.t;
+      ctx.globalAlpha = 0.3; ctx.fillStyle = C.hi; ctx.beginPath(); ctx.arc(x, y, 8, 0, 6.2832); ctx.fill();
+      ctx.globalAlpha = 1; ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, 6.2832); ctx.fill();
     });
-    // nodes: square with a small radius in silicon mode, circle in network mode
+
     nodes.forEach(n => {
-      const glow = Math.max(n.act, n.hov * 0.75), r = R * (1 + n.hov * 0.16), rad = 3 + (r - 3) * e;
+      const glow = Math.max(n.act, n.hov * 0.75), r = R * (1 + n.hov * 0.18);
       if (glow > 0.02) {
         ctx.globalAlpha = glow * 0.3; ctx.fillStyle = C.hi;
-        rr(n.x - r - 5, n.y - r - 5, 2 * r + 10, 2 * r + 10, rad + 5); ctx.fill();
+        ctx.beginPath(); ctx.arc(n.x, n.y, r + 7, 0, 6.2832); ctx.fill();
       }
       ctx.globalAlpha = 1; ctx.fillStyle = C.surface; ctx.strokeStyle = C.muted; ctx.lineWidth = 1.6;
-      rr(n.x - r, n.y - r, 2 * r, 2 * r, rad); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 6.2832); ctx.fill(); ctx.stroke();
       if (glow > 0.02) {
         ctx.globalAlpha = Math.min(1, glow); ctx.fillStyle = C.accent; ctx.strokeStyle = C.accent;
-        rr(n.x - r, n.y - r, 2 * r, 2 * r, rad); ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 6.2832); ctx.fill(); ctx.stroke();
       }
     });
-    // stage labels
-    ctx.font = "600 12px 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif";
-    ctx.textAlign = "center"; ctx.fillStyle = C.muted;
-    for (let c = 0; c < 5; c++) {
-      const x = cols[c][0].x, y = H - 14;
-      ctx.globalAlpha = 1 - e; ctx.fillText(LAB_H[c], x, y);
-      ctx.globalAlpha = e; ctx.fillText(LAB_N[c], x, y);
-    }
     ctx.globalAlpha = 1;
   }
 
@@ -1124,10 +1061,7 @@ if ("IntersectionObserver" in window) {
   function frame(ts) {
     if (!running) return;
     const dt = Math.min(0.05, (ts - last) / 1000 || 0.016); last = ts;
-    tm += (tt - tm) * Math.min(1, dt * 5);
-    if (Math.abs(tt - tm) < 0.002) tm = tt;
-    const e = tm * tm * (3 - 2 * tm);
-    layout(e);
+    layout();
 
     if (!reduceMotion) {
       spawn -= dt;
@@ -1142,7 +1076,7 @@ if ("IntersectionObserver" in window) {
       if (p.t >= 1) {
         pulses.splice(i, 1);
         const b = p.e.b; b.act = 1;
-        if (b.c === 4) { counts[mode]++; readVal.textContent = counts[mode]; }
+        if (b.c === 4) { count++; readVal.textContent = count; }
         else if (p.chain) fire(b, true);
       }
     }
@@ -1150,7 +1084,7 @@ if ("IntersectionObserver" in window) {
       n.act = Math.max(0, n.act - dt * 1.7);
       n.hov += ((n.hovT ? 1 : 0) - n.hov) * Math.min(1, dt * 12);
     });
-    draw(e);
+    draw();
     requestAnimationFrame(frame);
   }
   function start() { if (running || !onScreen || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(frame); }
@@ -1159,7 +1093,7 @@ if ("IntersectionObserver" in window) {
     new IntersectionObserver(es => { onScreen = es[0].isIntersecting; onScreen ? start() : stop(); }).observe(cv);
   }
   document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
-  layout(0); draw(0); start();
+  layout(); draw(); start();
 })();
 
 /* ============================================================
@@ -1171,6 +1105,7 @@ const indexEl = $("#index");
 function rowHTML(p) {
   const d = p.domains[0];
   return `<article class="row${p.featured ? " featured" : ""}" data-id="${p.id}" style="--dom:${DOMCOL[d]}" tabindex="0" role="button" aria-haspopup="dialog" aria-label="${esc(p.title)}. Open details.">
+    ${chip(DOMIC[d])}
     <div><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
       <div class="row-meta"><span>${esc(p.kind)}</span>${p.tags.slice(0, 4).map(t => `<span>${esc(t)}</span>`).join("")}</div></div>
     <div class="row-side"><span class="row-dom"><i></i>${DOM[d]}</span>${p.fig ? `<b>${esc(p.fig[0])}</b><span class="row-fl">${esc(p.fig[1])}</span>` : ""}</div>
@@ -1178,10 +1113,10 @@ function rowHTML(p) {
 }
 indexEl.innerHTML = DATA.projects.map(rowHTML).join("");
 
-const FILTERS = [["all", "All projects"], ["ml", "ML and AI"], ["cv", "Computer vision"], ["hw", "Hardware"], ["sec", "Security"], ["emb", "Embedded"], ["mobile", "Mobile"]];
-$("#filters").innerHTML = FILTERS.map(([k, label]) => {
+const FILTERS = [["all", "All projects", "folder"], ["ml", "ML and AI", "brain"], ["cv", "Computer vision", "eye"], ["hw", "Hardware", "chip"], ["sec", "Security", "lock"], ["emb", "Embedded", "board"], ["mobile", "Mobile", "phone"]];
+$("#filters").innerHTML = FILTERS.map(([k, label, ic]) => {
   const n = k === "all" ? DATA.projects.length : DATA.projects.filter(p => p.domains.includes(k)).length;
-  return `<button type="button" data-filter="${k}">${label}<small>${n}</small></button>`;
+  return `<button type="button" data-filter="${k}">${icon(ic)}${label}<small>${n}</small></button>`;
 }).join("");
 
 function applyFilters() {
@@ -1212,15 +1147,15 @@ function openProject(id) {
   const d = p.domains[0];
   dlg.style.setProperty("--dom", DOMCOL[d]);
   $("#pmBody").innerHTML = `
-    <div class="pm-kind"><i></i><span>${DOM[d]}</span><span>${esc(p.kind)}</span></div>
+    <div class="pm-kind">${chip(DOMIC[d])}<span>${DOM[d]}</span><span>${esc(p.kind)}</span></div>
     <h3 id="pmTitle">${esc(p.title)}</h3>
     <p class="pm-sum">${esc(p.summary)}</p>
     ${p.metrics ? `<div class="pm-metrics">${p.metrics.map(m => `<div><b>${esc(m[0])}</b><span>${esc(m[1])}</span></div>`).join("")}</div>` : ""}
-    <h4>What I built</h4>
+    <h4>${icon("tool")}What I built</h4>
     <ul>${p.points.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
     <div class="pm-tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join("")}</div>
     <div class="pm-actions">
-      <a class="btn btn-primary" href="${p.link}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <a class="btn btn-primary" href="${p.link}" target="_blank" rel="noopener noreferrer">${icon("branch")}View on GitHub</a>
       <button class="btn btn-ghost" type="button" data-close>Close</button>
     </div>`;
   if (typeof dlg.showModal === "function") { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
@@ -1242,7 +1177,7 @@ indexEl.addEventListener("keydown", e => {
    Skills: each skill that appears in a project links to it
    ============================================================ */
 $("#skillsGrid").innerHTML = DATA.skills.map(g => `
-  <div class="skill-group"><h3>${g.title}</h3><div class="skill-list">${g.items.map(k => {
+  <div class="skill-group"><h3>${icon(g.ic)}${g.title}</h3><div class="skill-list">${g.items.map(k => {
     const n = skillCount(k);
     return n
       ? `<button type="button" class="sk" data-skill="${esc(k)}" title="Used in ${n} project${n > 1 ? "s" : ""}. Select to filter the project list.">${esc(k)}<sup>${n}</sup></button>`
@@ -1263,15 +1198,15 @@ applyFilters();
 (function education() {
   const names = Object.keys(DATA.courses);
   const tabs = $("#courseTabs"), panel = $("#coursePanel");
-  tabs.innerHTML = names.map((n, i) => `<button type="button" role="tab" data-tab="${esc(n)}" aria-selected="${i === 0}" class="${i === 0 ? "on" : ""}">${n}</button>`).join("");
+  tabs.innerHTML = names.map((n, i) => `<button type="button" role="tab" data-tab="${esc(n)}" aria-selected="${i === 0}" class="${i === 0 ? "on" : ""}">${icon(DATA.courses[n].ic)}${n}</button>`).join("");
   function show(n) {
     $$("button", tabs).forEach(b => { const on = b.dataset.tab === n; b.classList.toggle("on", on); b.setAttribute("aria-selected", String(on)); });
-    panel.innerHTML = DATA.courses[n].map(c => `<li class="${n === "Electives" ? "pick" : ""}">${esc(c)}</li>`).join("");
+    panel.innerHTML = DATA.courses[n].list.map(c => `<li class="${n === "Electives" ? "pick" : ""}">${esc(c)}</li>`).join("");
   }
   tabs.addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) show(b.dataset.tab); });
   show(names[0]);
 
-  $("#certs").innerHTML = DATA.certs.map(c => `<a class="cert" href="${c.url}" target="_blank" rel="noopener noreferrer"><b>${esc(c.org)}</b><span>${esc(c.title)}</span><em>${esc(c.date)}</em></a>`).join("");
+  $("#certs").innerHTML = DATA.certs.map(c => `<a class="cert" href="${c.url}" target="_blank" rel="noopener noreferrer">${chip(c.ic)}<b>${esc(c.org)}</b><span>${esc(c.title)}</span><em>${esc(c.date)}</em></a>`).join("");
 })();
 
 /* ============================================================
@@ -1349,7 +1284,6 @@ applyFilters();
         `${cmd("coverage")}     run a mini regression`,
         `${cmd("contact")}      how to reach me`,
         `${K("cd")} &lt;section&gt; jump to a part of this page, e.g. ${K("cd projects")}`,
-        `${cmd("theme")}        switch light and dark`,
         `${cmd("clear")}        clean the screen`
       ];
     },
@@ -1415,7 +1349,6 @@ applyFilters();
       if (el && (el.tagName === "SECTION")) { el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); return [D("going to ") + esc(id || "top")]; }
       return ["cd: no such section: " + esc(a[0] || "")];
     },
-    theme() { setTheme(curTheme() === "dark" ? "light" : "dark"); return [D("theme switched to ") + curTheme()]; },
     clear() { out.innerHTML = ""; return null; },
     sudo(a) {
       const s = a.join(" ").toLowerCase().replace(/'/g, "");
@@ -1487,7 +1420,6 @@ applyFilters();
     }
   });
 })();
-
 </script>
 </body>
 </html>

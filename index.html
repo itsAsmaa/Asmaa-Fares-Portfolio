@@ -43,22 +43,29 @@ body::before{ /* nebula glow */
     radial-gradient(900px 600px at 100% 32%,rgba(127,212,255,.11),transparent 60%),
     radial-gradient(800px 600px at 35% 110%,rgba(255,170,210,.08),transparent 60%);
 }
-body::after{ /* starfield */
-  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:
-    radial-gradient(1px 1px at 22px 34px,#fff 50%,transparent 51%),
-    radial-gradient(1px 1px at 146px 92px,rgba(255,255,255,.75) 50%,transparent 51%),
-    radial-gradient(1.5px 1.5px at 262px 182px,#d9dcff 50%,transparent 51%),
-    radial-gradient(1px 1px at 84px 226px,rgba(255,255,255,.55) 50%,transparent 51%),
-    radial-gradient(1px 1px at 318px 300px,rgba(255,255,255,.7) 50%,transparent 51%),
-    radial-gradient(1px 1px at 60px 410px,rgba(207,196,255,.8) 50%,transparent 51%),
-    radial-gradient(2px 2px at 400px 60px,#e6e0ff 50%,transparent 51%),
-    radial-gradient(1px 1px at 230px 470px,rgba(255,255,255,.6) 50%,transparent 51%),
-    radial-gradient(1.5px 1.5px at 470px 330px,rgba(127,212,255,.8) 50%,transparent 51%);
-  background-size:360px 360px,360px 360px,360px 360px,360px 360px,360px 360px,520px 520px,520px 520px,520px 520px,520px 520px;
-  animation:twinkle 7s ease-in-out infinite alternate;
-}
-@keyframes twinkle{from{opacity:.55}to{opacity:1}}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:block}
+.halo{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(155,140,255,.13),rgba(127,212,255,.05) 35%,transparent 65%);opacity:0;transition:opacity .4s;will-change:transform}
+.halo.on{opacity:1}
+@media (hover:none),(pointer:coarse){.halo{display:none}}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 0 10px var(--accent);pointer-events:none}
+/* cursor spotlight on panels and rows */
+.spot{position:relative}
+.spot::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(155,140,255,.15),transparent 45%)}
+.spot:hover::after{opacity:1}
+.viz.spot,.lab.spot,.term.spot{transition:border-color .3s,box-shadow .3s}
+.viz.spot:hover,.lab.spot:hover,.term.spot:hover{border-color:rgba(155,140,255,.45);box-shadow:0 0 0 1px rgba(155,140,255,.12),0 30px 90px -25px rgba(155,140,255,.5)}
+/* hero name letters react to the pointer */
+.hero h1 .ch{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s;background:linear-gradient(100deg,var(--ink) 25%,var(--hi) 62%,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:var(--bw) 100%;background-position:var(--bx) 0}
+.hero h1>span.split{background:none}
+.hero h1 .ch:hover{transform:translateY(-.08em) scale(1.06);filter:drop-shadow(0 0 18px rgba(155,140,255,.75))}
+/* magnetic primary buttons */
+.btn-primary{transform:translate(var(--tx,0px),var(--ty,0px))}
+.btn-primary:active{transform:translate(var(--tx,0px),calc(var(--ty,0px) + 1px))}
+/* burst ring when clicking empty background */
+.ring{position:fixed;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:1.5px solid var(--accent-2);pointer-events:none;z-index:60;animation:ring .7s ease-out forwards}
+@keyframes ring{to{transform:scale(9);opacity:0}}
 a{color:inherit}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:4px}
@@ -113,17 +120,17 @@ button{font:inherit;color:inherit}
 .status{display:inline-flex;align-items:center;gap:.6rem;font:500 .95rem/1 var(--font-display);color:var(--text);margin-bottom:1.6rem;background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem}
 .status .ic{width:1rem;height:1rem;color:var(--term-ok)}
 .hero h1{font:800 clamp(4.8rem,12vw,9rem)/.84 var(--font-display);letter-spacing:-.055em;color:var(--ink);margin-bottom:1.8rem;font-optical-sizing:auto}
-.hero h1 span{display:block;padding-bottom:.06em;background:linear-gradient(100deg,var(--ink) 25%,var(--hi) 62%,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1>span{display:block;padding-bottom:.06em;background:linear-gradient(100deg,var(--ink) 25%,var(--hi) 62%,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-sub{font-size:clamp(1.2rem,2vw,1.42rem);line-height:1.5;color:var(--text);max-width:34ch;margin-bottom:2rem}
 .cta-row{display:flex;gap:.7rem;flex-wrap:wrap}
 
 /* one orchestrated entrance, nothing else moves on its own besides the graph */
 @keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
-.hero .status,.hero h1 span,.hero-sub,.cta-row{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .status,.hero h1>span,.hero-sub,.cta-row{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
 .hero .status{animation-delay:.05s}
-.hero h1 span:nth-child(1){animation-delay:.15s}
-.hero h1 span:nth-child(2){animation-delay:.27s}
+.hero h1>span:nth-child(1){animation-delay:.15s}
+.hero h1>span:nth-child(2){animation-delay:.27s}
 .hero-sub{animation-delay:.42s}
 .cta-row{animation-delay:.52s}
 .viz{opacity:0;animation:fadein 1s ease .5s forwards}
@@ -396,12 +403,14 @@ footer .ic{width:1rem;height:1rem;color:var(--accent-2)}
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  body::after{animation:none!important;opacity:.85}
-  .hero .status,.hero h1 span,.hero-sub,.cta-row,.viz{opacity:1}
+  .halo,.ring{display:none}
+  .hero .status,.hero h1>span,.hero-sub,.cta-row,.viz{opacity:1}
 }
 </style>
 </head>
 <body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="halo" id="halo" aria-hidden="true"></div>
 
 <!-- ============ ICON SPRITE ============ -->
 <svg class="ic-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -465,6 +474,7 @@ footer .ic{width:1rem;height:1rem;color:var(--accent-2)}
       </button>
     </div>
   </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -1442,6 +1452,168 @@ applyFilters();
       document.body.removeChild(t);
       toast(ok ? "Email address copied" : EMAIL);
     }
+  });
+})();
+
+/* ============================================================
+   Interactive sky: parallax, cursor constellations, streaks
+   ============================================================ */
+(function sky() {
+  const cv = $("#sky"); if (!cv || !cv.getContext) return;
+  const ctx = cv.getContext("2d");
+  const fine = matchMedia("(pointer:fine)").matches;
+  let W = 0, H = 0, dpr = 1, stars = [], streaks = [];
+  const mouse = { x: -9999, y: -9999, tx: 0, ty: 0, px: 0, py: 0, in: false };
+  const TINTS = ["255,255,255", "217,220,255", "207,196,255", "127,212,255"];
+
+  function build() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(320, W * H / 5200));
+    stars = Array.from({ length: n }, () => {
+      const z = Math.random();                       // depth: 0 far, 1 near
+      return { x: Math.random() * W, y: Math.random() * H * 1.6, z,
+        r: 0.4 + z * 1.4, a: 0.35 + Math.random() * 0.6,
+        tw: Math.random() * 6.28, ts: 0.6 + Math.random() * 1.8,
+        c: TINTS[Math.random() < 0.8 ? (Math.random() < 0.6 ? 0 : 1) : (Math.random() < 0.5 ? 2 : 3)] };
+    });
+  }
+  build();
+  addEventListener("resize", build);
+
+  addEventListener("pointermove", e => {
+    mouse.x = e.clientX; mouse.y = e.clientY; mouse.in = true;
+    mouse.tx = (e.clientX / W - 0.5); mouse.ty = (e.clientY / H - 0.5);
+  }, { passive: true });
+  document.addEventListener("pointerleave", () => { mouse.in = false; mouse.x = mouse.y = -9999; });
+
+  function streak(x, y) {
+    const ang = Math.PI * (0.15 + Math.random() * 0.2) * (Math.random() < 0.5 ? 1 : -1) + (Math.random() < 0.5 ? 0 : Math.PI);
+    const sp = 900 + Math.random() * 500;
+    streaks.push({ x, y, vx: Math.cos(ang) * sp, vy: Math.abs(Math.sin(ang)) * sp * 0.6, life: 0, max: 0.9 + Math.random() * 0.4 });
+  }
+  window.__streak = streak;
+
+  let last = performance.now(), nextStreak = 3 + Math.random() * 4, running = true;
+  function draw(ts) {
+    if (!running) return;
+    const dt = Math.min(0.05, (ts - last) / 1000); last = ts;
+    mouse.px += (mouse.tx - mouse.px) * Math.min(1, dt * 3);
+    mouse.py += (mouse.ty - mouse.py) * Math.min(1, dt * 3);
+    ctx.clearRect(0, 0, W, H);
+    const sy = scrollY, span = H * 1.6, near = [];
+
+    for (const s of stars) {
+      const ox = -mouse.px * 40 * s.z, oy = -mouse.py * 40 * s.z;
+      let y = (s.y - sy * (0.05 + s.z * 0.25)) % span; if (y < 0) y += span;
+      const x = s.x + ox; y = y + oy - span * 0.15;
+      if (y < -10 || y > H + 10) continue;
+      s.tw += dt * s.ts;
+      let a = s.a * (0.65 + 0.35 * Math.sin(s.tw));
+      const d = Math.hypot(x - mouse.x, y - mouse.y);
+      if (fine && d < 150) { a = Math.min(1, a + (1 - d / 150) * 0.8); near.push([x, y, d]); }
+      ctx.globalAlpha = a; ctx.fillStyle = `rgb(${s.c})`;
+      ctx.beginPath(); ctx.arc(x, y, s.r, 0, 6.2832); ctx.fill();
+      if (s.r > 1.4) { ctx.globalAlpha = a * 0.07; ctx.beginPath(); ctx.arc(x, y, s.r * 2.6, 0, 6.2832); ctx.fill(); }
+    }
+
+    // cursor constellation
+    if (near.length > 1) {
+      near.sort((p, q) => p[2] - q[2]);
+      const pts = near.slice(0, 7);
+      ctx.lineWidth = 0.8; ctx.strokeStyle = "rgb(207,196,255)";
+      for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+        const dd = Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1]);
+        if (dd > 130) continue;
+        ctx.globalAlpha = (1 - dd / 130) * (1 - pts[i][2] / 150) * 0.55;
+        ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]); ctx.stroke();
+      }
+    }
+
+    // streaks
+    nextStreak -= dt;
+    if (nextStreak <= 0) { streak(Math.random() * W, Math.random() * H * 0.4); nextStreak = 5 + Math.random() * 7; }
+    for (let i = streaks.length - 1; i >= 0; i--) {
+      const k = streaks[i]; k.life += dt;
+      if (k.life > k.max) { streaks.splice(i, 1); continue; }
+      k.x += k.vx * dt; k.y += k.vy * dt;
+      const fade = 1 - k.life / k.max, len = 0.09;
+      const g = ctx.createLinearGradient(k.x, k.y, k.x - k.vx * len, k.y - k.vy * len);
+      g.addColorStop(0, `rgba(255,255,255,${fade})`); g.addColorStop(1, "rgba(155,140,255,0)");
+      ctx.globalAlpha = 1; ctx.strokeStyle = g; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(k.x, k.y); ctx.lineTo(k.x - k.vx * len, k.y - k.vy * len); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(draw);
+  }
+  if (reduceMotion) { running = true; draw(performance.now()); running = false; addEventListener("resize", () => { running = true; draw(performance.now()); running = false; }); return; }
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) running = false; else if (!running) { running = true; last = performance.now(); requestAnimationFrame(draw); }
+  });
+  requestAnimationFrame(draw);
+})();
+
+/* ============================================================
+   Pointer effects: halo, spotlights, magnetic buttons, letters
+   ============================================================ */
+(function pointerFx() {
+  const fine = matchMedia("(pointer:fine)").matches && !reduceMotion;
+
+  // scroll progress
+  const bar = $("#progress");
+  const prog = () => { const m = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`; };
+  addEventListener("scroll", prog, { passive: true }); addEventListener("resize", prog); prog();
+
+  // spotlight panels (rows/certs are rendered earlier, so they exist now)
+  $$(".viz,.lab,.term,.row,.cert,.tl details,.elsewhere a").forEach(el => el.classList.add("spot"));
+  document.addEventListener("pointermove", e => {
+    const el = e.target.closest && e.target.closest(".spot"); if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    el.style.setProperty("--my", (e.clientY - r.top) + "px");
+  }, { passive: true });
+
+  // click empty background: ring + streak
+  document.addEventListener("click", e => {
+    if (e.target.closest("a,button,input,textarea,summary,label,canvas,dialog,[role=button],.term,.lab,.viz,.tabs,.course-panel,p,h1,h2,h3,li,dd,dt")) return;
+    if (!reduceMotion) {
+      const ring = document.createElement("span"); ring.className = "ring";
+      ring.style.left = e.clientX + "px"; ring.style.top = e.clientY + "px";
+      document.body.appendChild(ring); setTimeout(() => ring.remove(), 750);
+      window.__streak && window.__streak(e.clientX, e.clientY);
+    }
+  });
+
+  if (!fine) return;
+
+  // halo following the cursor
+  const halo = $("#halo"); let hx = innerWidth / 2, hy = innerHeight / 2, tx = hx, ty = hy;
+  addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; halo.classList.add("on"); }, { passive: true });
+  document.addEventListener("pointerleave", () => halo.classList.remove("on"));
+  (function loop() { hx += (tx - hx) * 0.15; hy += (ty - hy) * 0.15; halo.style.transform = `translate(${hx}px,${hy}px)`; requestAnimationFrame(loop); })();
+
+  // magnetic primary buttons
+  $$(".btn-primary").forEach(b => {
+    b.addEventListener("pointermove", e => {
+      const r = b.getBoundingClientRect();
+      b.style.setProperty("--tx", ((e.clientX - r.left - r.width / 2) * 0.18).toFixed(1) + "px");
+      b.style.setProperty("--ty", ((e.clientY - r.top - r.height / 2) * 0.28).toFixed(1) + "px");
+    });
+    b.addEventListener("pointerleave", () => { b.style.setProperty("--tx", "0px"); b.style.setProperty("--ty", "0px"); });
+  });
+
+  // hero name: each letter lifts under the pointer, gradient stays continuous
+  $$(".hero h1 > span").forEach(span => {
+    const word = span.textContent; span.textContent = "";
+    [...word].forEach(c => { const l = document.createElement("span"); l.className = "ch"; l.textContent = c; span.appendChild(l); });
+    const fit = () => {
+      const w = span.getBoundingClientRect().width, left = span.getBoundingClientRect().left;
+      $$(".ch", span).forEach(l => { l.style.setProperty("--bw", w + "px"); l.style.setProperty("--bx", (span.getBoundingClientRect().left - l.getBoundingClientRect().left) + "px"); });
+    };
+    fit(); addEventListener("resize", fit); document.fonts && document.fonts.ready.then(fit);
+    span.classList.add("split");
   });
 })();
 </script>
